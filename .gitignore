@@ -1,0 +1,12 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Antigravity/Agent Files
+.antigravity/
+.gemini/
+.antigravityignore
+
+# Local Environment
+.env
+.env.local
