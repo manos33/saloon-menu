@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saloon Table Card - Printer Final</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Literata:opsz,wght@7..72,300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Exact A5 Print Settings */
+        @page {
+            size: 148mm 210mm; /* A5 Portrait */
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #EBE0D2;
+            --text: #402f24;
+            --gold: #d4a96a;
+            --terracotta: #c06c54;
+            --font-primary: 'Literata', serif;
+            --font-sec: 'Jost', sans-serif;
+            --cream: #fbf8f1;
+        }
+
+        html, body {
+            font-family: var(--font-primary);
+            background-color: #2a2a2a; /* For screen preview */
+            color: var(--text);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 30px 0;
+        }
+
+        /* A5 Portrait Page */
+        .page {
+            width: 148mm;
+            height: 210mm;
+            background-color: var(--cream);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            page-break-after: always;
+            padding: 15mm;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        @media print {
+            body { background: none; padding: 0; gap: 0; }
+            .page { box-shadow: none; }
+            @page { size: A5; margin: 0; }
+        }
+
+        /* Decorative Background */
+        .palm-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.03;
+            background-image: url('palm-leaf.png');
+            background-size: cover;
+            background-position: center;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Elegant inner border */
+        .inner-border {
+            position: absolute;
+            top: 8mm;
+            bottom: 8mm;
+            left: 8mm;
+            right: 8mm;
+            border: 1px solid rgba(212, 169, 106, 0.4);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Content Container */
+        .content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        /* Top Logo Area */
+        .logo-container {
+            margin-top: 5mm;
+            width: 65mm;
+            height: 20mm;
+            background-color: var(--text);
+            -webkit-mask-image: url('VescoviWord.png');
+            mask-image: url('VescoviWord.png');
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+        }
+
+        .logo-sub {
+            font-family: var(--font-sec);
+            font-size: 10px;
+            letter-spacing: 5px;
+            color: rgba(64, 47, 36, 0.6);
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: -1mm;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 32px;
+            color: var(--terracotta);
+            margin-bottom: 2px;
+            font-weight: 400;
+        }
+        
+        .subtitle {
+            font-family: var(--font-sec);
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 25px;
+        }
+
+        /* QR Code Layout */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .qr-wrapper {
+            background: white;
+            padding: 8mm;
+            border-radius: 4mm;
+            box-shadow: 0 10px 30px rgba(64, 47, 36, 0.08);
+            border: 1px solid rgba(212, 169, 106, 0.3);
+            margin-bottom: 8mm;
+        }
+
+        .qr-wrapper img {
+            width: 52mm;
+            height: 52mm;
+            display: block;
+        }
+
+        .scan-text {
+            font-family: var(--font-sec);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Wi-Fi & Socials Layout */
+        .wifi-box {
+            width: 85%;
+            border-top: 1px solid rgba(212, 169, 106, 0.4);
+            border-bottom: 1px solid rgba(212, 169, 106, 0.4);
+            padding: 12mm 0;
+            margin: auto 0;
+        }
+        
+        .wifi-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 8mm;
+        }
+        .wifi-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .wifi-title {
+            font-family: var(--font-sec);
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: var(--terracotta);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .wifi-detail {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: 1px;
+        }
+
+        .socials-section {
+            margin-bottom: 15mm;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        
+        .social-handle {
+            font-family: var(--font-sec);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: 1.5px;
+        }
+
+        /* Bottom anchored items */
+        .footer-text {
+            font-family: var(--font-sec);
+            font-size: 11px;
+            color: rgba(64, 47, 36, 0.5);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: Front (QR Code Menu) -->
+    <div class="page">
+        <div class="palm-overlay"></div>
+        <div class="inner-border"></div>
+
+        <div class="content">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="logo-container"></div>
+                <div class="logo-sub">Beachbar &middot; Restaurant</div>
+            </div>
+
+            <div class="qr-section">
+                <h1>Digital Menu</h1>
+                <div class="subtitle">Σαρώστε για να ανακαλύψετε</div>
+                
+                <div class="qr-wrapper">
+                    <img src="QrMenu.png" alt="Saloon Menu QR Code">
+                </div>
+
+                <div class="scan-text">
+                    <i class="fa-solid fa-camera"></i> Scan to Explore
+                </div>
+            </div>
+
+            <div class="footer-text">
+                MASTICHARI, KOS
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PAGE 2: Back (Wi-Fi & Socials) -->
+    <div class="page">
+        <div class="palm-overlay"></div>
+        <div class="inner-border"></div>
+
+        <div class="content">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="logo-container"></div>
+                <div class="logo-sub">Stay Connected</div>
+            </div>
+
+            <div class="wifi-box">
+                <div class="wifi-row">
+                    <div class="wifi-title">Wi-Fi Network</div>
+                    <div class="wifi-detail">Saloon_Guest</div>
+                </div>
+                <div class="wifi-row">
+                    <div class="wifi-title">Password</div>
+                    <div class="wifi-detail">saloon2026!</div>
+                </div>
+            </div>
+
+            <div class="socials-section">
+                <div class="socials">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="social-handle">@saloonbeachbar</div>
+            </div>
+
+            <div class="footer-text">
+                MENU.SALOONBEACHBAR.COM
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
