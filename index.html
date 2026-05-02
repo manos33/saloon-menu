@@ -1555,6 +1555,26 @@
         <span lang-en>Experiences <span style="font-family: 'Jost', sans-serif;">&amp;</span> Services</span>
       </div>
 
+      <!-- Build Your Cocktail Quiz Trigger -->
+      <div class="quiz-trigger-card" onclick="openQuizModal()">
+        <div class="quiz-trigger-icon">
+          <i class="fa-solid fa-wand-magic-sparkles fa-bounce" style="--fa-animation-duration: 3s;"></i>
+        </div>
+        <div class="quiz-trigger-content">
+          <div class="quiz-trigger-title">
+            <span lang-el>Βρείτε το Cocktail σας</span>
+            <span lang-en>Find Your Perfect Match</span>
+          </div>
+          <div class="quiz-trigger-desc">
+            <span lang-el>3 γρήγορες ερωτήσεις για το ιδανικό signature cocktail.</span>
+            <span lang-en>3 quick questions to discover your signature cocktail.</span>
+          </div>
+        </div>
+        <div class="quiz-trigger-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
       <!-- Vescovi Coffee Brand Ribbon -->
       <div
         onclick="document.getElementById('vescovi-modal').classList.add('active'); document.body.style.overflow='hidden';"
@@ -4327,6 +4347,33 @@
     setInterval(updateSunsetTimers, 1000);
     updateSunsetTimers();
   </script>
+
+  <!-- AMBIENT SOUND TOGGLE -->
+  <button id="ambient-toggle" class="ambient-toggle" onclick="toggleAmbientSound()">
+    <i class="fa-solid fa-music"></i>
+  </button>
+  <audio id="ambient-waves" src="waves.mp3" loop preload="none"></audio>
+  <audio id="ambient-music" src="music.mp3" loop preload="none"></audio>
+
+  <!-- QUIZ MODAL -->
+  <div id="quiz-modal" class="quiz-modal">
+    <div class="quiz-overlay" onclick="closeQuizModal()"></div>
+    <div class="quiz-content">
+      <button class="quiz-close" onclick="closeQuizModal()">×</button>
+      <div class="quiz-header">
+        <i class="fa-solid fa-martini-glass-citrus"></i>
+        <div class="quiz-title">
+          <span lang-el>Βρείτε το ιδανικό σας Cocktail</span>
+          <span lang-en>Find Your Perfect Match</span>
+        </div>
+      </div>
+      
+      <div class="quiz-body" id="quiz-step-container">
+        <!-- Steps will be injected here via JS -->
+      </div>
+    </div>
+  </div>
+
 </body>
 
 <script src="script.js"></script>

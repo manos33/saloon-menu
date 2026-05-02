@@ -637,3 +637,209 @@ window.addEventListener('scroll', function () {
     else btt.classList.remove('visible');
   }
 });
+
+/* =========================================
+   AMBIENT SOUND TOGGLE
+========================================= */
+function toggleAmbientSound() {
+  const waves = document.getElementById('ambient-waves');
+  const music = document.getElementById('ambient-music');
+  const btn = document.getElementById('ambient-toggle');
+  
+  if (!waves || !music || !btn) return;
+
+  if (waves.paused) {
+    // Set relative volumes (Waves slightly louder for immersion)
+    waves.volume = 0.6;
+    music.volume = 0.4;
+    
+    // Play both together
+    Promise.all([waves.play(), music.play()]).then(() => {
+      btn.classList.add('playing');
+    }).catch(err => {
+      console.log('Audio playback failed', err);
+    });
+  } else {
+    waves.pause();
+    music.pause();
+    btn.classList.remove('playing');
+  }
+}
+
+/* =========================================
+   COCKTAIL QUIZ LOGIC
+========================================= */
+const quizQuestions = [
+  {
+    en: "What's your mood tonight?",
+    el: "Ποια είναι η διάθεσή σας;",
+    options: [
+      { id: "relaxed", en: "Relaxed & Chill", el: "Χαλαρή & Ήρεμη" },
+      { id: "party", en: "Ready to Party!", el: "Έτοιμος για Party!" },
+      { id: "romantic", en: "Romantic & Cozy", el: "Ρομαντική" },
+      { id: "adventurous", en: "Adventurous", el: "Περιπετειώδης" }
+    ]
+  },
+  {
+    en: "What flavor profile do you prefer?",
+    el: "Τι γευστικό προφίλ προτιμάτε;",
+    options: [
+      { id: "sweet", en: "Sweet & Fruity", el: "Γλυκό & Φρουτώδες" },
+      { id: "bitter", en: "Bitter & Complex", el: "Πικρό & Πολύπλοκο" },
+      { id: "refreshing", en: "Fresh & Citrusy", el: "Δροσερό & Κιτρώδες" },
+      { id: "spicy", en: "Spicy & Exotic", el: "Πικάντικο & Εξωτικό" }
+    ]
+  },
+  {
+    en: "How strong do you want it?",
+    el: "Πόσο δυνατό το θέλετε;",
+    options: [
+      { id: "light", en: "Light & Easy", el: "Ελαφρύ" },
+      { id: "strong", en: "Strong & Bold", el: "Δυνατό" },
+      { id: "virgin", en: "Virgin (Mocktail)", el: "Χωρίς Αλκοόλ" }
+    ]
+  }
+];
+
+let currentQuizStep = 0;
+let quizAnswers = {};
+
+function openQuizModal() {
+  currentQuizStep = 0;
+  quizAnswers = {};
+  renderQuizStep();
+  document.getElementById('quiz-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeQuizModal() {
+  document.getElementById('quiz-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function renderQuizStep() {
+  const container = document.getElementById('quiz-step-container');
+  const lang = document.body.getAttribute('data-lang') || 'el';
+  container.innerHTML = '';
+
+  if (currentQuizStep < quizQuestions.length) {
+    const q = quizQuestions[currentQuizStep];
+    const questionText = lang === 'en' ? q.en : q.el;
+    
+    let html = `<div class="quiz-step active">
+                  <div class="quiz-question">${questionText}</div>
+                  <div class="quiz-options">`;
+    
+    q.options.forEach(opt => {
+      const optText = lang === 'en' ? opt.en : opt.el;
+      html += `<div class="quiz-option" onclick="selectQuizOption('${opt.id}')">${optText}</div>`;
+    });
+    
+    html += `</div></div>`;
+    container.innerHTML = html;
+  } else {
+    // Show loading
+    container.innerHTML = `
+      <div class="quiz-loading">
+        <i class="fa-solid fa-cocktail quiz-loading-icon"></i>
+        <div style="font-weight:600; color:var(--dark);">${lang === 'en' ? 'Shaking your cocktail...' : 'Ετοιμάζουμε το αποτέλεσμα...'}</div>
+      </div>
+    `;
+    
+    setTimeout(showQuizResult, 1500);
+  }
+}
+
+function selectQuizOption(value) {
+  vibrate();
+  quizAnswers[`step${currentQuizStep}`] = value;
+  currentQuizStep++;
+  renderQuizStep();
+}
+
+function showQuizResult() {
+  const lang = document.body.getAttribute('data-lang') || 'el';
+  const container = document.getElementById('quiz-step-container');
+  
+  // Logic mapping based on flavor and mood
+  let resultId = 'teddy_bear'; 
+  const flavor = quizAnswers.step1;
+  const strength = quizAnswers.step2;
+  const mood = quizAnswers.step0;
+
+  if (flavor === 'sweet') {
+    resultId = (strength === 'strong') ? 'behind_her_eyes' : 'netflix_n_chill';
+    if (mood === 'party') resultId = 'bite_my_cookie';
+  } else if (flavor === 'bitter') {
+    resultId = 'truth_or_dare';
+  } else if (flavor === 'refreshing') {
+    resultId = (mood === 'adventurous') ? 'new_zealand' : 'mastiha_ri';
+    if (strength === 'light') resultId = 'feels_like_summer';
+  } else if (flavor === 'spicy') {
+    resultId = 'spicy_gentleman';
+  }
+
+  // Fallback
+  if (strength === 'virgin') {
+    resultId = 'feels_like_summer'; 
+  }
+
+  const cocktails = {
+    'behind_her_eyes': { name: "Behind Her Eyes", descEn: "Sweet & Tropical. Rum with passion fruit and pineapple.", descEl: "Γλυκό & Τροπικό. Ρούμι με φρούτα του πάθους και ανανά." },
+    'truth_or_dare': { name: "Truth or Dare", descEn: "Bittersweet & Citrusy with Tequila Blanco.", descEl: "Γλυκόπικρο & Κιτρώδες με Τεκίλα Λευκή." },
+    'netflix_n_chill': { name: "Netflix N' Chill", descEn: "Sweet & Creamy Vodka with salted caramel.", descEl: "Γλυκό & Κρεμώδες Vodka με αλατισμένη καραμέλα." },
+    'new_zealand': { name: "New Zealand", descEn: "Fresh & Botanical Gin with kiwi and cucumber.", descEl: "Δροσερό & Βοτανικό Τζιν με ακτινίδιο." },
+    'feels_like_summer': { name: "Feels Like Summer", descEn: "Light & Fruity Gin with watermelon.", descEl: "Ελαφρύ & Φρουτώδες Τζιν με καρπούζι." },
+    'mastiha_ri': { name: "Mastiha-ri", descEn: "Aromatic & Refreshing with Vodka and Masticha.", descEl: "Αρωματικό & Δροσερό με Βότκα και Μαστίχα." },
+    'spicy_gentleman': { name: "Spicy Gentleman", descEn: "Spicy & Exotic Tequila with chili and pineapple.", descEl: "Πικάντικο & Εξωτικό με Τεκίλα." },
+    'teddy_bear': { name: "Teddy Bear", descEn: "Sweet & Velvety Vodka with bubblegum.", descEl: "Γλυκό & Βελούδινο με Βότκα και τσιχλόφουσκα." },
+    'bite_my_cookie': { name: "Bite My Cookie", descEn: "Sweet Dessert Rum with choco cookie.", descEl: "Γλυκό Επιδόρπιο Ρούμι με μπισκότο." }
+  };
+
+  const cocktail = cocktails[resultId] || cocktails['teddy_bear'];
+  const name = cocktail.name;
+  const desc = lang === 'en' ? cocktail.descEn : cocktail.descEl;
+  const shareText = lang === 'en' ? 'Share your match' : 'Μοιραστείτε το';
+
+  container.innerHTML = `
+    <div style="animation: fadeInStep 0.5s ease forwards;">
+      <div style="font-size: 16px; color: var(--muted); margin-bottom: 5px;">
+        ${lang === 'en' ? "You're definitely a" : "Σίγουρα σου ταιριάζει το"}
+      </div>
+      <div class="quiz-result-card">
+        <div class="quiz-result-name">${name}</div>
+        <div class="quiz-result-desc">${desc}</div>
+      </div>
+      <button class="quiz-share-btn" style="margin-top:20px;" onclick="shareQuizResult('${name}')">
+        <i class="fa-solid fa-share-nodes"></i> ${shareText}
+      </button>
+      <button onclick="closeQuizModal()" style="display:block; width:100%; margin-top:15px; padding:12px; background:transparent; border:none; color:var(--accent); font-weight:600; font-size:16px; cursor:pointer;">
+        ${lang === 'en' ? 'Back to Menu' : 'Επιστροφή στο Μενού'}
+      </button>
+    </div>
+  `;
+}
+
+function shareQuizResult(cocktailName) {
+  const lang = document.body.getAttribute('data-lang') || 'el';
+  const text = lang === 'en' 
+    ? `I just took the Saloon Cocktail Quiz and got: ${cocktailName}! Find your match:` 
+    : `Έκανα το Saloon Cocktail Quiz και μου έτυχε: ${cocktailName}! Βρες το δικό σου:`;
+    
+  if (navigator.share) {
+    navigator.share({
+      title: 'Saloon Signature Cocktail Match',
+      text: text,
+      url: window.location.href
+    });
+  } else {
+    // Fallback copy to clipboard
+    const dummy = document.createElement('textarea');
+    document.body.appendChild(dummy);
+    dummy.value = text + " " + window.location.href;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    alert(lang === 'en' ? 'Copied to clipboard!' : 'Αντιγράφηκε στο πρόχειρο!');
+  }
+}
