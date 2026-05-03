@@ -671,34 +671,51 @@ function toggleAmbientSound() {
 ========================================= */
 const quizQuestions = [
   {
-    en: "What's your mood tonight?",
-    el: "Ποια είναι η διάθεσή σας;",
+    en: "What taste are you in the mood for?",
+    el: "Τι γεύση έχετε όρεξη απόψε;",
     options: [
-      { id: "relaxed", en: "Relaxed & Chill", el: "Χαλαρή & Ήρεμη" },
-      { id: "party", en: "Ready to Party!", el: "Έτοιμος για Party!" },
-      { id: "romantic", en: "Romantic & Cozy", el: "Ρομαντική" },
-      { id: "adventurous", en: "Adventurous", el: "Περιπετειώδης" }
-    ]
-  },
-  {
-    en: "What flavor profile do you prefer?",
-    el: "Τι γευστικό προφίλ προτιμάτε;",
-    options: [
-      { id: "sweet", en: "Sweet & Fruity", el: "Γλυκό & Φρουτώδες" },
-      { id: "bitter", en: "Bitter & Complex", el: "Πικρό & Πολύπλοκο" },
-      { id: "refreshing", en: "Fresh & Citrusy", el: "Δροσερό & Κιτρώδες" },
-      { id: "spicy", en: "Spicy & Exotic", el: "Πικάντικο & Εξωτικό" }
+      { id: "sweet", en: "Sweet", el: "Γλυκιά" },
+      { id: "sour", en: "Sour & citrusy", el: "Ξινή & κιτρώδης" },
+      { id: "bitter", en: "Bitter & dry", el: "Πικρή & ξηρή" },
+      { id: "both", en: "A bit of both", el: "Λίγο από όλα" }
     ]
   },
   {
     en: "How strong do you want it?",
     el: "Πόσο δυνατό το θέλετε;",
     options: [
-      { id: "light", en: "Light & Easy", el: "Ελαφρύ" },
-      { id: "strong", en: "Strong & Bold", el: "Δυνατό" },
-      { id: "virgin", en: "Virgin (Mocktail)", el: "Χωρίς Αλκοόλ" }
+      { id: "light", en: "Light & refreshing", el: "Ελαφρύ & δροσιστικό" },
+      { id: "medium", en: "Medium", el: "Μέτριο" },
+      { id: "strong", en: "Strong & bold", el: "Δυνατό & έντονο" }
+    ]
+  },
+  {
+    en: "Any spirit you prefer to avoid?",
+    el: "Ποιο ποτό προτιμάτε να αποφύγετε;",
+    options: [
+      { id: "vodka", en: "Vodka", el: "Βότκα" },
+      { id: "rum", en: "Rum", el: "Ρούμι" },
+      { id: "gin", en: "Gin", el: "Τζιν" },
+      { id: "tequila", en: "Tequila", el: "Τεκίλα" },
+      { id: "whiskey", en: "Whiskey", el: "Ουίσκι" },
+      { id: "none", en: "None", el: "Κανένα" }
     ]
   }
+];
+
+const cocktailsList = [
+  { id: 'behind_her_eyes', name: 'Behind Her Eyes', taste: ['sweet'], strength: ['strong', 'medium'], spirit: ['rum'], tagEn: 'Sweet & Tropical', tagEl: 'Γλυκό & Τροπικό', price: '12.00', ingredientsEn: 'Black Rum • Lime • Pineapple Juice • Passion Fruit Puree • Orgeat Syrup • Angostura Bitters', ingredientsEl: 'Μαύρο Ρούμι • Λάιμ • Χυμός Ανανά • Πουρές Φρούτων Πάθους • Σιρόπι Πικραμύγδαλο • Angostura Bitters' },
+  { id: 'truth_or_dare', name: 'Truth or Dare', taste: ['bitter', 'sour', 'both'], strength: ['light', 'medium'], spirit: ['tequila'], tagEn: 'Bittersweet & Citrusy', tagEl: 'Γλυκόπικρο & Κιτρώδες', price: '10.00', ingredientsEn: 'Tequila Blanco • Aperol • Agave • Lime • Grapefruit Bitters • Pink Grapefruit Soda', ingredientsEl: 'Τεκίλα Λευκή • Aperol • Αγαύη • Λάιμ • Grapefruit Bitters • Ροζ Σόδα Grapefruit' },
+  { id: 'white_ohara', name: "White O'Hara", taste: ['sweet', 'both'], strength: ['light'], spirit: ['gin'], tagEn: 'Floral & Light', tagEl: 'Ανθικό & Ελαφρύ', price: '10.00', ingredientsEn: 'Gin • Lime • Rose • Mandarin • Bergamot Bitters', ingredientsEl: 'Τζιν • Λάιμ • Τριαντάφυλλο • Μανταρίνι • Bitters Περγαμόντο' },
+  { id: 'netflix_n_chill', name: "Netflix N' Chill", taste: ['sweet'], strength: ['medium', 'strong'], spirit: ['vodka'], tagEn: 'Sweet & Creamy', tagEl: 'Γλυκό & Κρεμώδες', price: '11.00', ingredientsEn: 'Vodka • Salted Caramel • Popcorn • Pineapple', ingredientsEl: 'Βότκα • Αλατισμένη Καραμέλα • Ποπκόρν • Ανανάς' },
+  { id: 'new_zealand', name: 'New Zealand', taste: ['both', 'sour'], strength: ['medium'], spirit: ['gin'], tagEn: 'Fresh & Botanical', tagEl: 'Δροσερό & Βοτανικό', price: '11.00', ingredientsEn: 'Gin • Kiwi • Cucumber • Lavender • Lime • Egg White • Celery Bitters', ingredientsEl: 'Τζιν • Ακτινίδιο • Αγγούρι • Λεβάντα • Λάιμ • Ασπράδι Αυγού • Bitters Σέλινο' },
+  { id: 'light_it_up', name: 'Light It Up', taste: ['sweet', 'both'], strength: ['strong'], spirit: ['whiskey'], tagEn: 'Rich & Smoky', tagEl: 'Πλούσιο & Καπνιστό', price: '11.00', ingredientsEn: 'Bourbon Whiskey • Fresh Peach • Tia Maria • Vanilla Syrup', ingredientsEl: 'Ουίσκι Bourbon • Φρέσκο Ροδάκινο • Tia Maria • Σιρόπι Βανίλια' },
+  { id: 'feels_like_summer', name: 'Feels Like Summer', taste: ['sweet'], strength: ['light', 'medium'], spirit: ['gin'], tagEn: 'Light & Fruity', tagEl: 'Ελαφρύ & Φρουτώδες', price: '11.00', ingredientsEn: 'Gin • Watermelon • Lime • Agave • Honey', ingredientsEl: 'Τζιν • Καρπούζι • Λάιμ • Αγαύη • Μέλι' },
+  { id: '50_shades_of_green', name: '50 Shades of Green', taste: ['both', 'bitter'], strength: ['light', 'medium'], spirit: ['any', 'vodka', 'rum', 'gin', 'tequila', 'whiskey'], tagEn: 'Fresh & Balanced', tagEl: 'Δροσερό & Ισορροπημένο', price: '10.00', ingredientsEn: 'Midori • Aperol • Lime • Sugar • Orange Bitters', ingredientsEl: 'Midori • Aperol • Λάιμ • Ζάχαρη • Bitters Πορτοκάλι' },
+  { id: 'bite_my_cookie', name: 'Bite My Cookie', taste: ['sweet'], strength: ['strong', 'medium'], spirit: ['rum'], tagEn: 'Sweet & Dessert', tagEl: 'Γλυκό & Επιδόρπιο', price: '12.00', ingredientsEn: 'Dark Rum • Tia Maria • Salted Caramel • Choco Cookie • Espresso • Choco Bitters', ingredientsEl: 'Μαύρο Ρούμι • Tia Maria • Αλατισμένη Καραμέλα • Μπισκότο Σοκολάτας • Espresso • Bitters Σοκολάτας' },
+  { id: 'teddy_bear', name: 'Teddy Bear', taste: ['sweet'], strength: ['light', 'medium'], spirit: ['vodka'], tagEn: 'Sweet & Velvety', tagEl: 'Γλυκό & Βελούδινο', price: '11.00', ingredientsEn: 'Vodka • Chambord • Lime • Cranberry • Bubblegum • Egg White', ingredientsEl: 'Βότκα • Chambord • Λάιμ • Cranberry • Τσιχλόφουσκα • Ασπράδι Αυγού' },
+  { id: 'mastiha_ri', name: 'Mastiha-Ri', taste: ['sweet', 'both'], strength: ['medium'], spirit: ['vodka'], tagEn: 'Aromatic & Fresh', tagEl: 'Αρωματικό & Δροσερό', price: '11.00', ingredientsEn: 'Vodka • Masticha • Lime • Coconut • Falernum • Mint', ingredientsEl: 'Βότκα • Μαστίχα • Λάιμ • Καρύδα • Falernum • Δυόσμος' },
+  { id: 'spicy_gentleman', name: 'Spicy Gentleman', taste: ['both', 'sour'], strength: ['medium', 'strong'], spirit: ['tequila'], tagEn: 'Spicy & Exotic', tagEl: 'Πικάντικο & Εξωτικό', price: '11.00', ingredientsEn: 'Tequila Blanco • Lime • Italicus • Pineapple • Passion Fruit • Chili • Tabasco', ingredientsEl: 'Τεκίλα Λευκή • Λάιμ • Italicus • Ανανάς • Φρούτα του Πάθους • Τσίλι • Tabasco' }
 ];
 
 let currentQuizStep = 0;
@@ -707,6 +724,12 @@ let quizAnswers = {};
 function openQuizModal() {
   currentQuizStep = 0;
   quizAnswers = {};
+  
+  // Show dots initially
+  const progressContainer = document.getElementById('quiz-progress');
+  if(progressContainer) progressContainer.style.display = 'flex';
+  
+  updateProgressDots();
   renderQuizStep();
   document.getElementById('quiz-modal').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -715,6 +738,24 @@ function openQuizModal() {
 function closeQuizModal() {
   document.getElementById('quiz-modal').classList.remove('active');
   document.body.style.overflow = '';
+}
+
+function updateProgressDots() {
+  for (let i = 0; i < 3; i++) {
+    const dot = document.getElementById(`quiz-dot-${i}`);
+    if (dot) {
+      if (i < currentQuizStep) {
+        dot.style.background = 'var(--accent)';
+        dot.style.opacity = '1';
+      } else if (i === currentQuizStep) {
+        dot.style.background = 'var(--br)';
+        dot.style.opacity = '1';
+      } else {
+        dot.style.background = 'var(--muted)';
+        dot.style.opacity = '0.5';
+      }
+    }
+  }
 }
 
 function renderQuizStep() {
@@ -726,120 +767,107 @@ function renderQuizStep() {
     const q = quizQuestions[currentQuizStep];
     const questionText = lang === 'en' ? q.en : q.el;
     
-    let html = `<div class="quiz-step active">
+    let html = `<div class="quiz-step active" style="animation: fadeInStep 0.3s ease forwards;">
                   <div class="quiz-question">${questionText}</div>
                   <div class="quiz-options">`;
     
     q.options.forEach(opt => {
       const optText = lang === 'en' ? opt.en : opt.el;
-      html += `<div class="quiz-option" onclick="selectQuizOption('${opt.id}')">${optText}</div>`;
+      // Added data-id to highlight the chosen option
+      html += `<div class="quiz-option" data-id="${opt.id}" onclick="selectQuizOption('${opt.id}', this)">${optText}</div>`;
     });
     
     html += `</div></div>`;
     container.innerHTML = html;
   } else {
+    // Hide dots for results
+    const progressContainer = document.getElementById('quiz-progress');
+    if(progressContainer) progressContainer.style.display = 'none';
+
     // Show loading
     container.innerHTML = `
-      <div class="quiz-loading">
+      <div class="quiz-loading" style="animation: fadeInStep 0.3s ease forwards;">
         <i class="fa-solid fa-cocktail quiz-loading-icon"></i>
-        <div style="font-weight:600; color:var(--dark);">${lang === 'en' ? 'Shaking your cocktail...' : 'Ετοιμάζουμε το αποτέλεσμα...'}</div>
+        <div style="font-weight:600; color:var(--dark); margin-top: 15px;">${lang === 'en' ? 'Shaking your cocktail...' : 'Ετοιμάζουμε το αποτέλεσμα...'}</div>
       </div>
     `;
     
-    setTimeout(showQuizResult, 1500);
+    setTimeout(showQuizResult, 1200);
   }
 }
 
-function selectQuizOption(value) {
+function selectQuizOption(value, el) {
   vibrate();
+  // Highlight selection temporarily
+  el.style.background = 'var(--accent)';
+  el.style.color = '#fff';
+  el.style.borderColor = 'var(--accent)';
+
   quizAnswers[`step${currentQuizStep}`] = value;
-  currentQuizStep++;
-  renderQuizStep();
+  
+  setTimeout(() => {
+    currentQuizStep++;
+    updateProgressDots();
+    renderQuizStep();
+  }, 200);
 }
 
 function showQuizResult() {
   const lang = document.body.getAttribute('data-lang') || 'el';
   const container = document.getElementById('quiz-step-container');
   
-  // Logic mapping based on flavor and mood
-  let resultId = 'teddy_bear'; 
-  const flavor = quizAnswers.step1;
-  const strength = quizAnswers.step2;
-  const mood = quizAnswers.step0;
+  const selectedTaste = quizAnswers.step0;
+  const selectedStrength = quizAnswers.step1;
+  const avoidedSpirit = quizAnswers.step2;
 
-  if (flavor === 'sweet') {
-    resultId = (strength === 'strong') ? 'behind_her_eyes' : 'netflix_n_chill';
-    if (mood === 'party') resultId = 'bite_my_cookie';
-  } else if (flavor === 'bitter') {
-    resultId = 'truth_or_dare';
-  } else if (flavor === 'refreshing') {
-    resultId = (mood === 'adventurous') ? 'new_zealand' : 'mastiha_ri';
-    if (strength === 'light') resultId = 'feels_like_summer';
-  } else if (flavor === 'spicy') {
-    resultId = 'spicy_gentleman';
+  // Filter out avoided spirit
+  let filteredCocktails = cocktailsList;
+  if (avoidedSpirit && avoidedSpirit !== 'none') {
+    filteredCocktails = cocktailsList.filter(cocktail => !cocktail.spirit.includes(avoidedSpirit));
   }
 
-  // Fallback
-  if (strength === 'virgin') {
-    resultId = 'feels_like_summer'; 
-  }
+  // Scoring logic
+  filteredCocktails.forEach(cocktail => {
+    let score = 0;
+    if (cocktail.taste.includes(selectedTaste)) score += 3;
+    if (cocktail.strength.includes(selectedStrength)) score += 2;
+    cocktail._score = score;
+  });
 
-  const cocktails = {
-    'behind_her_eyes': { name: "Behind Her Eyes", descEn: "Sweet & Tropical. Rum with passion fruit and pineapple.", descEl: "Γλυκό & Τροπικό. Ρούμι με φρούτα του πάθους και ανανά." },
-    'truth_or_dare': { name: "Truth or Dare", descEn: "Bittersweet & Citrusy with Tequila Blanco.", descEl: "Γλυκόπικρο & Κιτρώδες με Τεκίλα Λευκή." },
-    'netflix_n_chill': { name: "Netflix N' Chill", descEn: "Sweet & Creamy Vodka with salted caramel.", descEl: "Γλυκό & Κρεμώδες Vodka με αλατισμένη καραμέλα." },
-    'new_zealand': { name: "New Zealand", descEn: "Fresh & Botanical Gin with kiwi and cucumber.", descEl: "Δροσερό & Βοτανικό Τζιν με ακτινίδιο." },
-    'feels_like_summer': { name: "Feels Like Summer", descEn: "Light & Fruity Gin with watermelon.", descEl: "Ελαφρύ & Φρουτώδες Τζιν με καρπούζι." },
-    'mastiha_ri': { name: "Mastiha-ri", descEn: "Aromatic & Refreshing with Vodka and Masticha.", descEl: "Αρωματικό & Δροσερό με Βότκα και Μαστίχα." },
-    'spicy_gentleman': { name: "Spicy Gentleman", descEn: "Spicy & Exotic Tequila with chili and pineapple.", descEl: "Πικάντικο & Εξωτικό με Τεκίλα." },
-    'teddy_bear': { name: "Teddy Bear", descEn: "Sweet & Velvety Vodka with bubblegum.", descEl: "Γλυκό & Βελούδινο με Βότκα και τσιχλόφουσκα." },
-    'bite_my_cookie': { name: "Bite My Cookie", descEn: "Sweet Dessert Rum with choco cookie.", descEl: "Γλυκό Επιδόρπιο Ρούμι με μπισκότο." }
-  };
+  // Sort by score descending
+  filteredCocktails.sort((a, b) => b._score - a._score);
+  
+  // Get Top 3
+  const topMatches = filteredCocktails.slice(0, 3);
 
-  const cocktail = cocktails[resultId] || cocktails['teddy_bear'];
-  const name = cocktail.name;
-  const desc = lang === 'en' ? cocktail.descEn : cocktail.descEl;
-  const shareText = lang === 'en' ? 'Share your match' : 'Μοιραστείτε το';
-
-  container.innerHTML = `
-    <div style="animation: fadeInStep 0.5s ease forwards;">
-      <div style="font-size: 16px; color: var(--muted); margin-bottom: 5px;">
-        ${lang === 'en' ? "You're definitely a" : "Σίγουρα σου ταιριάζει το"}
-      </div>
-      <div class="quiz-result-card">
-        <div class="quiz-result-name">${name}</div>
-        <div class="quiz-result-desc">${desc}</div>
-      </div>
-      <button class="quiz-share-btn" style="margin-top:20px;" onclick="shareQuizResult('${name}')">
-        <i class="fa-solid fa-share-nodes"></i> ${shareText}
-      </button>
-      <button onclick="closeQuizModal()" style="display:block; width:100%; margin-top:15px; padding:12px; background:transparent; border:none; color:var(--accent); font-weight:600; font-size:16px; cursor:pointer;">
-        ${lang === 'en' ? 'Back to Menu' : 'Επιστροφή στο Μενού'}
-      </button>
+  let html = `<div style="animation: fadeInStep 0.5s ease forwards;">
+    <div style="font-size: 16px; color: var(--muted); margin-bottom: 15px; text-align: center;">
+      ${lang === 'en' ? "Your Top Matches" : "Τα Κορυφαία για Εσάς"}
     </div>
-  `;
-}
+    <div style="display: flex; flex-direction: column; gap: 15px;">`;
 
-function shareQuizResult(cocktailName) {
-  const lang = document.body.getAttribute('data-lang') || 'el';
-  const text = lang === 'en' 
-    ? `I just took the Saloon Cocktail Quiz and got: ${cocktailName}! Find your match:` 
-    : `Έκανα το Saloon Cocktail Quiz και μου έτυχε: ${cocktailName}! Βρες το δικό σου:`;
+  topMatches.forEach((match, index) => {
+    const tagName = lang === 'en' ? match.tagEn : match.tagEl;
+    const ingredients = lang === 'en' ? match.ingredientsEn : match.ingredientsEl;
     
-  if (navigator.share) {
-    navigator.share({
-      title: 'Saloon Signature Cocktail Match',
-      text: text,
-      url: window.location.href
-    });
-  } else {
-    // Fallback copy to clipboard
-    const dummy = document.createElement('textarea');
-    document.body.appendChild(dummy);
-    dummy.value = text + " " + window.location.href;
-    dummy.select();
-    document.execCommand('copy');
-    document.body.removeChild(dummy);
-    alert(lang === 'en' ? 'Copied to clipboard!' : 'Αντιγράφηκε στο πρόχειρο!');
-  }
+    html += `
+      <div style="border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 12px; padding: 15px; background: rgba(255, 255, 255, 0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+        ${index === 0 ? `<div style="position: absolute; top: 12px; right: 12px; background: var(--accent); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; letter-spacing: 1px;">#1 MATCH</div>` : ''}
+        <div style="font-size: 10px; font-weight: 700; color: var(--br); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px;">${tagName}</div>
+        <div style="font-family: 'Literata', serif; font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+          ${match.name}
+          <span style="font-family: 'Jost', sans-serif; font-size: 16px; color: var(--accent);">€${match.price}</span>
+        </div>
+        <div style="font-size: 12.5px; color: var(--muted); line-height: 1.4;">${ingredients}</div>
+      </div>
+    `;
+  });
+
+  html += `</div>
+    <button onclick="openQuizModal()" style="display:block; width:100%; margin-top:20px; padding:12px; background: transparent; border: 1.5px solid var(--accent); border-radius: 25px; color:var(--accent); font-weight:600; font-size:15px; cursor:pointer; text-transform: uppercase; letter-spacing: 1px;">
+      ${lang === 'en' ? 'Start Over' : 'Επανεκκίνηση'}
+    </button>
+  </div>`;
+
+  container.innerHTML = html;
 }

@@ -229,6 +229,26 @@
         <span lang-en>Experiences <span style="font-family: 'Jost', sans-serif;">&amp;</span> Services</span>
       </div>
 
+      <!-- Build Your Cocktail Quiz Trigger -->
+      <div class="quiz-trigger-card" onclick="openQuizModal()">
+        <div class="quiz-trigger-icon">
+          <i class="fa-solid fa-wand-magic-sparkles fa-bounce" style="--fa-animation-duration: 3s;"></i>
+        </div>
+        <div class="quiz-trigger-content">
+          <div class="quiz-trigger-title">
+            <span lang-el>Βρείτε το Cocktail σας</span>
+            <span lang-en>Find Your Perfect Match</span>
+          </div>
+          <div class="quiz-trigger-desc">
+            <span lang-el>3 γρήγορες ερωτήσεις για το ιδανικό signature cocktail.</span>
+            <span lang-en>3 quick questions to discover your signature cocktail.</span>
+          </div>
+        </div>
+        <div class="quiz-trigger-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
       <!-- Vescovi Coffee Brand Ribbon -->
       <div
         onclick="document.getElementById('vescovi-modal').classList.add('active'); document.body.style.overflow='hidden';"
@@ -1887,10 +1907,20 @@
 
     <!-- D1: COCKTAILS (Combined) -->
     <div class="sec" id="d1">
-      <div class="sec-title">Cocktails</div>
-      <div class="sec-en">
-        <span lang-el>Η Απόλυτη Εμπειρία</span>
-        <span lang-en>The Ultimate Experience</span>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-right: 15px;">
+        <div style="flex: 1;">
+          <div class="sec-title">Cocktails</div>
+          <div class="sec-en">
+            <span lang-el>Η Απόλυτη Εμπειρία</span>
+            <span lang-en>The Ultimate Experience</span>
+          </div>
+        </div>
+        <div onclick="openQuizModal()" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(212, 169, 106, 0.1); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 16px; padding: 8px 16px; cursor: pointer; color: var(--accent); margin-bottom: 5px; -webkit-tap-highlight-color:transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <i class="fa-solid fa-wand-magic-sparkles fa-bounce" style="--fa-animation-duration: 3s; font-size: 20px; margin-bottom: 4px;"></i>
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">
+            QUIZ
+          </span>
+        </div>
       </div>
       <div class="sec-divider"></div>
 
@@ -4083,11 +4113,10 @@
           <span lang-en>Scan to share with your friends at the table</span>
         </div>
       </div>
-      <img
-        src="QrMenu.png"
-        alt="Share Menu"
-        style="width: 90px; height: 90px; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(139,94,60,0.15); cursor:pointer;"
-        onclick="openQrModal()">
+      <div style="position: relative; width: 90px; height: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(214,124,94,0.2); cursor:pointer; background: #fff; flex-shrink: 0;" onclick="openQrModal()">
+        <img src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
+        <div style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;"></div>
+      </div>
     </div>
 
     <!-- Review Us — Premium CTA Button -->
@@ -4303,9 +4332,10 @@
       </div>
 
       <!-- Big QR Code -->
-      <img
-        src="QrMenu.png"
-        alt="Share Menu" style="width:250px; height:250px; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+      <div style="position: relative; width: 260px; height: 260px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); background: #fff;">
+        <img src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
+        <div style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;"></div>
+      </div>
 
       <!-- Close X Button -->
       <div
@@ -4366,6 +4396,12 @@
           <span lang-el>Βρείτε το ιδανικό σας Cocktail</span>
           <span lang-en>Find Your Perfect Match</span>
         </div>
+      </div>
+      
+      <div class="quiz-progress" id="quiz-progress" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 20px;">
+        <div class="quiz-dot" id="quiz-dot-0" style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;"></div>
+        <div class="quiz-dot" id="quiz-dot-1" style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;"></div>
+        <div class="quiz-dot" id="quiz-dot-2" style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;"></div>
       </div>
       
       <div class="quiz-body" id="quiz-step-container">
