@@ -649,8 +649,40 @@
           <div class="item-price">9.00</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Γιαούρτι, φρέσκα φρούτα εποχής, μέλι, καρύδια, φυστικοβούτυρο</span>
-          <span lang-en>Yogurt, fresh seasonal fruits, honey, walnuts, peanut butter</span>
+          <span lang-el>Γιαούρτι, φρέσκα φρούτα εποχής, μέλι, granola, φυστικοβούτυρο</span>
+          <span lang-en>Yogurt, fresh seasonal fruits, honey, granola, peanut butter</span>
+        </div>
+      </div>
+
+      <!-- Τοστ -->
+      <div class="cat-label">
+        <span lang-el>Τοστ</span>
+        <span lang-en>Toasts</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Απλό</span>
+            <span lang-en>Plain</span>
+          </div>
+          <div class="item-price">3.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί</span>
+          <span lang-en>Ham or turkey, cheese</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Σπέσιαλ</span>
+            <span lang-en>Saloon Special</span>
+          </div>
+          <div class="item-price">4.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί, ντομάτα, μαγιονέζα, αυγό</span>
+          <span lang-en>Ham or turkey, cheese, tomato, mayo, egg</span>
         </div>
       </div>
 
@@ -713,25 +745,6 @@
         </div>
       </div>
 
-      <!-- Τοστ -->
-      <div class="cat-label">
-        <span lang-el>Τοστ</span>
-        <span lang-en>Toasts</span>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σπέσιαλ</span>
-            <span lang-en>Saloon Special</span>
-          </div>
-          <div class="item-price">4.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί, ντομάτα, μαγιονέζα, αυγό</span>
-          <span lang-en>Ham or turkey, cheese, tomato, mayo, egg</span>
-        </div>
-      </div>
-
       <!-- Saloon Bites -->
       <div class="cat-label">
         <span lang-el>Bites &amp; Shares</span>
@@ -748,6 +761,15 @@
         <div class="item-desc">
           <span lang-el>Μερίδα κοτομπουκιές, συνοδεύεται με πατάτες και σως</span>
           <span lang-en>Portion of chicken nuggets, served with fries and sauce</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Πατάτες Τηγανητές</span>
+            <span lang-en>French Fries</span>
+          </div>
+          <div class="item-price">4.50</div>
         </div>
       </div>
 
@@ -1949,20 +1971,21 @@
               Watermelon • Lime • Agave • Honey</span></div>
         </div>
       </div>
-      <div class="sig-card"><!-- <img class="sig-card-img" src="50_shades_of_green.png" alt="50 Shades of Green"
-          onerror="this.style.display='none'"> -->
-        <div class="sig-card-body">
-          <div class="taste-tag"><span lang-el>ΔΡΟΣΕΡΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
-              ΙΣΟΡΡΟΠΗΜΕΝΟ</span><span lang-en>FRESH <span style="font-family: 'Jost', sans-serif;">&amp;</span>
-              BALANCED</span></div>
-          <div class="sig-card-name"><img class="sig-icon" src="50_shades_of_green.png" alt="Icon">50
-            SHADES OF GREEN</div>
-          <div class="sig-card-price">10.00</div>
-          <div class="sig-card-divider"></div>
-          <div class="sig-card-desc"><span lang-el>Midori • Aperol • Λάιμ • Ζάχαρη • Bitters Πορτοκάλι</span><span
-              lang-en>Midori • Aperol • Lime • Sugar • Orange Bitters</span></div>
+      <template>
+        <div class="sig-card">
+          <div class="sig-card-body">
+            <div class="taste-tag"><span lang-el>ΔΡΟΣΕΡΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
+                ΙΣΟΡΡΟΠΗΜΕΝΟ</span><span lang-en>FRESH <span style="font-family: 'Jost', sans-serif;">&amp;</span>
+                BALANCED</span></div>
+            <div class="sig-card-name"><img class="sig-icon" src="50_shades_of_green.png" alt="Icon">50
+              SHADES OF GREEN</div>
+            <div class="sig-card-price">10.00</div>
+            <div class="sig-card-divider"></div>
+            <div class="sig-card-desc"><span lang-el>Midori • Aperol • Λάιμ • Ζάχαρη • Bitters Πορτοκάλι</span><span
+                lang-en>Midori • Aperol • Lime • Sugar • Orange Bitters</span></div>
+          </div>
         </div>
-      </div>
+      </template>
       <div class="sig-card"><!-- <img class="sig-card-img" src="bite_my_cookie.png" alt="Bite My Cookie"
           onerror="this.style.display='none'"> -->
         <div class="sig-card-body">
@@ -2072,6 +2095,17 @@
           <div class="item-price">9.00</div>
         </div>
       </div>
+      <div style="text-align: center; font-size: 14px; color: var(--muted); margin: 5px 0;">— OR —</div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Anna's Aperol Spritz</div>
+          <div class="item-price">9.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Η πιο γλυκιά εκδοχή του κλασικού αγαπημένου!</span>
+          <span lang-en>A sweeter twist on the classic favorite!</span>
+        </div>
+      </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">Hugo Spritz</div>
@@ -2084,12 +2118,14 @@
           <div class="item-price">9.00</div>
         </div>
       </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">Limoncello Spritz</div>
-          <div class="item-price">9.00</div>
+      <template>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">Limoncello Spritz</div>
+            <div class="item-price">9.00</div>
+          </div>
         </div>
-      </div>
+      </template>
 
       <div class="cat-label">Mocktails <span
           style="font-size:10px; font-weight:normal; text-transform:none; margin-left:8px; color:var(--dark);">(0%
@@ -2202,7 +2238,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Παράγκα</span><span lang-en>Paraga</span></div>
-          <div class="item-price">6.00 | 11.00</div>
+          <div class="item-price">6.00 | 24.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;"><span lang-el>Μαλαγουζιά</span><span
               lang-en>Malagouzia</span></span> · <span lang-el>Νάουσα</span><span lang-en>Naoussa</span></div>
@@ -2214,7 +2250,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Νεράιδες</span><span lang-en>Neraides</span></div>
-          <div class="item-price">6.00 | 11.00</div>
+          <div class="item-price">6.00 | 24.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;"><span lang-el>Ημίγλυκο Λευκό</span><span
               lang-en>Semi-Sweet White</span></span> · <span lang-el>Νεμέα</span><span lang-en>Nemea</span></div>
@@ -2226,7 +2262,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Καρυδιές</span><span lang-en>Karydies</span></div>
-          <div class="item-price">6.00 | 11.00</div>
+          <div class="item-price">6.00 | 24.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;"><span lang-el>Ασύρτικο</span><span
               lang-en>Assyrtiko</span></span> · <span lang-el>Κως</span><span lang-en>Kos</span></div>
@@ -2238,7 +2274,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Σαμαρόπετρα</span><span lang-en>Samaropetra</span></div>
-          <div class="item-price">6.00 | 11.00</div>
+          <div class="item-price">6.00 | 29.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;">Sauvignon Blanc</span> · <span
             lang-el>Νάουσα</span><span lang-en>Naoussa</span></div>
@@ -2251,7 +2287,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Πλαγίως</span><span lang-en>Plagios</span></div>
-          <div class="item-price">45.00</div>
+          <div class="item-price">40.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;">Chardonnay</span> · <span
             lang-el>Καβάλα</span><span lang-en>Kavala</span></div>
@@ -2263,7 +2299,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Λευκός</span><span lang-en>Estate White</span></div>
-          <div class="item-price">32.00</div>
+          <div class="item-price">30.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;"><span lang-el>Μαλαγουζιά /
               Ασύρτικο</span><span lang-en>Malagouzia - Assyrtiko</span></span> · <span lang-el>Κως</span><span
