@@ -8,8 +8,8 @@ function navigateToOffers(e) {
   var currentMode = localStorage.getItem('saloon_mode') || 'food';
   var btn = currentMode === 'food'
     ? document.querySelector('.nav-btn-food[onclick*="s0"]')
-    : document.querySelector('.nav-btn-drinks[onclick*="d0"]');
-  if (btn) showCategory(currentMode === 'food' ? 's0' : 'd0', btn, currentMode);
+    : document.querySelector('.nav-btn-drinks[onclick*="s0"]');
+  if (btn) showCategory('s0', btn, currentMode);
 }
 
 function showCategory(id, btn, mode, direction = 'none') {
@@ -102,17 +102,24 @@ function switchMode(mode, btn) {
     secFood.style.display = 'none';
     navDrinks.classList.remove('hidden');
     secDrinks.style.display = 'block';
+
+    var s0 = document.getElementById('s0');
+    if (s0) secDrinks.insertBefore(s0, secDrinks.firstChild);
+
     if (foodLegend) foodLegend.style.display = 'none';
 
     var activeDrink = document.querySelector('.nav-btn-drinks.active');
     if (activeDrink) { showCategory(activeDrink.getAttribute('onclick').match(/'([^']+)'/)[1], activeDrink, 'drinks'); }
-    else { showCategory('d0', document.querySelector('.nav-btn-drinks'), 'drinks'); }
+    else { showCategory('s0', document.querySelector('.nav-btn-drinks'), 'drinks'); }
 
   } else {
     navDrinks.classList.add('hidden');
     secDrinks.style.display = 'none';
     navFood.classList.remove('hidden');
     secFood.style.display = 'block';
+
+    var s0 = document.getElementById('s0');
+    if (s0) secFood.insertBefore(s0, secFood.firstChild);
 
     var activeFood = document.querySelector('.nav-btn-food.active');
     if (activeFood) { showCategory(activeFood.getAttribute('onclick').match(/'([^']+)'/)[1], activeFood, 'food'); }
@@ -313,7 +320,7 @@ function clearSearch(restoreCategory = true) {
   container.style.display = 'block';
 
   if (restoreCategory) {
-    var savedCat = localStorage.getItem('saloon_category') || (currentMode === 'food' ? 's0' : 'd0');
+    var savedCat = localStorage.getItem('saloon_category') || 's0';
     var btnClass = currentMode === 'food' ? '.nav-btn-food' : '.nav-btn-drinks';
     var catBtn = document.querySelector(btnClass + '[onclick*="' + savedCat + '"]');
     if (catBtn) {
@@ -375,7 +382,7 @@ document.addEventListener('touchstart', function (e) {
   if (isSwipeLocked) return;
   // Only allow swipe if the interaction starts inside the menu content areas
   if (!e.target.closest('#food-sections') && !e.target.closest('#drinks-sections')) return;
-  
+
   // Specific exclusions (like modals) just in case they overlap
   if (e.target.closest('.chef-modal-content') || e.target.closest('.vescovi-modal-content')) return;
   var inputSearch = document.getElementById('searchInput');
@@ -619,10 +626,25 @@ window.onload = function () {
   var activeModeBtn = document.querySelector(modeBtnSelector);
   if (activeModeBtn) activeModeBtn.classList.add('active');
 
-  document.getElementById('nav-food').classList.toggle('hidden', savedMode === 'drinks');
-  document.getElementById('food-sections').style.display = savedMode === 'drinks' ? 'none' : 'block';
-  document.getElementById('nav-drinks').classList.toggle('hidden', savedMode === 'food');
-  document.getElementById('drinks-sections').style.display = savedMode === 'food' ? 'none' : 'block';
+  var navFood = document.getElementById('nav-food');
+  var secFood = document.getElementById('food-sections');
+  var navDrinks = document.getElementById('nav-drinks');
+  var secDrinks = document.getElementById('drinks-sections');
+  var s0 = document.getElementById('s0');
+
+  if (savedMode === 'drinks') {
+    navFood.classList.add('hidden');
+    secFood.style.display = 'none';
+    navDrinks.classList.remove('hidden');
+    secDrinks.style.display = 'block';
+    if (s0) secDrinks.insertBefore(s0, secDrinks.firstChild);
+  } else {
+    navDrinks.classList.add('hidden');
+    secDrinks.style.display = 'none';
+    navFood.classList.remove('hidden');
+    secFood.style.display = 'block';
+    if (s0) secFood.insertBefore(s0, secFood.firstChild);
+  }
 
   var catBtn = document.querySelector(`[onclick*="'${savedCat}'"]`);
   if (catBtn) {
@@ -645,14 +667,14 @@ function toggleAmbientSound() {
   const waves = document.getElementById('ambient-waves');
   const music = document.getElementById('ambient-music');
   const btn = document.getElementById('ambient-toggle');
-  
+
   if (!waves || !music || !btn) return;
 
   if (waves.paused) {
     // Set relative volumes (Waves slightly louder for immersion)
     waves.volume = 0.6;
     music.volume = 0.4;
-    
+
     // Play both together
     Promise.all([waves.play(), music.play()]).then(() => {
       btn.classList.add('playing');
@@ -724,11 +746,11 @@ let quizAnswers = {};
 function openQuizModal() {
   currentQuizStep = 0;
   quizAnswers = {};
-  
+
   // Show dots initially
   const progressContainer = document.getElementById('quiz-progress');
-  if(progressContainer) progressContainer.style.display = 'flex';
-  
+  if (progressContainer) progressContainer.style.display = 'flex';
+
   updateProgressDots();
   renderQuizStep();
   document.getElementById('quiz-modal').classList.add('active');
@@ -766,23 +788,23 @@ function renderQuizStep() {
   if (currentQuizStep < quizQuestions.length) {
     const q = quizQuestions[currentQuizStep];
     const questionText = lang === 'en' ? q.en : q.el;
-    
+
     let html = `<div class="quiz-step active" style="animation: fadeInStep 0.3s ease forwards;">
                   <div class="quiz-question">${questionText}</div>
                   <div class="quiz-options">`;
-    
+
     q.options.forEach(opt => {
       const optText = lang === 'en' ? opt.en : opt.el;
       // Added data-id to highlight the chosen option
       html += `<div class="quiz-option" data-id="${opt.id}" onclick="selectQuizOption('${opt.id}', this)">${optText}</div>`;
     });
-    
+
     html += `</div></div>`;
     container.innerHTML = html;
   } else {
     // Hide dots for results
     const progressContainer = document.getElementById('quiz-progress');
-    if(progressContainer) progressContainer.style.display = 'none';
+    if (progressContainer) progressContainer.style.display = 'none';
 
     // Show loading
     container.innerHTML = `
@@ -791,7 +813,7 @@ function renderQuizStep() {
         <div style="font-weight:600; color:var(--dark); margin-top: 15px;">${lang === 'en' ? 'Shaking your cocktail...' : 'Ετοιμάζουμε το αποτέλεσμα...'}</div>
       </div>
     `;
-    
+
     setTimeout(showQuizResult, 1200);
   }
 }
@@ -804,7 +826,7 @@ function selectQuizOption(value, el) {
   el.style.borderColor = 'var(--accent)';
 
   quizAnswers[`step${currentQuizStep}`] = value;
-  
+
   setTimeout(() => {
     currentQuizStep++;
     updateProgressDots();
@@ -815,7 +837,7 @@ function selectQuizOption(value, el) {
 function showQuizResult() {
   const lang = document.body.getAttribute('data-lang') || 'el';
   const container = document.getElementById('quiz-step-container');
-  
+
   const selectedTaste = quizAnswers.step0;
   const selectedStrength = quizAnswers.step1;
   const avoidedSpirit = quizAnswers.step2;
@@ -836,7 +858,7 @@ function showQuizResult() {
 
   // Sort by score descending
   filteredCocktails.sort((a, b) => b._score - a._score);
-  
+
   // Get Top 3
   const topMatches = filteredCocktails.slice(0, 3);
 
@@ -849,7 +871,7 @@ function showQuizResult() {
   topMatches.forEach((match, index) => {
     const tagName = lang === 'en' ? match.tagEn : match.tagEl;
     const ingredients = lang === 'en' ? match.ingredientsEn : match.ingredientsEl;
-    
+
     html += `
       <div style="border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 12px; padding: 15px; background: rgba(255, 255, 255, 0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
         ${index === 0 ? `<div style="position: absolute; top: 12px; right: 12px; background: var(--accent); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; letter-spacing: 1px;">#1 MATCH</div>` : ''}

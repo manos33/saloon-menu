@@ -63,16 +63,13 @@
         style="font-family: 'Literata', serif; font-size: 16px; color: var(--muted); letter-spacing: 1.5px; font-weight: 500; text-transform: uppercase;">
         <span lang-el>Μενού Φαγητού</span><span lang-en>Food Menu</span>
       </div>
-      <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px;" onclick="openChefModal()"
-        class="chef-trigger">
+      <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px;">
         <div style="font-family: 'Literata', serif; font-style: italic; font-size: 15px; color: var(--muted);">
-          <span lang-el>από</span><span lang-en>by</span>
+          <span lang-el>από την</span><span lang-en>by</span>
         </div>
         <div
           style="font-family: 'Great Vibes', cursive; font-size: 32px; color: #d67c5e; line-height: 1; position:relative; display:inline-block;">
-          Chef Aggelos Vasilakeris
-          <i class="fa-solid fa-circle-info"
-            style="font-size:10px; color:var(--muted); opacity:0.5; position:absolute; top:2px; right:-14px;"></i>
+          <span lang-el>Οικογένεια του Saloon</span><span lang-en>The Saloon Family</span>
         </div>
       </div>
     </div>
@@ -113,19 +110,24 @@
   <div class="announce-bar" id="announceBanner" style="cursor:pointer;" onclick="navigateToOffers(event)">
     <div class="announce-slides">
       <div class="announce-slide active">
-        <i class="fa-solid fa-cocktail"></i>
-        <span lang-el>Happy Hour 17:00–19:00 · Ολα τα Cocktails -30%</span>
-        <span lang-en>Happy Hour 5–7pm · All Cocktails 30% Off</span>
+        <i class="fa-solid fa-utensils"></i>
+        <span lang-el>Πλήρες Μενού σύντομα κοντά σας...</span>
+        <span lang-en>Full Menu coming soon...</span>
       </div>
       <div class="announce-slide">
-        <i class="fa-solid fa-fire"></i>
-        <span lang-el>Νέο! Combo Burger + Μπύρα μόνο 16</span>
-        <span lang-en>New! Burger + Beer Combo only 16</span>
+        <i class="fa-solid fa-champagne-glasses"></i>
+        <span lang-el>Happy Hour έρχεται σύντομα!</span>
+        <span lang-en>Happy Hour coming soon!</span>
       </div>
       <div class="announce-slide">
-        <i class="fa-solid fa-music"></i>
-        <span lang-el>Live DJ κάθε Σάββατο βράδυ</span>
-        <span lang-en>Live DJ every Saturday night</span>
+        <i class="fa-solid fa-camera-retro"></i>
+        <span lang-el>Απαθανατίστε τις Saloon στιγμές σας!</span>
+        <span lang-en>Capture your Saloon Moments!</span>
+      </div>
+      <div class="announce-slide">
+        <i class="fa-solid fa-martini-glass-citrus"></i>
+        <span lang-el>Απολαύστε το ηλιοβασίλεμα με ένα cocktail</span>
+        <span lang-en>Enjoy the sunset with a signature cocktail</span>
       </div>
     </div>
     <button class="announce-dismiss" onclick="this.parentElement.style.display='none'" aria-label="Close">×</button>
@@ -138,50 +140,56 @@
         <i class="fa-solid fa-compass" style="margin-right:5px;"></i><span lang-el>Ανακαλύψτε</span><span
           lang-en>Discover</span>
       </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s1',this, 'food')">
-        <i class="fa-solid fa-mug-hot" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Brunch</span><span
-          lang-en>Brunch</span>
+      <button class="nav-btn nav-btn-food" onclick="showCategory('s_temp',this, 'food')">
+        <i class="fa-solid fa-utensils" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Μενού</span><span
+          lang-en>Menu</span>
       </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s2',this, 'food')">
-        <i class="fa-solid fa-cookie-bite" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Σνακς</span><span
-          lang-en>Snacks</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s3',this, 'food')">
-        <i class="fa-solid fa-leaf" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Σαλάτες</span><span
-          lang-en>Salads</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s4',this, 'food')">
-        <i class="fa-solid fa-utensils" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Ορεκτικά</span><span
-          lang-en>Appetizers</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s9',this, 'food')">
-        <i class="fa-solid fa-plate-wheat" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Bao <span
-            style="font-family: 'Jost', sans-serif;">&amp;</span>
-          Πλατώ</span><span lang-en>Bao <span style="font-family: 'Jost', sans-serif;">&amp;</span> Platters</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s5',this, 'food')">
-        <i class="fa-solid fa-pizza-slice" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Πίτσα</span><span
-          lang-en>Pizza</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s6',this, 'food')">
-        <i class="fa-solid fa-burger" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Burgers</span><span
-          lang-en>Burgers</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s7',this, 'food')">
-        <i class="fa-solid fa-drumstick-bite" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Κυρίως</span><span
-          lang-en>Main Course</span>
-      </button>
-      <button class="nav-btn nav-btn-food" onclick="showCategory('s8',this, 'food')">
-        <i class="fa-solid fa-ice-cream" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Γλυκά</span><span
-          lang-en>Desserts</span>
-      </button>
+      <template>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s1',this, 'food')">
+          <i class="fa-solid fa-mug-hot" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Brunch</span><span
+            lang-en>Brunch</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s2',this, 'food')">
+          <i class="fa-solid fa-cookie-bite" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Σνακς</span><span
+            lang-en>Snacks</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s3',this, 'food')">
+          <i class="fa-solid fa-leaf" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Σαλάτες</span><span
+            lang-en>Salads</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s4',this, 'food')">
+          <i class="fa-solid fa-utensils" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Ορεκτικά</span><span
+            lang-en>Appetizers</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s9',this, 'food')">
+          <i class="fa-solid fa-plate-wheat" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Bao <span
+              style="font-family: 'Jost', sans-serif;">&amp;</span>
+            Πλατώ</span><span lang-en>Bao <span style="font-family: 'Jost', sans-serif;">&amp;</span> Platters</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s5',this, 'food')">
+          <i class="fa-solid fa-pizza-slice" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Πίτσα</span><span
+            lang-en>Pizza</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s6',this, 'food')">
+          <i class="fa-solid fa-burger" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Burgers</span><span
+            lang-en>Burgers</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s7',this, 'food')">
+          <i class="fa-solid fa-drumstick-bite" style="margin-right:5px;opacity:0.8;"></i><span
+            lang-el>Κυρίως</span><span lang-en>Main Course</span>
+        </button>
+        <button class="nav-btn nav-btn-food" onclick="showCategory('s8',this, 'food')">
+          <i class="fa-solid fa-ice-cream" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Γλυκά</span><span
+            lang-en>Desserts</span>
+        </button>
+      </template>
     </div>
   </div>
 
   <!-- DRINKS NAV -->
   <div class="nav-wrap hidden" id="nav-drinks">
     <div class="nav-inner">
-      <button class="nav-btn nav-btn-drinks offers-tab active" onclick="showCategory('d0',this, 'drinks')">
+      <button class="nav-btn nav-btn-drinks offers-tab active" onclick="showCategory('s0',this, 'drinks')">
         <i class="fa-solid fa-compass" style="margin-right:5px;"></i><span lang-el>Ανακαλύψτε</span><span
           lang-en>Discover</span>
       </button>
@@ -298,9 +306,8 @@
         <!-- Icon circle -->
         <div
           style="width: 90px; height: 90px; border-radius: 50%; background: var(--sand); border: 1px solid var(--dark-sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <div
-            style="width: 70px; height: 70px; background-color: var(--br); -webkit-mask-image: url('hookah_logo.png'); mask-image: url('hookah_logo.png'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
-          </div>
+          <img src="hookah_logo.png" alt="Hookah Logo"
+            style="width: 70px; height: 70px; object-fit: contain; filter: brightness(0) saturate(100%) invert(38%) sepia(13%) saturate(1485%) hue-rotate(345deg) brightness(93%) contrast(87%);">
         </div>
         <!-- Text -->
         <div style="flex: 1;">
@@ -342,138 +349,175 @@
       </div>
 
       <div class="cat-label">
-        <span lang-el>Happy Hour</span>
-        <span lang-en>Happy Hour</span>
+        <span lang-el>Happy Hour & Combos</span>
+        <span lang-en>Happy Hour & Combos</span>
       </div>
 
-      <!-- Happy Hour -->
-      <div class="happy-hour-card">
-        <div class="hh-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
-        <div class="hh-title">Happy Hour</div>
-        <div class="hh-time">
-          <span lang-el>ΚΑΘΕ ΜΕΡΑ · 17:00 – 19:00</span>
-          <span lang-en>DAILY · 5:00 PM – 7:00 PM</span>
-        </div>
-        <div class="hh-deals">
-          <div class="hh-deal">
-            <div class="hh-deal-name">
-              <span lang-el>Ολα τα Cocktails</span>
-              <span lang-en>All Cocktails</span>
+      <!-- Happy Hour and combos are hidden for now.-->
+      <template>
+        <div class="happy-hour-card">
+          <div class="hh-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <div class="hh-title">Happy Hour</div>
+          <div class="hh-time">
+            <span lang-el>ΚΑΘΕ ΜΕΡΑ · 17:00 – 19:00</span>
+            <span lang-en>DAILY · 5:00 PM – 7:00 PM</span>
+          </div>
+          <div class="hh-deals">
+            <div class="hh-deal">
+              <div class="hh-deal-name">
+                <span lang-el>Ολα τα Cocktails</span>
+                <span lang-en>All Cocktails</span>
+              </div>
+              <div class="hh-deal-price">-30%</div>
             </div>
-            <div class="hh-deal-price">-30%</div>
-          </div>
-          <div class="hh-deal">
-            <div class="hh-deal-name">
-              <span lang-el>Μπύρα Barrel</span>
-              <span lang-en>Draft Beer</span>
+            <div class="hh-deal">
+              <div class="hh-deal-name">
+                <span lang-el>Μπύρα Barrel</span>
+                <span lang-en>Draft Beer</span>
+              </div>
+              <div class="hh-deal-price">3.50</div>
             </div>
-            <div class="hh-deal-price">3.50</div>
-          </div>
-          <div class="hh-deal">
-            <div class="hh-deal-name">
-              <span lang-el>Spritz Aperol / Hugo</span>
-              <span lang-en>Aperol / Hugo Spritz</span>
+            <div class="hh-deal">
+              <div class="hh-deal-name">
+                <span lang-el>Spritz Aperol / Hugo</span>
+                <span lang-en>Aperol / Hugo Spritz</span>
+              </div>
+              <div class="hh-deal-price">6.00</div>
             </div>
-            <div class="hh-deal-price">6.00</div>
           </div>
+        </div>
+      </template>
+
+      <!-- COMING SOON CARD -->
+      <div class="coming-soon-card"
+        style="background: linear-gradient(135deg, #FF7E5F 0%, #FEB47B 100%); border-radius: 16px; padding: 30px 20px; text-align: center; margin-bottom: 24px; position: relative; overflow: hidden; box-shadow: 0 10px 25px rgba(255, 126, 95, 0.4);">
+        <!-- Animated Background Elements -->
+        <div
+          style="position: absolute; top: -30px; right: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%); border-radius: 50%;">
+        </div>
+        <div
+          style="position: absolute; bottom: -40px; left: -40px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%); border-radius: 50%;">
+        </div>
+
+        <!-- Content -->
+        <div style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;">
+          <div
+            style="width: 60px; height: 60px; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(5px); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <i class="fa-solid fa-wand-magic-sparkles fa-bounce"
+              style="font-size: 24px; color: #fff; --fa-animation-duration: 3s;"></i>
+          </div>
+
+          <h3
+            style="font-family: 'Literata', serif; font-size: 28px; color: #fff; font-weight: 700; margin-bottom: 6px; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <span lang-el>Σύντομα...</span>
+            <span lang-en>Coming Soon...</span>
+          </h3>
+
+          <p
+            style="font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 500; color: rgba(255, 255, 255, 0.95); letter-spacing: 1px; text-transform: uppercase; margin: 0;">
+            <span lang-el>Μείνετε συντονισμένοι!</span>
+            <span lang-en>Stay tuned!</span>
+          </p>
         </div>
       </div>
 
-      <div class="cat-label">
-        <span lang-el>Combos</span>
-        <span lang-en>Combos</span>
-      </div>
+      <template>
+        <div class="cat-label">
+          <span lang-el>Combos</span>
+          <span lang-en>Combos</span>
+        </div>
 
-      <!-- Combo 1 -->
-      <div class="promo-card">
-        <div class="promo-badge">
-          <span lang-el>Δημοφιλές</span>
-          <span lang-en>Popular</span>
-        </div>
-        <div class="promo-title">
-          <span lang-el>Burger <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μπύρα</span>
-          <span lang-en>Burger <span style="font-family: 'Jost', sans-serif;">&amp;</span> Beer</span>
-        </div>
-        <div class="promo-subtitle">
-          <span lang-el>Οποιοδήποτε burger + μπύρα barrel 400ml</span>
-          <span lang-en>Any burger + 400ml draft beer</span>
-        </div>
-        <div class="promo-items">
-          <div class="promo-item"><i class="fa-solid fa-burger"></i> <span lang-el>Burger της επιλογής σας</span><span
-              lang-en>Any burger of your choice</span></div>
-          <div class="promo-item"><i class="fa-solid fa-beer-mug-empty"></i> <span lang-el>Μπύρα βαρέλι
-              400ml</span><span lang-en>Draft beer 400ml</span></div>
-          <div class="promo-item"><i class="fa-solid fa-french-fries"></i> <span lang-el>Πατάτες τηγανητές</span><span
-              lang-en>French fries</span></div>
-        </div>
-        <div class="promo-price-row">
-          <div class="promo-price">16.00</div>
-          <div class="promo-savings">
-            <span lang-el>Εξοικονομείτε ~€4</span>
-            <span lang-en>You save ~€4</span>
+        <!-- Combo 1 -->
+        <div class="promo-card">
+          <div class="promo-badge">
+            <span lang-el>Δημοφιλές</span>
+            <span lang-en>Popular</span>
+          </div>
+          <div class="promo-title">
+            <span lang-el>Burger <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μπύρα</span>
+            <span lang-en>Burger <span style="font-family: 'Jost', sans-serif;">&amp;</span> Beer</span>
+          </div>
+          <div class="promo-subtitle">
+            <span lang-el>Οποιοδήποτε burger + μπύρα barrel 400ml</span>
+            <span lang-en>Any burger + 400ml draft beer</span>
+          </div>
+          <div class="promo-items">
+            <div class="promo-item"><i class="fa-solid fa-burger"></i> <span lang-el>Burger της επιλογής σας</span><span
+                lang-en>Any burger of your choice</span></div>
+            <div class="promo-item"><i class="fa-solid fa-beer-mug-empty"></i> <span lang-el>Μπύρα βαρέλι
+                400ml</span><span lang-en>Draft beer 400ml</span></div>
+            <div class="promo-item"><i class="fa-solid fa-french-fries"></i> <span lang-el>Πατάτες τηγανητές</span><span
+                lang-en>French fries</span></div>
+          </div>
+          <div class="promo-price-row">
+            <div class="promo-price">16.00</div>
+            <div class="promo-savings">
+              <span lang-el>Εξοικονομείτε ~€4</span>
+              <span lang-en>You save ~€4</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Combo 2 -->
-      <div class="promo-card">
-        <div class="promo-badge">
-          <span lang-el>Για 2</span>
-          <span lang-en>For 2</span>
-        </div>
-        <div class="promo-title">
-          <span lang-el>Πλατώ <span style="font-family: 'Jost', sans-serif;">&amp;</span> Κρασί</span>
-          <span lang-en>Platter <span style="font-family: 'Jost', sans-serif;">&amp;</span> Wine</span>
-        </div>
-        <div class="promo-subtitle">
-          <span lang-el>Μεικτό πλατώ + μπουκάλι κρασί της επιλογής σας</span>
-          <span lang-en>Mixed platter + bottle of wine of your choice</span>
-        </div>
-        <div class="promo-items">
-          <div class="promo-item"><i class="fa-solid fa-cheese"></i> <span lang-el>Μεικτό Πλατώ (αλλαντικά <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span>
-              τυριά)</span><span lang-en>Mixed Platter (cold cuts <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span> cheese)</span></div>
-          <div class="promo-item"><i class="fa-solid fa-wine-bottle"></i> <span lang-el>Μπουκάλι κρασί</span><span
-              lang-en>Bottle of wine</span></div>
-          <div class="promo-item"><i class="fa-solid fa-bread-slice"></i> <span lang-el>Ψωμί <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span> πίτες</span><span lang-en>Bread <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span> pitta</span></div>
-        </div>
-        <div class="promo-price-row">
-          <div class="promo-price">28.00</div>
-          <div class="promo-savings">
-            <span lang-el>Εξοικονομείτε ~€6</span>
-            <span lang-en>You save ~€6</span>
+        <!-- Combo 2 -->
+        <div class="promo-card">
+          <div class="promo-badge">
+            <span lang-el>Για 2</span>
+            <span lang-en>For 2</span>
+          </div>
+          <div class="promo-title">
+            <span lang-el>Πλατώ <span style="font-family: 'Jost', sans-serif;">&amp;</span> Κρασί</span>
+            <span lang-en>Platter <span style="font-family: 'Jost', sans-serif;">&amp;</span> Wine</span>
+          </div>
+          <div class="promo-subtitle">
+            <span lang-el>Μεικτό πλατώ + μπουκάλι κρασί της επιλογής σας</span>
+            <span lang-en>Mixed platter + bottle of wine of your choice</span>
+          </div>
+          <div class="promo-items">
+            <div class="promo-item"><i class="fa-solid fa-cheese"></i> <span lang-el>Μεικτό Πλατώ (αλλαντικά <span
+                  style="font-family: 'Jost', sans-serif;">&amp;</span>
+                τυριά)</span><span lang-en>Mixed Platter (cold cuts <span
+                  style="font-family: 'Jost', sans-serif;">&amp;</span> cheese)</span></div>
+            <div class="promo-item"><i class="fa-solid fa-wine-bottle"></i> <span lang-el>Μπουκάλι κρασί</span><span
+                lang-en>Bottle of wine</span></div>
+            <div class="promo-item"><i class="fa-solid fa-bread-slice"></i> <span lang-el>Ψωμί <span
+                  style="font-family: 'Jost', sans-serif;">&amp;</span> πίτες</span><span lang-en>Bread <span
+                  style="font-family: 'Jost', sans-serif;">&amp;</span> pitta</span></div>
+          </div>
+          <div class="promo-price-row">
+            <div class="promo-price">28.00</div>
+            <div class="promo-savings">
+              <span lang-el>Εξοικονομείτε ~€6</span>
+              <span lang-en>You save ~€6</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Combo 3 -->
-      <div class="promo-card">
-        <div class="promo-badge">Brunch</div>
-        <div class="promo-title">
-          <span lang-el>Brunch για 2</span>
-          <span lang-en>Brunch for 2</span>
-        </div>
-        <div class="promo-subtitle">
-          <span lang-el>2 πιάτα brunch + 2 καφέδες/χυμοί</span>
-          <span lang-en>2 brunch dishes + 2 coffees or juices</span>
-        </div>
-        <div class="promo-items">
-          <div class="promo-item"><i class="fa-solid fa-egg"></i> <span lang-el>2x Brunch πιάτο (επιλογή
-              σας)</span><span lang-en>2x Brunch dish (your choice)</span></div>
-          <div class="promo-item"><i class="fa-solid fa-mug-saucer"></i> <span lang-el>2x Καφές ή φρέσκος
-              χυμός</span><span lang-en>2x Coffee or fresh juice</span></div>
-        </div>
-        <div class="promo-price-row">
-          <div class="promo-price">25.00</div>
-          <div class="promo-savings">
-            <span lang-el>Εξοικονομείτε ~€5</span>
-            <span lang-en>You save ~€5</span>
+        <!-- Combo 3 -->
+        <div class="promo-card">
+          <div class="promo-badge">Brunch</div>
+          <div class="promo-title">
+            <span lang-el>Brunch για 2</span>
+            <span lang-en>Brunch for 2</span>
+          </div>
+          <div class="promo-subtitle">
+            <span lang-el>2 πιάτα brunch + 2 καφέδες/χυμοί</span>
+            <span lang-en>2 brunch dishes + 2 coffees or juices</span>
+          </div>
+          <div class="promo-items">
+            <div class="promo-item"><i class="fa-solid fa-egg"></i> <span lang-el>2x Brunch πιάτο (επιλογή
+                σας)</span><span lang-en>2x Brunch dish (your choice)</span></div>
+            <div class="promo-item"><i class="fa-solid fa-mug-saucer"></i> <span lang-el>2x Καφές ή φρέσκος
+                χυμός</span><span lang-en>2x Coffee or fresh juice</span></div>
+          </div>
+          <div class="promo-price-row">
+            <div class="promo-price">25.00</div>
+            <div class="promo-savings">
+              <span lang-el>Εξοικονομείτε ~€5</span>
+              <span lang-en>You save ~€5</span>
+            </div>
           </div>
         </div>
-      </div>
+      </template>
 
       <div class="cat-label">
         <span lang-el>Πληροφορίες</span>
@@ -500,21 +544,27 @@
       -->
 
       <!-- Premium Sunset Card -->
-      <div class="info-card sunset-card" style="background: linear-gradient(135deg, rgba(212, 169, 106, 0.05) 0%, rgba(192, 108, 84, 0.1) 100%); border: 1px solid rgba(212, 169, 106, 0.3); justify-content: center; text-align: center; padding: 25px 15px; position: relative; overflow: hidden;">
+      <div class="info-card sunset-card"
+        style="background: linear-gradient(135deg, rgba(212, 169, 106, 0.05) 0%, rgba(192, 108, 84, 0.1) 100%); border: 1px solid rgba(212, 169, 106, 0.3); justify-content: center; text-align: center; padding: 25px 15px; position: relative; overflow: hidden;">
         <!-- Subtle Animated Sun glow behind -->
-        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212, 169, 106, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
+        <div
+          style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212, 169, 106, 0.15) 0%, transparent 70%); border-radius: 50%;">
+        </div>
         <div style="display: flex; flex-direction: column; align-items: center; width: 100%; z-index: 2;">
           <div style="font-size: 24px; color: var(--accent); margin-bottom: 8px;">
             <i class="fa-solid fa-sun fa-spin-pulse" style="--fa-animation-duration: 4s;"></i>
           </div>
-          <div class="info-card-title" style="margin-bottom: 10px; font-family: 'Literata', serif; font-size: 16px; letter-spacing: 2px;">
+          <div class="info-card-title"
+            style="margin-bottom: 10px; font-family: 'Literata', serif; font-size: 16px; letter-spacing: 2px;">
             <span lang-el>Ηλιοβασίλεμα</span>
             <span lang-en>Sunset Sessions</span>
           </div>
           <div class="info-card-desc" style="margin-top: 0;">
-            <span class="sunset-timer" style="font-size: 2.2em; font-weight: 400; color: var(--accent); font-family: 'Jost', sans-serif; letter-spacing: 4px; text-shadow: 0 2px 10px rgba(139,94,60,0.2);">--:--:--</span>
+            <span class="sunset-timer"
+              style="font-size: 2.2em; font-weight: 400; color: var(--accent); font-family: 'Jost', sans-serif; letter-spacing: 4px; text-shadow: 0 2px 10px rgba(139,94,60,0.2);">--:--:--</span>
           </div>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-top: 8px; opacity: 0.8; font-family: 'Jost', sans-serif;">
+          <div
+            style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-top: 8px; opacity: 0.8; font-family: 'Jost', sans-serif;">
             <span lang-el>Cocktails δίπλα στο κύμα</span>
             <span lang-en>Cocktails by the waves</span>
           </div>
@@ -563,15 +613,16 @@
 
     </div>
 
-    <!-- S1: BRUNCH -->
-    <div class="sec" id="s1">
-      <div class="sec-title">Brunch</div>
+    <!-- S_TEMP: NEW TEMPORARY MENU -->
+    <div class="sec" id="s_temp">
+      <div class="sec-title">Μενού</div>
       <div class="sec-en">
-        <span lang-el>Πρωινό <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μεσημεριανό</span>
-        <span lang-en>Morning <span style="font-family: 'Jost', sans-serif;">&amp;</span> Midday</span>
+        <span lang-el>Όλη μέρα</span>
+        <span lang-en>All Day Menu</span>
       </div>
       <div class="sec-divider"></div>
 
+      <!-- Energy Bowls -->
       <div class="cat-label">
         <span lang-el>Μπολ Ενέργειας</span>
         <span lang-en>Energy Bowls</span>
@@ -579,123 +630,161 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Μπολ Πρωτεΐνης</span>
+            <span lang-el>Protein Bowl</span>
             <span lang-en>Protein Bowl</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">8.50</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Γιαούρτι, μέλι, καρύδι, κανέλα, φρούτα εποχής, φυστικοβούτυρο</span>
-          <span lang-en>Yogurt, honey, walnut, cinnamon, seasonal fruits, peanut butter</span>
+          <span lang-el>Γιαούρτι, σοκολάτα πρωτεΐνης, καρύδια, μπανάνα, μπισκότα</span>
+          <span lang-en>Yogurt, chocolate protein, walnuts, banana, biscuits</span>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Ενέργεια Saloon&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Επιλογή
-                Σεφ</span></span>
-            <span lang-en>Saloon Energy&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Chef's
-                Choice</span></span>
+            <span lang-el>Energy Bowl</span>
+            <span lang-en>Energy Bowl</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">9.00</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Γιαούρτι στραγγιστό, μαύρη σοκολάτα, granola, μπανάνα, μέλι</span>
-          <span lang-en>Greek yogurt, dark chocolate, granola, banana, honey</span>
+          <span lang-el>Γιαούρτι, φρέσκα φρούτα εποχής, μέλι, καρύδια, φυστικοβούτυρο</span>
+          <span lang-en>Yogurt, fresh seasonal fruits, honey, walnuts, peanut butter</span>
         </div>
       </div>
 
+      <!-- Μπαγκέτες -->
       <div class="cat-label">
-        <span lang-el>Αυγοιστορίες</span>
-        <span lang-en>Egg Stories</span>
+        <span lang-el>Μπαγκέτες</span>
+        <span lang-en>Baguettes</span>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Πράσινο Βελούδο Saloon</span>
-            <span lang-en>Green Velvet Saloon</span>
+            <span lang-el>Καθημερινή Απόλαυση</span>
+            <span lang-en>Classic Deli</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">5.50</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Πολύσπορο ψωμί, αβοκάντο, lime, μους φέτας, ντοματίνια, μαύρο σουσάμι, βραστό αυγό</span>
-          <span lang-en>Multigrain bread, avocado, lime, feta mousse, cherry tomatoes, black sesame, boiled egg</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κρoκ Μαντάμ</span>
-            <span lang-en>Croque Madame</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ψωμί τοστ, μπεσαμέλ, μπέικον, gouda, ρόκα, τηγανητό αυγό</span>
-          <span lang-en>Toast bread, bechamel, bacon, gouda, rocket, fried egg</span>
+          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί, ντομάτα, μαρούλι, μαγιονέζα</span>
+          <span lang-en>Ham or turkey, cheese, tomato, lettuce, mayo</span>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Ομελέτα</span>
-            <span lang-en>Omelette</span>
+            <span lang-el>Μερακλίδικη</span>
+            <span lang-en>Greek Gyro</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">7.50</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Αυγό, τυρί, φρυγανισμένο ψωμί</span>
-          <span lang-en>Egg, cheese, toasted bread</span>
+          <span lang-el>Γύρος, πατάτες, ντομάτα, κρεμμύδι, τζατζίκι ή σως</span>
+          <span lang-en>Gyros, fries, tomato, onion, tzatziki or sauce</span>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Σπέσιαλ Ομελέτα</span>
-            <span lang-en>Special Omelette</span>
+            <span lang-el>Τραγανή</span>
+            <span lang-en>Crispy Bite</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">7.00</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Ζαμπόν, τυρί, ντομάτα, πιπεριά</span>
-          <span lang-en>Ham, cheese, tomato, bell pepper</span>
+          <span lang-el>Κοτομπουκιές, τυρί, πατάτες, σως</span>
+          <span lang-en>Chicken nuggets, cheese, fries, sauce</span>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Καγιανάς</span>
-            <span lang-en>Kagianas</span>
+            <span lang-el>Αιγαιοπελαγίτικη (V)</span>
+            <span lang-en>Aegean Breeze (V)</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="vbadge">V</div>
+          <div class="item-price">6.00</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Φρυγανισμένο ψωμί, ντομάτα, αυγό, φέτα</span>
-          <span lang-en>Toasted bread, tomato, egg, feta</span>
+          <span lang-el>Ντομάτα, αγγούρι, κρεμμύδι, φέτα, πάστα ελιάς, ρίγανη, πιπεριά</span>
+          <span lang-en>Tomato, cucumber, onion, feta cheese, olive paste, oregano, pepper</span>
+        </div>
+      </div>
+
+      <!-- Τοστ -->
+      <div class="cat-label">
+        <span lang-el>Τοστ</span>
+        <span lang-en>Toasts</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Σπέσιαλ</span>
+            <span lang-en>Saloon Special</span>
+          </div>
+          <div class="item-price">4.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί, ντομάτα, μαγιονέζα, αυγό</span>
+          <span lang-en>Ham or turkey, cheese, tomato, mayo, egg</span>
+        </div>
+      </div>
+
+      <!-- Saloon Bites -->
+      <div class="cat-label">
+        <span lang-el>Bites &amp; Shares</span>
+        <span lang-en>Bites &amp; Shares</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Τραγανές Κοτομπουκιές</span>
+            <span lang-en>Crispy Chicken Nuggets</span>
+          </div>
+          <div class="item-price">8.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Μερίδα κοτομπουκιές, συνοδεύεται με πατάτες και σως</span>
+          <span lang-en>Portion of chicken nuggets, served with fries and sauce</span>
+        </div>
+      </div>
+
+      <!-- Γλυκά -->
+      <div class="cat-label">
+        <span lang-el>Γλυκά</span>
+        <span lang-en>Desserts</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μπανόφι</span>
+            <span lang-en>Banoffee</span>
+          </div>
+          <div class="item-price">6.50</div>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Τοστ Αυγού</span>
-            <span lang-en>Egg Toast</span>
+            <span lang-el>Τσιζ Κέικ</span>
+            <span lang-en>Cheesecake</span>
           </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">6.50</div>
         </div>
-        <div class="item-desc">
-          <span lang-el>Αυγοφέτες, γαλοπούλα, μαρούλι, ντομάτα, μαγιονέζα</span>
-          <span lang-en>Egg bread, turkey, lettuce, tomato, mayonnaise</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μιλφέιγ</span>
+            <span lang-en>Millefeuille</span>
+          </div>
+          <div class="item-price">6.50</div>
         </div>
       </div>
 
+      <!-- Κρουασάν -->
       <div class="cat-label">
         <span lang-el>Κρουασάν</span>
         <span lang-en>Croissants</span>
@@ -703,1207 +792,1021 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Κρουασάν Σάντουιτς</span>
-            <span lang-en>Croissant Sandwich</span>
+            <span lang-el>Σοκολάτα</span>
+            <span lang-en>Chocolate</span>
           </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Γαλοπούλα, τυρί, μαρούλι, ντομάτα, μαγιονέζα</span>
-          <span lang-en>Turkey, cheese, lettuce, tomato, mayonnaise</span>
+          <div class="item-price">4.50</div>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Βουτύρου</span>
-            <span lang-en>Butter Croissant</span>
+            <span lang-el>Κρέμα ζαχαροπλαστικής &amp; Φράουλες</span>
+            <span lang-en>Pastry cream &amp; Strawberries</span>
           </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κρουασάν Πραλίνα Σοκολάτα Φουντούκι</span>
-            <span lang-en>Croissant Chocolate Hazelnut Praline</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- S2: SNACKS -->
-    <div class="sec" id="s2">
-      <div class="sec-title">
-        <span lang-el>Σνακς</span>
-        <span lang-en>Snacks</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Σάντουιτς <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μικρογεύματα</span>
-        <span lang-en>Sandwiches <span style="font-family: 'Jost', sans-serif;">&amp;</span> Lite Bites</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Τοστ</span>
-            <span lang-en>Toast</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Γαλοπούλα, τυρί</span>
-          <span lang-en>Turkey, cheese</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σπέσιαλ Τοστ</span>
-            <span lang-en>Special Toast</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ζαμπόν, τυρί, ντομάτα, αυγό, μαγιονέζα</span>
-          <span lang-en>Ham, cheese, tomato, egg, mayonnaise</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μπαγκέτα Γαλλική</span>
-            <span lang-en>French Baguette</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Κοτόπουλο, τυρί, ντομάτα, ρόκα, coleslaw</span>
-          <span lang-en>Chicken, cheese, tomato, rocket, coleslaw</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μπαγκέτα Ελληνική <span class="vbadge">V</span></span>
-            <span lang-en>Greek Baguette <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, αγγούρι, κρεμμύδι, φέτα, πάστα ελιάς, ρίγανη, πιπεριά</span>
-          <span lang-en>Tomato, cucumber, onion, feta, olive paste, oregano, bell pepper</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Τορτίγια</span>
-            <span lang-en>Tortilla Wrap</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Γαλοπούλα, τυρί, μαρούλι, σως Caesar</span>
-          <span lang-en>Turkey, cheese, lettuce, caesar sauce</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Τορτίγια Σολομού</span>
-            <span lang-en>Salmon Tortilla</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Σολομός, baby σπανάκι, αγγούρι, κρέμα τυρί, άνηθος, κάπαρη</span>
-          <span lang-en>Salmon, baby spinach, cucumber, cream cheese, dill, capers</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κλαμπ Σάντουιτς Saloon</span>
-            <span lang-en>Saloon Club Sandwich</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ζαμπόν, τυρί, ντομάτα, μαρμελάδα μπέικον, μαρούλι, αγγούρι, μαγιονέζα, πατάτες</span>
-          <span lang-en>Ham, cheese, tomato, bacon jam, lettuce, cucumber, mayo, fries</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κλαμπ Κοτόπουλο</span>
-            <span lang-en>Chicken Club Sandwich</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Κοτόπουλο, μπέικον, τυρί, ντομάτα, μαρούλι, μαγιονέζα, πατάτες</span>
-          <span lang-en>Chicken, bacon, cheese, tomato, lettuce, mayo, fries</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Φρουτοσαλάτα <span class="vbadge">V</span></span>
-            <span lang-en>Fruit Salad <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Φρούτα εποχής</span>
-          <span lang-en>Seasonal fresh fruits</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- S3: SALADS -->
-    <div class="sec" id="s3">
-      <div class="sec-title">
-        <span lang-el>Σαλάτες</span>
-        <span lang-en>Salads</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Φρέσκες <span style="font-family: 'Jost', sans-serif;">&amp;</span> Δροσερές</span>
-        <span lang-en>Fresh <span style="font-family: 'Jost', sans-serif;">&amp;</span> Crisp</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Καίσαρα</span>
-            <span lang-en>Caesar</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Iceberg, παρμεζάνα, ντοματίνια, κοτόπουλο, κρουτόν, dressing Caesar</span>
-          <span lang-en>Iceberg, parmesan, cherry tomatoes, chicken, croutons, caesar dressing</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Χωριάτικη <span class="vbadge">V</span></span>
-            <span lang-en>Greek Salad <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, αγγούρι, κρεμμύδι, φέτα, ελιές</span>
-          <span lang-en>Tomato, cucumber, onion, feta, olives</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Καπρέζε <span class="vbadge">V</span></span>
-            <span lang-en>Caprese <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, μοτσαρέλα di bufala, βασιλικός, ελαιόλαδο, χοντρό αλάτι, ρόκα, βαλσάμικο</span>
-          <span lang-en>Tomato, mozzarella di bufala, basil, olive oil, sea salt, rocket, balsamic</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Ντάκος <span class="vbadge">V</span></span>
-            <span lang-en>Dakos <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Παξιμάδι, ντομάτα, φέτα</span>
-          <span lang-en>Cretan rusk, tomato, feta</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σαλάτα Σεφ</span>
-            <span lang-en>Chef Salad</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Πράσινη σαλάτα, γαλοπούλα, τυρί, ντομάτα, cocktail sauce, βραστό αυγό, καλαμπόκι</span>
-          <span lang-en>Green salad, turkey, cheese, tomato, cocktail sauce, boiled egg, corn</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- S4: APPETIZERS -->
-    <div class="sec" id="s4">
-      <div class="sec-title">
-        <span lang-el>Ορεκτικά</span>
-        <span lang-en>Appetizers</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Για να Ξεκινήσετε</span>
-        <span lang-en>To Get You Started</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Μανούρι Ψητό</span><span lang-en>Grilled Manouri Cheese</span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Αρατσίνι</span><span lang-en>Arancini</span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Τυροκροκέτες</span><span lang-en>Cheese Croquettes</span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Μανιτάρια Σωτέ <span class="vbadge">V</span></span><span lang-en>Sautéed
-              Mushrooms <span class="vbadge">V</span></span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Κοτομπουκιές BBQ</span><span lang-en>BBQ Chicken Nuggets</span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Τυροσαλάτα <span class="vbadge">V</span></span><span lang-en>Cheese
-              Spread <span class="vbadge">V</span></span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Πατάτες Τηγανητές <span class="vbadge">V</span></span><span
-              lang-en>French Fries <span class="vbadge">V</span></span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Σκέτες · Μπέικον <span style="font-family: 'Jost', sans-serif;">&amp;</span> τυρί</span>
-          <span lang-en>Plain · Bacon <span style="font-family: 'Jost', sans-serif;">&amp;</span> cheese</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Τζατζίκι <span class="vbadge">V</span></span><span lang-en>Tzatziki
-              <span class="vbadge">V</span></span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Ψωμί <span style="font-family: 'Jost', sans-serif;">&amp;</span> Πίτες
-              <span class="vbadge">V</span></span><span lang-en>Bread
-              <span style="font-family: 'Jost', sans-serif;">&amp;</span> Pitta <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
+          <div class="item-price">5.50</div>
         </div>
       </div>
 
     </div>
 
-    <!-- S9: BAO & PLATTERS -->
-    <div class="sec" id="s9">
-      <div class="sec-title">
-        <span lang-el>Bao <span style="font-family: 'Jost', sans-serif;">&amp;</span> Πλατώ</span>
-        <span lang-en>Bao <span style="font-family: 'Jost', sans-serif;">&amp;</span> Platters</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Ιδανικά για τη Μέση</span>
-        <span lang-en>Perfect to Share</span>
-      </div>
-      <div class="sec-divider"></div>
+    <template>
+      <!-- S1: BRUNCH -->
+      <div class="sec" id="s1">
+        <div class="sec-title">Brunch</div>
+        <div class="sec-en">
+          <span lang-el>Πρωινό <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μεσημεριανό</span>
+          <span lang-en>Morning <span style="font-family: 'Jost', sans-serif;">&amp;</span> Midday</span>
+        </div>
+        <div class="sec-divider"></div>
 
-      <div class="cat-label">Bao Buns</div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Γαρίδα Tempura</span><span lang-en>Shrimp Tempura</span></div>
+        <div class="cat-label">
+          <span lang-el>Μπολ Ενέργειας</span>
+          <span lang-en>Energy Bowls</span>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μπολ Πρωτεΐνης</span>
+              <span lang-en>Protein Bowl</span>
+            </div>
 
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Sweet chili, λάχανο, καρότο</span>
-          <span lang-en>Sweet chili, cabbage, carrot</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Χοιρινό Pulled Pork</span><span lang-en>Pulled Pork</span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Αϊολί σως</span>
-          <span lang-en>Aioli sauce</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title"><span lang-el>Κοτόπουλο</span><span lang-en>Chicken</span></div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Teriyaki, κόκκινο λάχανο</span>
-          <span lang-en>Teriyaki, red cabbage</span>
-        </div>
-      </div>
-
-      <div class="cat-label">
-        <span lang-el>Πλατώ</span>
-        <span lang-en>Platters</span>
-      </div>
-      <div class="platter-grid">
-        <div class="platter-card">
-          <div class="platter-title"><span lang-el>Αλλαντικών</span><span lang-en>Cold Cuts</span></div>
-          <div class="platter-p">14.50</div>
-        </div>
-        <div class="platter-card">
-          <div class="platter-title"><span lang-el>Τυριών</span><span lang-en>Cheese</span></div>
-          <div class="platter-p">14.50</div>
-        </div>
-        <div class="platter-card">
-          <div class="platter-title"><span lang-el>Μεικτό</span><span lang-en>Mixed</span></div>
-          <div class="platter-p">14.50</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- S5: PIZZA -->
-    <div class="sec" id="s5">
-      <div class="sec-title">
-        <span lang-el>Πίτσες</span>
-        <span lang-en>Pizza</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Χειροποίητες <span style="font-family: 'Jost', sans-serif;">&amp;</span> Λαχταριστές</span>
-        <span lang-en>Handmade <span style="font-family: 'Jost', sans-serif;">&amp;</span> Delicious</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μαργαρίτα <span class="vbadge">V</span></span>
-            <span lang-en>Margherita <span class="vbadge">V</span></span>
+            <div class="item-price">14.50</div>
           </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Φρέσκια σάλτσα ντομάτας, μοτσαρέλα</span>
-          <span lang-en>Fresh tomato sauce, mozzarella</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σπέσιαλ</span>
-            <span lang-en>Special</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, μοτσαρέλα, κρεμμύδι, ζαμπόν, μπέικον, μανιτάρι, πιπεριά</span>
-          <span lang-en>Tomato, mozzarella, onion, ham, bacon, mushroom, bell pepper</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Ελληνική <span class="vbadge">V</span></span>
-            <span lang-en>Greek <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, φέτα, ελιές, κρεμμύδι, πιπεριά, ελαιόλαδο</span>
-          <span lang-en>Tomato, feta, olives, onion, bell pepper, olive oil</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Λαχανικών <span class="vbadge">V</span></span>
-            <span lang-en>Veggie <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, μοτσαρέλα, κρεμμύδι, ελιά, πιπεριά, κολοκύθι</span>
-          <span lang-en>Tomato, mozzarella, onion, olive, bell pepper, zucchini</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Daviola <span class="chef-star"><i class="fa-solid fa-star"></i> Επιλογή Σεφ</span></span>
-            <span lang-en>Daviola <span class="chef-star"><i class="fa-solid fa-star"></i> Chef's Choice</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, μοτσαρέλα, pepperoni, πιπεριά, μπούκοβο</span>
-          <span lang-en>Tomato, mozzarella, pepperoni, bell pepper, bukovo</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κοτόπουλο BBQ</span>
-            <span lang-en>Chicken BBQ</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Ντομάτα, μοτσαρέλα, κρεμμύδι, καλαμπόκι</span>
-          <span lang-en>Tomato, mozzarella, onion, corn</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- S6: BURGERS -->
-    <div class="sec" id="s6">
-      <div class="sec-title">Burgers</div>
-      <div class="sec-en">
-        <span lang-el>Σερβίρονται με πατάτες</span>
-        <span lang-en>Served with fries</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Cheeseburger</span>
-            <span lang-en>Cheeseburger</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Μπιφτέκι, τσένταρ, μαρούλι, ντομάτα, σως μουστάρδας</span>
-          <span lang-en>Beef patty, cheddar, lettuce, tomato, mustard sauce</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σπέσιαλ Μπέργκερ&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Επιλογή
-                Σεφ</span></span>
-            <span lang-en>Special Burger&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Chef's
-                Choice</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Μπιφτέκι, τσένταρ, αυγό, μπέικον, chutney κρεμμυδιού, ντομάτα, BBQ, κέτσαπ</span>
-          <span lang-en>Beef patty, cheddar, egg, bacon, onion chutney, tomato, BBQ sauce, ketchup</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Διπλό Μπέργκερ</span>
-            <span lang-en>Double Burger</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Διπλό μπιφτέκι, τσένταρ, αυγό, μπέικον, ντομάτα, μαρούλι, μαγιονέζα</span>
-          <span lang-en>Double beef patty, cheddar, egg, bacon, tomato, lettuce, mayo</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μπέργκερ Τρούφας</span>
-            <span lang-en>Truffle Burger</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Μπιφτέκι, μαγιονέζα τρούφας, έμενταλ, κρεμμύδι, ρόκα, σιρόπι σφενδάμου</span>
-          <span lang-en>Beef patty, truffle mayo, emmental, onion, arugula, maple syrup</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μπέργκερ Μέλι BBQ</span>
-            <span lang-en>Honey BBQ Burger</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Κοτόπουλο, τυρί, ντομάτα, κρεμμύδι, μαρούλι</span>
-          <span lang-en>Chicken, cheese, tomato, onion, lettuce</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Καπνιστό Texas</span>
-            <span lang-en>Texas Smoke Chicken</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Καπνιστό BBQ κοτόπουλο, onion rings, τσένταρ, ντομάτα</span>
-          <span lang-en>Smoked BBQ chicken, onion rings, cheddar, tomato</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μπέργκερ Pulled Pork</span>
-            <span lang-en>Pulled Pork Burger</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Pulled pork, τσένταρ, πίκλα, μαρούλι, σως Worcestershire</span>
-          <span lang-en>Pulled pork, cheddar, pickles, lettuce, worcestershire sauce</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Χορτοφαγικό Μπέργκερ <span class="vbadge">V</span></span>
-            <span lang-en>Vegetarian Burger <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Μπιφτέκι λαχανικών, ντομάτα, μαρούλι, πίκλα, ένταμ, σως μουστάρδας</span>
-          <span lang-en>Veggie patty, tomato, lettuce, pickles, edam, mustard sauce</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Χρυσό Χορτοφαγικό <span class="vbadge">V</span></span>
-            <span lang-en>Veggie Gold Burger <span class="vbadge">V</span></span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Χαλούμι, μαγιονέζα, πιπεριά Φλωρίνης, κρεμμύδι, μαρούλι, μέλι, ντομάτα</span>
-          <span lang-en>Halloumi, mayo, florina bell pepper, onion, lettuce, honey, tomato</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- S7: MAINS -->
-    <div class="sec" id="s7">
-      <div class="sec-title">
-        <span lang-el>Κυρίως Πιάτα</span>
-        <span lang-en>Main Course</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Σερβίρονται με πατάτες <span style="font-family: 'Jost', sans-serif;">&amp;</span> ρύζι</span>
-        <span lang-en>Served with fries <span style="font-family: 'Jost', sans-serif;">&amp;</span> rice</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Ποικιλία Σχάρας</span>
-            <span lang-en>Mix Grill</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Πανσέτα, κοτόπουλο, λουκάνικο, μπιφτέκι</span>
-          <span lang-en>Pork, chicken, sausage, beef patty</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Χοιρινή Σπαλομπριζόλα</span>
-            <span lang-en>Pork Steak</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Μοσχαρίσια Μπριζόλα</span>
-            <span lang-en>Beef Steak</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Πανσέτα</span>
-            <span lang-en>Pork Chop</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Λουκάνικο</span>
-            <span lang-en>Sausage</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σνίτσελ Χοιρινό</span>
-            <span lang-en>Pork Schnitzel</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Σκέτο · Α λα κρεμ · Κάρυ</span>
-          <span lang-en>Plain · À la crème · Curry</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κοτόπουλο Φιλέτο</span>
-            <span lang-en>Chicken Fillet</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Σκέτο · Α λα κρεμ · Κάρυ</span>
-          <span lang-en>Plain · À la crème · Curry</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Σνίτσελ Κοτόπουλο</span>
-            <span lang-en>Chicken Schnitzel</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Σκέτο · Α λα κρεμ · Κάρυ</span>
-          <span lang-en>Plain · À la crème · Curry</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- S8: DESSERTS -->
-    <div class="sec" id="s8">
-      <div class="sec-title">
-        <span lang-el>Επιδόρπια</span>
-        <span lang-en>Desserts</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Κάτι Γλυκό</span>
-        <span lang-en>Sweet Endings</span>
-      </div>
-      <div class="sec-divider"></div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Βάφλα Σοκολάτα</span>
-            <span lang-en>Chocolate Waffle</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Βάφλα Σοκολάτα Μπισκότο</span>
-            <span lang-en>Waffle Chocolate Biscuit</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Καλτσόνε Γλυκό</span>
-            <span lang-en>Sweet Calzone</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Με σοκολάτα</span>
-          <span lang-en>With chocolate</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Καλτσόνε Σοκολάτα <span style="font-family: 'Jost', sans-serif;">&amp;</span> Φρούτα</span>
-            <span lang-en>Calzone Chocolate <span style="font-family: 'Jost', sans-serif;">&amp;</span> Fruits</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Με σοκολάτα και φρούτα εποχής</span>
-          <span lang-en>With chocolate and seasonal fruits</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κρουασάν Κρέμα Βανίλια</span>
-            <span lang-en>Vanilla Cream Croissant</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
-            <span lang-el>Κρουασάν Σοκολάτα</span>
-            <span lang-en>Chocolate Croissant</span>
-          </div>
-
-          <div class="item-price">14.50</div>
-        </div>
-      </div>
-
-      <div class="ice-card">
-        <div>
-          <div class="ice-title">
-            <span lang-el>Παγωτό</span>
-            <span lang-en>Ice Cream</span>
-          </div>
-          <div class="ice-flavors">
-            <span lang-el>Βανίλια · Σοκολάτα · Μπανάνα · Φυστίκι · Φράουλα</span>
-            <span lang-en>Vanilla · Chocolate · Banana · Pistachio · Strawberry</span>
+          <div class="item-desc">
+            <span lang-el>Γιαούρτι, μέλι, καρύδι, κανέλα, φρούτα εποχής, φυστικοβούτυρο</span>
+            <span lang-en>Yogurt, honey, walnut, cinnamon, seasonal fruits, peanut butter</span>
           </div>
         </div>
-        <div class="ice-p">14.50</div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Ενέργεια Saloon&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Επιλογή
+                  Σεφ</span></span>
+              <span lang-en>Saloon Energy&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Chef's
+                  Choice</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Γιαούρτι στραγγιστό, μαύρη σοκολάτα, granola, μπανάνα, μέλι</span>
+            <span lang-en>Greek yogurt, dark chocolate, granola, banana, honey</span>
+          </div>
+        </div>
+
+        <div class="cat-label">
+          <span lang-el>Αυγοιστορίες</span>
+          <span lang-en>Egg Stories</span>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Πράσινο Βελούδο Saloon</span>
+              <span lang-en>Green Velvet Saloon</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Πολύσπορο ψωμί, αβοκάντο, lime, μους φέτας, ντοματίνια, μαύρο σουσάμι, βραστό αυγό</span>
+            <span lang-en>Multigrain bread, avocado, lime, feta mousse, cherry tomatoes, black sesame, boiled egg</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κρoκ Μαντάμ</span>
+              <span lang-en>Croque Madame</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ψωμί τοστ, μπεσαμέλ, μπέικον, gouda, ρόκα, τηγανητό αυγό</span>
+            <span lang-en>Toast bread, bechamel, bacon, gouda, rocket, fried egg</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Ομελέτα</span>
+              <span lang-en>Omelette</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Αυγό, τυρί, φρυγανισμένο ψωμί</span>
+            <span lang-en>Egg, cheese, toasted bread</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σπέσιαλ Ομελέτα</span>
+              <span lang-en>Special Omelette</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ζαμπόν, τυρί, ντομάτα, πιπεριά</span>
+            <span lang-en>Ham, cheese, tomato, bell pepper</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Καγιανάς</span>
+              <span lang-en>Kagianas</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Φρυγανισμένο ψωμί, ντομάτα, αυγό, φέτα</span>
+            <span lang-en>Toasted bread, tomato, egg, feta</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Τοστ Αυγού</span>
+              <span lang-en>Egg Toast</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Αυγοφέτες, γαλοπούλα, μαρούλι, ντομάτα, μαγιονέζα</span>
+            <span lang-en>Egg bread, turkey, lettuce, tomato, mayonnaise</span>
+          </div>
+        </div>
+
+        <div class="cat-label">
+          <span lang-el>Κρουασάν</span>
+          <span lang-en>Croissants</span>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κρουασάν Σάντουιτς</span>
+              <span lang-en>Croissant Sandwich</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Γαλοπούλα, τυρί, μαρούλι, ντομάτα, μαγιονέζα</span>
+            <span lang-en>Turkey, cheese, lettuce, tomato, mayonnaise</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Βουτύρου</span>
+              <span lang-en>Butter Croissant</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κρουασάν Πραλίνα Σοκολάτα Φουντούκι</span>
+              <span lang-en>Croissant Chocolate Hazelnut Praline</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- S2: SNACKS -->
+      <div class="sec" id="s2">
+        <div class="sec-title">
+          <span lang-el>Σνακς</span>
+          <span lang-en>Snacks</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Σάντουιτς <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μικρογεύματα</span>
+          <span lang-en>Sandwiches <span style="font-family: 'Jost', sans-serif;">&amp;</span> Lite Bites</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Τοστ</span>
+              <span lang-en>Toast</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Γαλοπούλα, τυρί</span>
+            <span lang-en>Turkey, cheese</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σπέσιαλ Τοστ</span>
+              <span lang-en>Special Toast</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ζαμπόν, τυρί, ντομάτα, αυγό, μαγιονέζα</span>
+            <span lang-en>Ham, cheese, tomato, egg, mayonnaise</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μπαγκέτα Γαλλική</span>
+              <span lang-en>French Baguette</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Κοτόπουλο, τυρί, ντομάτα, ρόκα, coleslaw</span>
+            <span lang-en>Chicken, cheese, tomato, rocket, coleslaw</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μπαγκέτα Ελληνική <span class="vbadge">V</span></span>
+              <span lang-en>Greek Baguette <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, αγγούρι, κρεμμύδι, φέτα, πάστα ελιάς, ρίγανη, πιπεριά</span>
+            <span lang-en>Tomato, cucumber, onion, feta, olive paste, oregano, bell pepper</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Τορτίγια</span>
+              <span lang-en>Tortilla Wrap</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Γαλοπούλα, τυρί, μαρούλι, σως Caesar</span>
+            <span lang-en>Turkey, cheese, lettuce, caesar sauce</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Τορτίγια Σολομού</span>
+              <span lang-en>Salmon Tortilla</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Σολομός, baby σπανάκι, αγγούρι, κρέμα τυρί, άνηθος, κάπαρη</span>
+            <span lang-en>Salmon, baby spinach, cucumber, cream cheese, dill, capers</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κλαμπ Σάντουιτς Saloon</span>
+              <span lang-en>Saloon Club Sandwich</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ζαμπόν, τυρί, ντομάτα, μαρμελάδα μπέικον, μαρούλι, αγγούρι, μαγιονέζα, πατάτες</span>
+            <span lang-en>Ham, cheese, tomato, bacon jam, lettuce, cucumber, mayo, fries</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κλαμπ Κοτόπουλο</span>
+              <span lang-en>Chicken Club Sandwich</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Κοτόπουλο, μπέικον, τυρί, ντομάτα, μαρούλι, μαγιονέζα, πατάτες</span>
+            <span lang-en>Chicken, bacon, cheese, tomato, lettuce, mayo, fries</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Φρουτοσαλάτα <span class="vbadge">V</span></span>
+              <span lang-en>Fruit Salad <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Φρούτα εποχής</span>
+            <span lang-en>Seasonal fresh fruits</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- S3: SALADS -->
+      <div class="sec" id="s3">
+        <div class="sec-title">
+          <span lang-el>Σαλάτες</span>
+          <span lang-en>Salads</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Φρέσκες <span style="font-family: 'Jost', sans-serif;">&amp;</span> Δροσερές</span>
+          <span lang-en>Fresh <span style="font-family: 'Jost', sans-serif;">&amp;</span> Crisp</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Καίσαρα</span>
+              <span lang-en>Caesar</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Iceberg, παρμεζάνα, ντοματίνια, κοτόπουλο, κρουτόν, dressing Caesar</span>
+            <span lang-en>Iceberg, parmesan, cherry tomatoes, chicken, croutons, caesar dressing</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Χωριάτικη <span class="vbadge">V</span></span>
+              <span lang-en>Greek Salad <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, αγγούρι, κρεμμύδι, φέτα, ελιές</span>
+            <span lang-en>Tomato, cucumber, onion, feta, olives</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Καπρέζε <span class="vbadge">V</span></span>
+              <span lang-en>Caprese <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, μοτσαρέλα di bufala, βασιλικός, ελαιόλαδο, χοντρό αλάτι, ρόκα, βαλσάμικο</span>
+            <span lang-en>Tomato, mozzarella di bufala, basil, olive oil, sea salt, rocket, balsamic</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Ντάκος <span class="vbadge">V</span></span>
+              <span lang-en>Dakos <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Παξιμάδι, ντομάτα, φέτα</span>
+            <span lang-en>Cretan rusk, tomato, feta</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σαλάτα Σεφ</span>
+              <span lang-en>Chef Salad</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Πράσινη σαλάτα, γαλοπούλα, τυρί, ντομάτα, cocktail sauce, βραστό αυγό, καλαμπόκι</span>
+            <span lang-en>Green salad, turkey, cheese, tomato, cocktail sauce, boiled egg, corn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4: APPETIZERS -->
+      <div class="sec" id="s4">
+        <div class="sec-title">
+          <span lang-el>Ορεκτικά</span>
+          <span lang-en>Appetizers</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Για να Ξεκινήσετε</span>
+          <span lang-en>To Get You Started</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Μανούρι Ψητό</span><span lang-en>Grilled Manouri Cheese</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Αρατσίνι</span><span lang-en>Arancini</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Τυροκροκέτες</span><span lang-en>Cheese Croquettes</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Μανιτάρια Σωτέ <span class="vbadge">V</span></span><span
+                lang-en>Sautéed
+                Mushrooms <span class="vbadge">V</span></span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Κοτομπουκιές BBQ</span><span lang-en>BBQ Chicken Nuggets</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Τυροσαλάτα <span class="vbadge">V</span></span><span lang-en>Cheese
+                Spread <span class="vbadge">V</span></span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Πατάτες Τηγανητές <span class="vbadge">V</span></span><span
+                lang-en>French Fries <span class="vbadge">V</span></span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Σκέτες · Μπέικον <span style="font-family: 'Jost', sans-serif;">&amp;</span> τυρί</span>
+            <span lang-en>Plain · Bacon <span style="font-family: 'Jost', sans-serif;">&amp;</span> cheese</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Τζατζίκι <span class="vbadge">V</span></span><span lang-en>Tzatziki
+                <span class="vbadge">V</span></span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Ψωμί <span style="font-family: 'Jost', sans-serif;">&amp;</span> Πίτες
+                <span class="vbadge">V</span></span><span lang-en>Bread
+                <span style="font-family: 'Jost', sans-serif;">&amp;</span> Pitta <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- S9: BAO & PLATTERS -->
+      <div class="sec" id="s9">
+        <div class="sec-title">
+          <span lang-el>Bao <span style="font-family: 'Jost', sans-serif;">&amp;</span> Πλατώ</span>
+          <span lang-en>Bao <span style="font-family: 'Jost', sans-serif;">&amp;</span> Platters</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Ιδανικά για τη Μέση</span>
+          <span lang-en>Perfect to Share</span>
+        </div>
+        <div class="sec-divider"></div>
+
+        <div class="cat-label">Bao Buns</div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Γαρίδα Tempura</span><span lang-en>Shrimp Tempura</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Sweet chili, λάχανο, καρότο</span>
+            <span lang-en>Sweet chili, cabbage, carrot</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Χοιρινό Pulled Pork</span><span lang-en>Pulled Pork</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Αϊολί σως</span>
+            <span lang-en>Aioli sauce</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title"><span lang-el>Κοτόπουλο</span><span lang-en>Chicken</span></div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Teriyaki, κόκκινο λάχανο</span>
+            <span lang-en>Teriyaki, red cabbage</span>
+          </div>
+        </div>
+
+        <div class="cat-label">
+          <span lang-el>Πλατώ</span>
+          <span lang-en>Platters</span>
+        </div>
+        <div class="platter-grid">
+          <div class="platter-card">
+            <div class="platter-title"><span lang-el>Αλλαντικών</span><span lang-en>Cold Cuts</span></div>
+            <div class="platter-p">14.50</div>
+          </div>
+          <div class="platter-card">
+            <div class="platter-title"><span lang-el>Τυριών</span><span lang-en>Cheese</span></div>
+            <div class="platter-p">14.50</div>
+          </div>
+          <div class="platter-card">
+            <div class="platter-title"><span lang-el>Μεικτό</span><span lang-en>Mixed</span></div>
+            <div class="platter-p">14.50</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S5: PIZZA -->
+      <div class="sec" id="s5">
+        <div class="sec-title">
+          <span lang-el>Πίτσες</span>
+          <span lang-en>Pizza</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Χειροποίητες <span style="font-family: 'Jost', sans-serif;">&amp;</span> Λαχταριστές</span>
+          <span lang-en>Handmade <span style="font-family: 'Jost', sans-serif;">&amp;</span> Delicious</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μαργαρίτα <span class="vbadge">V</span></span>
+              <span lang-en>Margherita <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Φρέσκια σάλτσα ντομάτας, μοτσαρέλα</span>
+            <span lang-en>Fresh tomato sauce, mozzarella</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σπέσιαλ</span>
+              <span lang-en>Special</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, μοτσαρέλα, κρεμμύδι, ζαμπόν, μπέικον, μανιτάρι, πιπεριά</span>
+            <span lang-en>Tomato, mozzarella, onion, ham, bacon, mushroom, bell pepper</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Ελληνική <span class="vbadge">V</span></span>
+              <span lang-en>Greek <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, φέτα, ελιές, κρεμμύδι, πιπεριά, ελαιόλαδο</span>
+            <span lang-en>Tomato, feta, olives, onion, bell pepper, olive oil</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Λαχανικών <span class="vbadge">V</span></span>
+              <span lang-en>Veggie <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, μοτσαρέλα, κρεμμύδι, ελιά, πιπεριά, κολοκύθι</span>
+            <span lang-en>Tomato, mozzarella, onion, olive, bell pepper, zucchini</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Daviola <span class="chef-star"><i class="fa-solid fa-star"></i> Επιλογή Σεφ</span></span>
+              <span lang-en>Daviola <span class="chef-star"><i class="fa-solid fa-star"></i> Chef's Choice</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, μοτσαρέλα, pepperoni, πιπεριά, μπούκοβο</span>
+            <span lang-en>Tomato, mozzarella, pepperoni, bell pepper, bukovo</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κοτόπουλο BBQ</span>
+              <span lang-en>Chicken BBQ</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Ντομάτα, μοτσαρέλα, κρεμμύδι, καλαμπόκι</span>
+            <span lang-en>Tomato, mozzarella, onion, corn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6: BURGERS -->
+      <div class="sec" id="s6">
+        <div class="sec-title">Burgers</div>
+        <div class="sec-en">
+          <span lang-el>Σερβίρονται με πατάτες</span>
+          <span lang-en>Served with fries</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Cheeseburger</span>
+              <span lang-en>Cheeseburger</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Μπιφτέκι, τσένταρ, μαρούλι, ντομάτα, σως μουστάρδας</span>
+            <span lang-en>Beef patty, cheddar, lettuce, tomato, mustard sauce</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σπέσιαλ Μπέργκερ&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Επιλογή
+                  Σεφ</span></span>
+              <span lang-en>Special Burger&nbsp;<span class="chef-star"><i class="fa-solid fa-star"></i> Chef's
+                  Choice</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Μπιφτέκι, τσένταρ, αυγό, μπέικον, chutney κρεμμυδιού, ντομάτα, BBQ, κέτσαπ</span>
+            <span lang-en>Beef patty, cheddar, egg, bacon, onion chutney, tomato, BBQ sauce, ketchup</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Διπλό Μπέργκερ</span>
+              <span lang-en>Double Burger</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Διπλό μπιφτέκι, τσένταρ, αυγό, μπέικον, ντομάτα, μαρούλι, μαγιονέζα</span>
+            <span lang-en>Double beef patty, cheddar, egg, bacon, tomato, lettuce, mayo</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μπέργκερ Τρούφας</span>
+              <span lang-en>Truffle Burger</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Μπιφτέκι, μαγιονέζα τρούφας, έμενταλ, κρεμμύδι, ρόκα, σιρόπι σφενδάμου</span>
+            <span lang-en>Beef patty, truffle mayo, emmental, onion, arugula, maple syrup</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μπέργκερ Μέλι BBQ</span>
+              <span lang-en>Honey BBQ Burger</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Κοτόπουλο, τυρί, ντομάτα, κρεμμύδι, μαρούλι</span>
+            <span lang-en>Chicken, cheese, tomato, onion, lettuce</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Καπνιστό Texas</span>
+              <span lang-en>Texas Smoke Chicken</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Καπνιστό BBQ κοτόπουλο, onion rings, τσένταρ, ντομάτα</span>
+            <span lang-en>Smoked BBQ chicken, onion rings, cheddar, tomato</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μπέργκερ Pulled Pork</span>
+              <span lang-en>Pulled Pork Burger</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Pulled pork, τσένταρ, πίκλα, μαρούλι, σως Worcestershire</span>
+            <span lang-en>Pulled pork, cheddar, pickles, lettuce, worcestershire sauce</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Χορτοφαγικό Μπέργκερ <span class="vbadge">V</span></span>
+              <span lang-en>Vegetarian Burger <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Μπιφτέκι λαχανικών, ντομάτα, μαρούλι, πίκλα, ένταμ, σως μουστάρδας</span>
+            <span lang-en>Veggie patty, tomato, lettuce, pickles, edam, mustard sauce</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Χρυσό Χορτοφαγικό <span class="vbadge">V</span></span>
+              <span lang-en>Veggie Gold Burger <span class="vbadge">V</span></span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Χαλούμι, μαγιονέζα, πιπεριά Φλωρίνης, κρεμμύδι, μαρούλι, μέλι, ντομάτα</span>
+            <span lang-en>Halloumi, mayo, florina bell pepper, onion, lettuce, honey, tomato</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- S7: MAINS -->
+      <div class="sec" id="s7">
+        <div class="sec-title">
+          <span lang-el>Κυρίως Πιάτα</span>
+          <span lang-en>Main Course</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Σερβίρονται με πατάτες <span style="font-family: 'Jost', sans-serif;">&amp;</span> ρύζι</span>
+          <span lang-en>Served with fries <span style="font-family: 'Jost', sans-serif;">&amp;</span> rice</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Ποικιλία Σχάρας</span>
+              <span lang-en>Mix Grill</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Πανσέτα, κοτόπουλο, λουκάνικο, μπιφτέκι</span>
+            <span lang-en>Pork, chicken, sausage, beef patty</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Χοιρινή Σπαλομπριζόλα</span>
+              <span lang-en>Pork Steak</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Μοσχαρίσια Μπριζόλα</span>
+              <span lang-en>Beef Steak</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Πανσέτα</span>
+              <span lang-en>Pork Chop</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Λουκάνικο</span>
+              <span lang-en>Sausage</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σνίτσελ Χοιρινό</span>
+              <span lang-en>Pork Schnitzel</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Σκέτο · Α λα κρεμ · Κάρυ</span>
+            <span lang-en>Plain · À la crème · Curry</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κοτόπουλο Φιλέτο</span>
+              <span lang-en>Chicken Fillet</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Σκέτο · Α λα κρεμ · Κάρυ</span>
+            <span lang-en>Plain · À la crème · Curry</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Σνίτσελ Κοτόπουλο</span>
+              <span lang-en>Chicken Schnitzel</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Σκέτο · Α λα κρεμ · Κάρυ</span>
+            <span lang-en>Plain · À la crème · Curry</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- S8: DESSERTS -->
+      <div class="sec" id="s8">
+        <div class="sec-title">
+          <span lang-el>Επιδόρπια</span>
+          <span lang-en>Desserts</span>
+        </div>
+        <div class="sec-en">
+          <span lang-el>Κάτι Γλυκό</span>
+          <span lang-en>Sweet Endings</span>
+        </div>
+        <div class="sec-divider"></div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Βάφλα Σοκολάτα</span>
+              <span lang-en>Chocolate Waffle</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Βάφλα Σοκολάτα Μπισκότο</span>
+              <span lang-en>Waffle Chocolate Biscuit</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Καλτσόνε Γλυκό</span>
+              <span lang-en>Sweet Calzone</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Με σοκολάτα</span>
+            <span lang-en>With chocolate</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Καλτσόνε Σοκολάτα <span style="font-family: 'Jost', sans-serif;">&amp;</span> Φρούτα</span>
+              <span lang-en>Calzone Chocolate <span style="font-family: 'Jost', sans-serif;">&amp;</span> Fruits</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+          <div class="item-desc">
+            <span lang-el>Με σοκολάτα και φρούτα εποχής</span>
+            <span lang-en>With chocolate and seasonal fruits</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κρουασάν Κρέμα Βανίλια</span>
+              <span lang-en>Vanilla Cream Croissant</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div class="item-title">
+              <span lang-el>Κρουασάν Σοκολάτα</span>
+              <span lang-en>Chocolate Croissant</span>
+            </div>
+
+            <div class="item-price">14.50</div>
+          </div>
+        </div>
+
+        <div class="ice-card">
+          <div>
+            <div class="ice-title">
+              <span lang-el>Παγωτό</span>
+              <span lang-en>Ice Cream</span>
+            </div>
+            <div class="ice-flavors">
+              <span lang-el>Βανίλια · Σοκολάτα · Μπανάνα · Φυστίκι · Φράουλα</span>
+              <span lang-en>Vanilla · Chocolate · Banana · Pistachio · Strawberry</span>
+            </div>
+          </div>
+          <div class="ice-p">14.50</div>
+        </div>
+      </div>
 
   </div>
+  </template>
   </div> <!-- END FOOD SECTIONS -->
 
   <div id="drinks-sections" style="display: none;">
 
-    <!-- D0: OFFERS -->
-    <div class="sec" id="d0">
-      <div class="sec-title">
-        <span lang-el>Ανακαλύψτε</span>
-        <span lang-en>Discover</span>
-      </div>
-      <div class="sec-en">
-        <span lang-el>Εμπειρίες, Combos <span style="font-family: 'Jost', sans-serif;">&amp;</span> Νέα</span>
-        <span lang-en>Experiences, Combos <span style="font-family: 'Jost', sans-serif;">&amp;</span> News</span>
-      </div>
-      <div class="sec-divider"></div>
-
-      <!-- EXPERIENCES & SERVICES — moved first -->
-      <div class="cat-label">
-        <span lang-el>Εμπειρίες <span style="font-family: 'Jost', sans-serif;">&amp;</span> Υπηρεσίες</span>
-        <span lang-en>Experiences <span style="font-family: 'Jost', sans-serif;">&amp;</span> Services</span>
-      </div>
-
-      <!-- Build Your Cocktail Quiz Trigger -->
-      <div class="quiz-trigger-card" onclick="openQuizModal()">
-        <div class="quiz-trigger-icon">
-          <i class="fa-solid fa-wand-magic-sparkles fa-bounce" style="--fa-animation-duration: 3s;"></i>
-        </div>
-        <div class="quiz-trigger-content">
-          <div class="quiz-trigger-title">
-            <span lang-el>Βρείτε το Cocktail σας</span>
-            <span lang-en>Find Your Perfect Match</span>
-          </div>
-          <div class="quiz-trigger-desc">
-            <span lang-el>3 γρήγορες ερωτήσεις για το ιδανικό signature cocktail.</span>
-            <span lang-en>3 quick questions to discover your signature cocktail.</span>
-          </div>
-        </div>
-        <div class="quiz-trigger-arrow">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
-      </div>
-
-      <!-- Vescovi Coffee Brand Ribbon -->
-      <div
-        onclick="document.getElementById('vescovi-modal').classList.add('active'); document.body.style.overflow='hidden';"
-        style="display:flex; align-items:center; gap:20px; background:linear-gradient(135deg, #2C1A0E, #3d2612); border-radius:16px; padding:22px 20px; margin-bottom:20px; box-shadow:0 6px 20px rgba(44,26,14,0.2); cursor:pointer; -webkit-tap-highlight-color:transparent; position:relative; overflow:hidden; min-height:134px;">
-        <div
-          style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.04) 50%,transparent 60%);pointer-events:none;">
-        </div>
-        <!-- Logo circle -->
-        <div
-          style="width:90px; height:90px; border-radius:50%; background:rgba(255,255,255,0.07); border:1px solid rgba(212,169,106,0.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
-          <img src="VescoviLogo.png" alt="Vescovi"
-            style="width:80px; height:80px; object-fit:contain; transform: scale(1.1);">
-        </div>
-        <!-- Text -->
-        <div style="flex:1; min-width:0; position:relative; z-index:2;">
-          <div
-            style="font-family: 'Literata', serif; font-size:10.5px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(212,169,106,0.65);">
-            <span lang-el>Σερβίρεται με</span><span lang-en>Proudly Served with</span>
-          </div>
-
-          <div style="width: 140px; height: 50px; position:relative; margin:-2px 0 2px -4px;">
-            <div
-              style="position:absolute; inset:0; background-color:#d4a96a; -webkit-mask-image:url('VescoviWord.png'); mask-image:url('VescoviWord.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:left center; mask-position:left center; transform:scale(1.4); transform-origin:left center;">
-            </div>
-          </div>
-
-          <div
-            style="font-size:12.5px; color:rgba(212,169,106,0.8); letter-spacing:0.5px; display:flex; align-items:center; gap:5px; margin-top:-2px;">
-            <i class="fa-solid fa-circle-info" style="font-size:11px;"></i>
-            <span lang-el>Πατήστε για περισσότερα</span>
-            <span lang-en>Tap to learn more</span>
-          </div>
-        </div>
-        <!-- Right badge -->
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;">
-          <div
-            style="font-size:10px; font-weight:700; color:rgba(212,169,106,0.8); text-transform:uppercase; letter-spacing:1px; text-align:right; line-height:1.6;">
-            <span lang-el>Ιταλικός<br>Εσπρέσσο</span>
-            <span lang-en>Italian<br>Espresso</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hookah Premium (Large Light Style) -->
-      <div
-        style="background: linear-gradient(135deg, rgba(139,94,60,0.05), rgba(214,124,94,0.05)); border-radius: 16px; padding: 22px 20px; display: flex; align-items: center; gap: 20px; margin-bottom: 16px; border: 1px solid var(--dark-sand); box-shadow: 0 4px 15px rgba(139,94,60,0.05); min-height:134px;">
-        <!-- Icon circle -->
-        <div
-          style="width: 90px; height: 90px; border-radius: 50%; background: var(--sand); border: 1px solid var(--dark-sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <div
-            style="width: 70px; height: 70px; background-color: var(--br); -webkit-mask-image: url('hookah_logo.png'); mask-image: url('hookah_logo.png'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
-          </div>
-        </div>
-        <!-- Text -->
-        <div style="flex: 1;">
-          <div
-            style="font-family: 'Literata', serif; font-size: 22px; font-weight: 700; color: var(--accent); margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;">
-            Hookah Hermanos
-            <a href="https://www.instagram.com/hookah_hermanos_est.21/" target="_blank"
-              style="color: var(--accent); font-size: 20px; transition: color 0.3s; margin-right: 5px;">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-          </div>
-          <div style="font-size: 16px; color: var(--muted); line-height: 1.5; font-family: 'Literata', serif;">
-            <span lang-el>Απολαύστε ναργιλέ εξαιρετικής ποιότητας δίπλα στο κύμα. (Ρωτήστε μας για τις γεύσεις)</span>
-            <span lang-en>Enjoy premium shisha sessions by the waves. (Ask for available flavors)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Polaroid (Large Light Style) -->
-      <div
-        style="background: linear-gradient(135deg, rgba(139,94,60,0.05), rgba(214,124,94,0.05)); border-radius: 16px; padding: 22px 20px; display: flex; align-items: center; gap: 20px; margin-bottom: 16px; border: 1px solid var(--dark-sand); box-shadow: 0 4px 15px rgba(139,94,60,0.05); min-height:134px;">
-        <!-- Icon circle -->
-        <div
-          style="width: 90px; height: 90px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(214,124,94,0.2);">
-          <i class="fa-solid fa-camera-retro" style="font-size: 40px; color: #fff;"></i>
-        </div>
-        <!-- Text -->
-        <div style="flex: 1;">
-          <div
-            style="font-family: 'Literata', serif; font-size: 22px; font-weight: 700; color: var(--br); margin-bottom: 4px;">
-            <span lang-el>Capture your moments!</span>
-            <span lang-en>Capture your moments!</span>
-          </div>
-          <div style="font-size: 16px; color: var(--muted); line-height: 1.5; font-family: 'Literata', serif;">
-            <span lang-el>Φωτογραφηθείτε με την παρέα σας σε κλασική polaroid! (Διαθέσιμες για αγορά)</span>
-            <span lang-en>Get a polaroid with your friends! (Available for purchase)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Happy Hour -->
-      <div class="cat-label">Happy Hour</div>
-      <div class="happy-hour-card">
-        <div class="hh-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
-        <div class="hh-title">Happy Hour</div>
-        <div class="hh-time">
-          <span lang-el>ΚΑΘΕ ΜΕΡΑ · 17:00 – 19:00</span>
-          <span lang-en>DAILY · 5:00 PM – 7:00 PM</span>
-        </div>
-        <div class="hh-deals">
-          <div class="hh-deal">
-            <div class="hh-deal-name">
-              <span lang-el>Ολα τα Cocktails</span>
-              <span lang-en>All Cocktails</span>
-            </div>
-            <div class="hh-deal-price">-30%</div>
-          </div>
-          <div class="hh-deal">
-            <div class="hh-deal-name">
-              <span lang-el>Μπύρα Barrel</span>
-              <span lang-en>Draft Beer</span>
-            </div>
-            <div class="hh-deal-price">3.50</div>
-          </div>
-          <div class="hh-deal">
-            <div class="hh-deal-name">
-              <span lang-el>Spritz Aperol / Hugo</span>
-              <span lang-en>Aperol / Hugo Spritz</span>
-            </div>
-            <div class="hh-deal-price">6.00</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cat-label">
-        <span lang-el>Combos</span>
-        <span lang-en>Combos</span>
-      </div>
-
-      <!-- Combo 1 -->
-      <div class="promo-card">
-        <div class="promo-badge">
-          <span lang-el>Δημοφιλές</span>
-          <span lang-en>Popular</span>
-        </div>
-        <div class="promo-title">
-          <span lang-el>Burger <span style="font-family: 'Jost', sans-serif;">&amp;</span> Μπύρα</span>
-          <span lang-en>Burger <span style="font-family: 'Jost', sans-serif;">&amp;</span> Beer</span>
-        </div>
-        <div class="promo-subtitle">
-          <span lang-el>Οποιοδήποτε burger + μπύρα barrel 400ml</span>
-          <span lang-en>Any burger + 400ml draft beer</span>
-        </div>
-        <div class="promo-items">
-          <div class="promo-item"><i class="fa-solid fa-burger"></i> <span lang-el>Burger της επιλογής σας</span><span
-              lang-en>Any burger of your choice</span></div>
-          <div class="promo-item"><i class="fa-solid fa-beer-mug-empty"></i> <span lang-el>Μπύρα βαρέλι
-              400ml</span><span lang-en>Draft beer 400ml</span></div>
-          <div class="promo-item"><i class="fa-solid fa-french-fries"></i> <span lang-el>Πατάτες τηγανητές</span><span
-              lang-en>French fries</span></div>
-        </div>
-        <div class="promo-price-row">
-          <div class="promo-price">16.00</div>
-          <div class="promo-savings">
-            <span lang-el>Εξοικονομείτε ~€4</span>
-            <span lang-en>You save ~€4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Combo 2 -->
-      <div class="promo-card">
-        <div class="promo-badge">
-          <span lang-el>Για 2</span>
-          <span lang-en>For 2</span>
-        </div>
-        <div class="promo-title">
-          <span lang-el>Πλατώ <span style="font-family: 'Jost', sans-serif;">&amp;</span> Κρασί</span>
-          <span lang-en>Platter <span style="font-family: 'Jost', sans-serif;">&amp;</span> Wine</span>
-        </div>
-        <div class="promo-subtitle">
-          <span lang-el>Μεικτό πλατώ + μπουκάλι κρασί της επιλογής σας</span>
-          <span lang-en>Mixed platter + bottle of wine of your choice</span>
-        </div>
-        <div class="promo-items">
-          <div class="promo-item"><i class="fa-solid fa-cheese"></i> <span lang-el>Μεικτό Πλατώ (αλλαντικά <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span>
-              τυριά)</span><span lang-en>Mixed Platter (cold cuts <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span> cheese)</span></div>
-          <div class="promo-item"><i class="fa-solid fa-wine-bottle"></i> <span lang-el>Μπουκάλι κρασί</span><span
-              lang-en>Bottle of wine</span></div>
-          <div class="promo-item"><i class="fa-solid fa-bread-slice"></i> <span lang-el>Ψωμί <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span> πίτες</span><span lang-en>Bread <span
-                style="font-family: 'Jost', sans-serif;">&amp;</span> pitta</span></div>
-        </div>
-        <div class="promo-price-row">
-          <div class="promo-price">28.00</div>
-          <div class="promo-savings">
-            <span lang-el>Εξοικονομείτε ~€6</span>
-            <span lang-en>You save ~€6</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Combo 3 -->
-      <div class="promo-card">
-        <div class="promo-badge">Brunch</div>
-        <div class="promo-title">
-          <span lang-el>Brunch για 2</span>
-          <span lang-en>Brunch for 2</span>
-        </div>
-        <div class="promo-subtitle">
-          <span lang-el>2 πιάτα brunch + 2 καφέδες/χυμοί</span>
-          <span lang-en>2 brunch dishes + 2 coffees or juices</span>
-        </div>
-        <div class="promo-items">
-          <div class="promo-item"><i class="fa-solid fa-egg"></i> <span lang-el>2x Brunch πιάτο (επιλογή
-              σας)</span><span lang-en>2x Brunch dish (your choice)</span></div>
-          <div class="promo-item"><i class="fa-solid fa-mug-saucer"></i> <span lang-el>2x Καφές ή φρέσκος
-              χυμός</span><span lang-en>2x Coffee or fresh juice</span></div>
-        </div>
-        <div class="promo-price-row">
-          <div class="promo-price">25.00</div>
-          <div class="promo-savings">
-            <span lang-el>Εξοικονομείτε ~€5</span>
-            <span lang-en>You save ~€5</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cat-label">
-        <span lang-el>Πληροφορίες</span>
-        <span lang-en>Info</span>
-      </div>
-
-      <!-- Info cards -->
-      <!--
-      <div class="info-card">
-        <div class="info-card-icon"><i class="fa-solid fa-music"></i></div>
-        <div class="info-card-content">
-          <div class="info-card-title">
-            <span lang-el>Live DJ Σάββατο</span>
-            <span lang-en>Saturday Live DJ</span>
-          </div>
-          <div class="info-card-desc">
-            <span lang-el>Κάθε Σάββατο βράδυ, chill beats <span style="font-family: 'Jost', sans-serif;">&amp;</span>
-              tropical vibes δίπλα στη θάλασσα.</span>
-            <span lang-en>Every Saturday night, chill beats <span style="font-family: 'Jost', sans-serif;">&amp;</span>
-              tropical vibes by the sea.</span>
-          </div>
-        </div>
-      </div>
-      -->
-
-      <!-- Premium Sunset Card -->
-      <div class="info-card sunset-card" style="background: linear-gradient(135deg, rgba(212, 169, 106, 0.05) 0%, rgba(192, 108, 84, 0.1) 100%); border: 1px solid rgba(212, 169, 106, 0.3); justify-content: center; text-align: center; padding: 25px 15px; position: relative; overflow: hidden;">
-        <!-- Subtle Animated Sun glow behind -->
-        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212, 169, 106, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
-        <div style="display: flex; flex-direction: column; align-items: center; width: 100%; z-index: 2;">
-          <div style="font-size: 24px; color: var(--accent); margin-bottom: 8px;">
-            <i class="fa-solid fa-sun fa-spin-pulse" style="--fa-animation-duration: 4s;"></i>
-          </div>
-          <div class="info-card-title" style="margin-bottom: 10px; font-family: 'Literata', serif; font-size: 16px; letter-spacing: 2px;">
-            <span lang-el>Ηλιοβασίλεμα</span>
-            <span lang-en>Sunset Sessions</span>
-          </div>
-          <div class="info-card-desc" style="margin-top: 0;">
-            <span class="sunset-timer" style="font-size: 2.2em; font-weight: 400; color: var(--accent); font-family: 'Jost', sans-serif; letter-spacing: 4px; text-shadow: 0 2px 10px rgba(139,94,60,0.2);">--:--:--</span>
-          </div>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-top: 8px; opacity: 0.8; font-family: 'Jost', sans-serif;">
-            <span lang-el>Cocktails δίπλα στο κύμα</span>
-            <span lang-en>Cocktails by the waves</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Spotify -->
-      <div class="info-card" style="align-items: center;">
-        <div class="info-card-icon" style="background: #1DB954; color: white;"><i class="fa-brands fa-spotify"></i>
-        </div>
-        <div class="info-card-content">
-          <div class="info-card-title">
-            <span lang-el>Playlist του Saloon</span>
-            <span lang-en>Saloon Playlist</span>
-          </div>
-          <div class="info-card-desc" style="margin-bottom: 8px;">
-            <span lang-el>Πάρτε το vibe μαζί σας! Ακούστε τη μουσική μας στο Spotify.</span>
-            <span lang-en>Take the vibe with you! Listen to our curated playlist.</span>
-          </div>
-          <a href="https://open.spotify.com/playlist/6X5OCMhptjAp2IYawQrcgl?si=idTeBFVKST6gsSxLcw0HDQ&pi=FHF2Tf-QTCq2B"
-            target="_blank"
-            style="display: inline-block; font-size: 11px; font-weight: 700; color: var(--br); text-transform: uppercase; letter-spacing: 1px; text-decoration: none; padding: 4px 12px; border: 1.5px solid var(--br); border-radius: 20px; transition: all 0.3s;"
-            onmouseover="this.style.background='var(--br)'; this.style.color='var(--sand)';"
-            onmouseout="this.style.background='transparent'; this.style.color='var(--br)';">
-            <span lang-el>ΑΚΟΥΣΤΕ ΤΩΡΑ &nbsp;<i class="fa-solid fa-play"></i></span>
-            <span lang-en>LISTEN NOW &nbsp;<i class="fa-solid fa-play"></i></span>
-          </a>
-        </div>
-      </div>
-
-      <!--
-      <div class="info-card">
-        <div class="info-card-icon"><i class="fa-solid fa-child-reaching"></i></div>
-        <div class="info-card-content">
-          <div class="info-card-title">
-            <span lang-el>Παιδικό Μενού</span>
-            <span lang-en>Kids Menu</span>
-          </div>
-          <div class="info-card-desc">
-            <span lang-el>Ρωτήστε το προσωπικό μας για τις ειδικές παιδικές μερίδες!</span>
-            <span lang-en>Ask our staff about special kids portions!</span>
-          </div>
-        </div>
-      </div>
-      -->
-
-    </div>
 
     <!-- D1: COCKTAILS (Combined) -->
     <div class="sec" id="d1">
@@ -1915,9 +1818,12 @@
             <span lang-en>The Ultimate Experience</span>
           </div>
         </div>
-        <div onclick="openQuizModal()" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(212, 169, 106, 0.1); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 16px; padding: 8px 16px; cursor: pointer; color: var(--accent); margin-bottom: 5px; -webkit-tap-highlight-color:transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-          <i class="fa-solid fa-wand-magic-sparkles fa-bounce" style="--fa-animation-duration: 3s; font-size: 20px; margin-bottom: 4px;"></i>
-          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">
+        <div onclick="openQuizModal()"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(212, 169, 106, 0.1); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 16px; padding: 8px 16px; cursor: pointer; color: var(--accent); margin-bottom: 5px; -webkit-tap-highlight-color:transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <i class="fa-solid fa-wand-magic-sparkles fa-bounce"
+            style="--fa-animation-duration: 3s; font-size: 20px; margin-bottom: 4px;"></i>
+          <span
+            style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">
             QUIZ
           </span>
         </div>
@@ -1946,8 +1852,7 @@
           <div class="taste-tag"><span lang-el>ΓΛΥΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΤΡΟΠΙΚΟ</span><span lang-en>SWEET <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               TROPICAL</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('behind_her_eyes.png');mask-image:url('behind_her_eyes.png');width:28px;height:28px;"></span>BEHIND
+          <div class="sig-card-name"><img class="sig-icon" src="behind_her_eyes.png" alt="Icon">BEHIND
             HER EYES</div>
           <div class="sig-card-price">12.00</div>
           <div class="sig-card-divider"></div>
@@ -1963,8 +1868,7 @@
           <div class="taste-tag"><span lang-el>ΓΛΥΚΟΠΙΚΡΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΚΙΤΡΩΔΕΣ</span><span lang-en>BITTERSWEET <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               CITRUSY</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('truth_or_dare.png');mask-image:url('truth_or_dare.png');width:28px;height:28px;"></span>TRUTH
+          <div class="sig-card-name"><img class="sig-icon" src="truth_or_dare.png" alt="Icon">TRUTH
             OR DARE</div>
           <div class="sig-card-price">10.00</div>
           <div class="sig-card-divider"></div>
@@ -1980,8 +1884,7 @@
           <div class="taste-tag"><span lang-el>ΑΝΘΙΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΕΛΑΦΡΥ</span><span lang-en>FLORAL <span style="font-family: 'Jost', sans-serif;">&amp;</span> LIGHT</span>
           </div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('white_ohara.png');mask-image:url('white_ohara.png');width:28px;height:28px;"></span>WHITE
+          <div class="sig-card-name"><img class="sig-icon" src="white_ohara.png" alt="Icon">WHITE
             O'HARA</div>
           <div class="sig-card-price">10.00</div>
           <div class="sig-card-divider"></div>
@@ -1995,8 +1898,7 @@
           <div class="taste-tag"><span lang-el>ΓΛΥΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΚΡΕΜΩΔΕΣ</span><span lang-en>SWEET <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               CREAMY</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('netflix_n_chill.png');mask-image:url('netflix_n_chill.png');width:28px;height:28px;"></span>NETFLIX
+          <div class="sig-card-name"><img class="sig-icon" src="netflix_n_chill.png" alt="Icon">NETFLIX
             N' CHILL</div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -2010,8 +1912,7 @@
           <div class="taste-tag"><span lang-el>ΔΡΟΣΕΡΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΒΟΤΑΝΙΚΟ</span><span lang-en>FRESH <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               BOTANICAL</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('new_zealand.png');mask-image:url('new_zealand.png');width:28px;height:28px;"></span>NEW
+          <div class="sig-card-name"><img class="sig-icon" src="new_zealand.png" alt="Icon">NEW
             ZEALAND</div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -2026,8 +1927,7 @@
           <div class="taste-tag"><span lang-el>ΠΛΟΥΣΙΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΚΑΠΝΙΣΤΟ</span><span lang-en>RICH <span style="font-family: 'Jost', sans-serif;">&amp;</span> SMOKY</span>
           </div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('light_it_up.png');mask-image:url('light_it_up.png');width:28px;height:28px;"></span>LIGHT
+          <div class="sig-card-name"><img class="sig-icon" src="light_it_up.png" alt="Icon">LIGHT
             IT UP</div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -2041,8 +1941,7 @@
           <div class="taste-tag"><span lang-el>ΕΛΑΦΡΥ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΦΡΟΥΤΩΔΕΣ</span><span lang-en>LIGHT <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               FRUITY</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('feels_like_summer.png');mask-image:url('feels_like_summer.png');width:28px;height:28px;"></span>FEELS
+          <div class="sig-card-name"><img class="sig-icon" src="feels_like_summer.png" alt="Icon">FEELS
             LIKE SUMMER</div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -2056,8 +1955,7 @@
           <div class="taste-tag"><span lang-el>ΔΡΟΣΕΡΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΙΣΟΡΡΟΠΗΜΕΝΟ</span><span lang-en>FRESH <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               BALANCED</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('50_shades_of_green.png');mask-image:url('50_shades_of_green.png');width:28px;height:28px;"></span>50
+          <div class="sig-card-name"><img class="sig-icon" src="50_shades_of_green.png" alt="Icon">50
             SHADES OF GREEN</div>
           <div class="sig-card-price">10.00</div>
           <div class="sig-card-divider"></div>
@@ -2070,8 +1968,7 @@
         <div class="sig-card-body">
           <div class="taste-tag"><span lang-el>ΓΛΥΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΕΠΙΔΟΡΠΙΟ</span><span lang-en>SWEET DESSERT</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('bite_my_cookie.png');mask-image:url('bite_my_cookie.png');width:28px;height:28px;"></span>BITE
+          <div class="sig-card-name"><img class="sig-icon" src="bite_my_cookie.png" alt="Icon">BITE
             MY COOKIE</div>
           <div class="sig-card-price">12.00</div>
           <div class="sig-card-divider"></div>
@@ -2086,8 +1983,7 @@
           <div class="taste-tag"><span lang-el>ΓΛΥΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΒΕΛΟΥΔΙΝΟ</span><span lang-en>SWEET <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               VELVETY</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('teddy_bear.png');mask-image:url('teddy_bear.png');width:28px;height:28px;"></span>TEDDY
+          <div class="sig-card-name"><img class="sig-icon" src="teddy_bear.png" alt="Icon">TEDDY
             BEAR</div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -2101,8 +1997,7 @@
           <div class="taste-tag"><span lang-el>ΑΡΩΜΑΤΙΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΔΡΟΣΕΡΟ</span><span lang-en>AROMATIC <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               REFRESHING</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('mastiha-ri.png');mask-image:url('mastiha-ri.png');width:28px;height:28px;"></span>MASTIHA-RI
+          <div class="sig-card-name"><img class="sig-icon" src="mastiha-ri.png" alt="Icon">MASTIHA-RI
           </div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -2116,8 +2011,7 @@
           <div class="taste-tag"><span lang-el>ΠΙΚΑΝΤΙΚΟ <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               ΕΞΩΤΙΚΟ</span><span lang-en>SPICY <span style="font-family: 'Jost', sans-serif;">&amp;</span>
               EXOTIC</span></div>
-          <div class="sig-card-name"><span class="sig-icon"
-              style="-webkit-mask-image:url('spicy_gentleman.png');mask-image:url('spicy_gentleman.png');width:28px;height:28px;"></span>SPICY
+          <div class="sig-card-name"><img class="sig-icon" src="spicy_gentleman.png" alt="Icon">SPICY
             GENTLEMAN</div>
           <div class="sig-card-price">11.00</div>
           <div class="sig-card-divider"></div>
@@ -4074,9 +3968,8 @@
       <a href="https://www.facebook.com/p/Saloon-Beach-Bar-Restaurant-61559984037563/" target="_blank"
         style="color: var(--br); transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'"
         onmouseout="this.style.color='var(--br)'"><i class="fa-brands fa-facebook-f" style="font-size: 24px;"></i></a>
-      <a href="https://saloonbeachbar.com"
-        target="_blank" style="color: var(--br); transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'"
-        onmouseout="this.style.color='var(--br)'">
+      <a href="https://saloonbeachbar.com" target="_blank" style="color: var(--br); transition: color 0.3s;"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--br)'">
         <svg viewBox="0 0 100 85" width="28px" height="24px" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           style="vertical-align: middle;">
           <path d="M 15,40 A 35,35 0 0,1 85,40 Z" />
@@ -4113,9 +4006,13 @@
           <span lang-en>Scan to share with your friends at the table</span>
         </div>
       </div>
-      <div style="position: relative; width: 90px; height: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(214,124,94,0.2); cursor:pointer; background: #fff; flex-shrink: 0;" onclick="openQrModal()">
+      <div
+        style="position: relative; width: 90px; height: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(214,124,94,0.2); cursor:pointer; background: #fff; flex-shrink: 0;"
+        onclick="openQrModal()">
         <img src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
-        <div style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;"></div>
+        <div
+          style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;">
+        </div>
       </div>
     </div>
 
@@ -4250,70 +4147,74 @@
   </script>
 
   <!-- Chef Modal -->
-  <div id="chefModal"
-    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(20, 15, 12, 0.7); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:9999; justify-content:center; align-items:flex-end; opacity:0; transition:opacity 0.4s ease;">
-    <!-- Close area to click out -->
-    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;" onclick="closeChefModal()"></div>
-
-    <div class="chef-modal-content"
-      style="position:relative; z-index:2; background:var(--sand); width:100%; max-height:85vh; overflow-y:auto; border-radius:32px 32px 0 0; box-shadow:0 -10px 40px rgba(0,0,0,0.25); padding:30px 30px 50px; text-align:center; transform:translateY(100%) translateZ(0); transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform;">
-
-      <!-- Close Handle -->
-      <div
-        style="width:40px; height:5px; background:var(--muted); opacity:0.25; border-radius:5px; margin:0 auto 30px; cursor:pointer;"
-        onclick="closeChefModal()"></div>
-
-      <!-- Chef Image / Avatar -->
-      <div
-        style="width:130px; height:130px; border-radius:50%; margin:0 auto 25px; padding:4px; background:linear-gradient(135deg, var(--accent), var(--br)); box-shadow:0 12px 30px rgba(139,94,60,0.35); position: relative;">
-        <img src="ChefImage.jpg" alt="Chef Aggelos Vasilakeris"
-          style="width:100%; height:100%; object-fit:cover; border-radius:50%; border:3px solid var(--sand); display: block;">
+  <template>
+    <div id="chefModal"
+      style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(20, 15, 12, 0.7); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:9999; justify-content:center; align-items:flex-end; opacity:0; transition:opacity 0.4s ease;">
+      <!-- Close area to click out -->
+      <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;" onclick="closeChefModal()">
       </div>
 
-      <!-- Title -->
-      <div
-        style="font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--muted); letter-spacing:3px; text-transform:uppercase; margin-bottom:5px;">
-        <span lang-el>Η Φιλοσοφια Μας</span><span lang-en>Our Philosophy</span>
-      </div>
-      <div
-        style="font-family:'Great Vibes', cursive; font-size:48px; color:var(--accent); line-height:1.1; margin-bottom:20px; padding:0 10px;">
-        Aggelos Vasilakeris
-      </div>
+      <div class="chef-modal-content"
+        style="position:relative; z-index:2; background:var(--sand); width:100%; max-height:85vh; overflow-y:auto; border-radius:32px 32px 0 0; box-shadow:0 -10px 40px rgba(0,0,0,0.25); padding:30px 30px 50px; text-align:center; transform:translateY(100%) translateZ(0); transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform;">
 
-      <div style="width:40px; height:2px; background:var(--accent); margin:0 auto 24px; opacity:0.6;"></div>
-
-      <div
-        style="font-size:17px; color:var(--muted); line-height:1.7; font-weight:400; font-style:italic; padding:0 10px;">
-        <span lang-el>«Ένα ταξίδι γεύσεων όπου η Μεσογειακή παράδοση συναντά τη μοντέρνα γαστρονομία. Κάθε πιάτο είναι
-          δημιουργημένο με πάθος, εκλεκτές πρώτες ύλες και έμπνευση από τη θάλασσα.»</span>
-        <span lang-en>«A journey of flavors where Mediterranean tradition meets modern gastronomy. Every dish is created
-          with passion, premium ingredients, and inspiration from the sea.»</span>
-      </div>
-
-      <!-- Signature & Socials -->
-      <div style="margin-top:35px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <!-- Close Handle -->
         <div
-          style="font-family:'Cormorant Garamond', serif; font-size:20px; color:var(--br); font-weight:600; text-transform:uppercase; letter-spacing:2px;">
-          Executive Chef</div>
+          style="width:40px; height:5px; background:var(--muted); opacity:0.25; border-radius:5px; margin:0 auto 30px; cursor:pointer;"
+          onclick="closeChefModal()"></div>
 
-        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 4px;">
-          <a href="https://www.tiktok.com/@chef.aggelos.vasilakeris" target="_blank"
-            style="color: var(--muted); font-size: 22px; transition: all 0.3s ease; text-decoration: none;"
-            onmouseover="this.style.color='var(--accent)'; this.style.transform='scale(1.1)';"
-            onmouseout="this.style.color='var(--muted)'; this.style.transform='scale(1)';">
-            <i class="fa-brands fa-tiktok"></i>
-          </a>
-          <a href="https://www.instagram.com/chef_aggelos_vasilakeris/" target="_blank"
-            style="color: var(--muted); font-size: 22px; transition: all 0.3s ease; text-decoration: none;"
-            onmouseover="this.style.color='var(--accent)'; this.style.transform='scale(1.1)';"
-            onmouseout="this.style.color='var(--muted)'; this.style.transform='scale(1)';">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
+        <!-- Chef Image / Avatar -->
+        <div
+          style="width:130px; height:130px; border-radius:50%; margin:0 auto 25px; padding:4px; background:linear-gradient(135deg, var(--accent), var(--br)); box-shadow:0 12px 30px rgba(139,94,60,0.35); position: relative;">
+          <img src="ChefImage.jpg" alt="Chef Aggelos Vasilakeris"
+            style="width:100%; height:100%; object-fit:cover; border-radius:50%; border:3px solid var(--sand); display: block;">
         </div>
-      </div>
 
+        <!-- Title -->
+        <div
+          style="font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--muted); letter-spacing:3px; text-transform:uppercase; margin-bottom:5px;">
+          <span lang-el>Η Φιλοσοφια Μας</span><span lang-en>Our Philosophy</span>
+        </div>
+        <div
+          style="font-family:'Great Vibes', cursive; font-size:48px; color:var(--accent); line-height:1.1; margin-bottom:20px; padding:0 10px;">
+          Aggelos Vasilakeris
+        </div>
+
+        <div style="width:40px; height:2px; background:var(--accent); margin:0 auto 24px; opacity:0.6;"></div>
+
+        <div
+          style="font-size:17px; color:var(--muted); line-height:1.7; font-weight:400; font-style:italic; padding:0 10px;">
+          <span lang-el>«Ένα ταξίδι γεύσεων όπου η Μεσογειακή παράδοση συναντά τη μοντέρνα γαστρονομία. Κάθε πιάτο είναι
+            δημιουργημένο με πάθος, εκλεκτές πρώτες ύλες και έμπνευση από τη θάλασσα.»</span>
+          <span lang-en>«A journey of flavors where Mediterranean tradition meets modern gastronomy. Every dish is
+            created
+            with passion, premium ingredients, and inspiration from the sea.»</span>
+        </div>
+
+        <!-- Signature & Socials -->
+        <div style="margin-top:35px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div
+            style="font-family:'Cormorant Garamond', serif; font-size:20px; color:var(--br); font-weight:600; text-transform:uppercase; letter-spacing:2px;">
+            Executive Chef</div>
+
+          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 4px;">
+            <a href="https://www.tiktok.com/@chef.aggelos.vasilakeris" target="_blank"
+              style="color: var(--muted); font-size: 22px; transition: all 0.3s ease; text-decoration: none;"
+              onmouseover="this.style.color='var(--accent)'; this.style.transform='scale(1.1)';"
+              onmouseout="this.style.color='var(--muted)'; this.style.transform='scale(1)';">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/chef_aggelos_vasilakeris/" target="_blank"
+              style="color: var(--muted); font-size: 22px; transition: all 0.3s ease; text-decoration: none;"
+              onmouseover="this.style.color='var(--accent)'; this.style.transform='scale(1.1)';"
+              onmouseout="this.style.color='var(--muted)'; this.style.transform='scale(1)';">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </template>
 
   <!-- QR Share Modal -->
   <div id="qrModal"
@@ -4332,9 +4233,12 @@
       </div>
 
       <!-- Big QR Code -->
-      <div style="position: relative; width: 260px; height: 260px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); background: #fff;">
+      <div
+        style="position: relative; width: 260px; height: 260px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); background: #fff;">
         <img src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
-        <div style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;"></div>
+        <div
+          style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;">
+        </div>
       </div>
 
       <!-- Close X Button -->
@@ -4356,20 +4260,20 @@
       // Average sunset time in Kos during summer is around 20:20
       const target = new Date();
       target.setHours(20, 20, 0, 0);
-      
+
       // If past sunset, countdown to tomorrow's sunset
       if (now > target) {
         target.setDate(target.getDate() + 1);
       }
-      
+
       const diffMs = target - now;
       const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
       const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
       const diffSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
-      
+
       const pad = (num) => num.toString().padStart(2, '0');
       let text = `${pad(diffHours)}:${pad(diffMins)}:${pad(diffSecs)}`;
-      
+
       document.querySelectorAll('.sunset-timer').forEach(el => {
         el.innerText = text;
       });
@@ -4397,13 +4301,20 @@
           <span lang-en>Find Your Perfect Match</span>
         </div>
       </div>
-      
-      <div class="quiz-progress" id="quiz-progress" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 20px;">
-        <div class="quiz-dot" id="quiz-dot-0" style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;"></div>
-        <div class="quiz-dot" id="quiz-dot-1" style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;"></div>
-        <div class="quiz-dot" id="quiz-dot-2" style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;"></div>
+
+      <div class="quiz-progress" id="quiz-progress"
+        style="display: flex; justify-content: center; gap: 8px; margin-bottom: 20px;">
+        <div class="quiz-dot" id="quiz-dot-0"
+          style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;">
+        </div>
+        <div class="quiz-dot" id="quiz-dot-1"
+          style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;">
+        </div>
+        <div class="quiz-dot" id="quiz-dot-2"
+          style="width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: 0.5; transition: all 0.3s;">
+        </div>
       </div>
-      
+
       <div class="quiz-body" id="quiz-step-container">
         <!-- Steps will be injected here via JS -->
       </div>
