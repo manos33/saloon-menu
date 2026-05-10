@@ -346,8 +346,8 @@ function initSplash() {
   }
 }
 
-var foodCategories = ['s0', 's1', 's2', 's3', 's4', 's9', 's5', 's6', 's7', 's8'];
-var drinksCategories = ['d0', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6'];
+var foodCategories = ['s0', 's_temp'];
+var drinksCategories = ['s0', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6'];
 
 var touchStartX = 0;
 var touchStartY = 0;
