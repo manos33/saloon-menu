@@ -615,12 +615,35 @@
 
     <!-- S_TEMP: NEW TEMPORARY MENU -->
     <div class="sec" id="s_temp">
-      <div class="sec-title">Μενού</div>
+      <div class="sec-title">
+        <span lang-el>Μενού</span>
+        <span lang-en>Menu</span>
+      </div>
       <div class="sec-en">
         <span lang-el>Όλη μέρα</span>
         <span lang-en>All Day Menu</span>
       </div>
       <div class="sec-divider"></div>
+
+      <!-- FRESH OF THE DAY BOX -->
+      <div style="background: rgba(212, 169, 106, 0.05); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 16px; padding: 18px 20px 14px; margin-bottom: 24px; margin-top: 16px; position: relative; overflow: visible;">
+        <div style="position: absolute; top: -11px; right: 20px; background: #d67c5e; color: #fff; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 4px 10px rgba(214,124,94,0.3);">
+          Fresh of the Day
+        </div>
+        <div class="item" style="margin-bottom: 0;">
+          <div class="item-header">
+            <div class="item-title" style="color: var(--accent); font-size: 20px;">
+              <span lang-el>Κατιμέρια (Τοπική Παράδοση) <span class="vbadge" style="vertical-align: middle;">V</span></span>
+              <span lang-en>Katimeria (Local Tradition) <span class="vbadge" style="vertical-align: middle;">V</span></span>
+            </div>
+            <div class="item-price">6.00</div>
+          </div>
+          <div class="item-desc" style="opacity: 0.9;">
+            <span lang-el>Παραδοσιακό τηγανητό φύλλο γεμιστό με τυρί και περιχυμένο με ντόπιο μέλι. Ένα αυθεντικό ταξίδι στις γεύσεις της περιοχής!</span>
+            <span lang-en>Traditional fried pastry filled with cheese and drizzled with local honey. An authentic taste of the island!</span>
+          </div>
+        </div>
+      </div>
 
       <!-- Energy Bowls -->
       <div class="cat-label">
@@ -630,8 +653,8 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Protein Bowl</span>
-            <span lang-en>Protein Bowl</span>
+            <span lang-el>Protein Bowl <span class="vbadge">V</span></span>
+            <span lang-en>Protein Bowl <span class="vbadge">V</span></span>
           </div>
           <div class="item-price">8.50</div>
         </div>
@@ -643,8 +666,8 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Energy Bowl</span>
-            <span lang-en>Energy Bowl</span>
+            <span lang-el>Energy Bowl <span class="vbadge">V</span></span>
+            <span lang-en>Energy Bowl <span class="vbadge">V</span></span>
           </div>
           <div class="item-price">9.00</div>
         </div>
@@ -668,8 +691,8 @@
           <div class="item-price">3.50</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί</span>
-          <span lang-en>Ham or turkey, cheese</span>
+          <span lang-el>Ζαμπόν ή γαλοπούλα, τυρί, σως, ντομάτα</span>
+          <span lang-en>Ham or turkey, cheese, sauce, tomato</span>
         </div>
       </div>
       <div class="item">
@@ -707,14 +730,14 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Μερακλίδικη</span>
-            <span lang-en>Greek Gyro</span>
+            <span lang-el>Μερακλίδικη <span class="chef-star"><i class="fa-solid fa-star"></i> Best Seller</span></span>
+            <span lang-en>Greek Gyro <span class="chef-star"><i class="fa-solid fa-star"></i> Best Seller</span></span>
           </div>
-          <div class="item-price">7.50</div>
+          <div class="item-price">6.50</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Γύρος, πατάτες, ντομάτα, κρεμμύδι, τζατζίκι ή σως</span>
-          <span lang-en>Gyros, fries, tomato, onion, tzatziki or sauce</span>
+          <span lang-el>Γύρος, ντομάτα, κρεμμύδι, τζατζίκι ή σως. Συνοδεύεται με πατάτες</span>
+          <span lang-en>Gyros, tomato, onion, tzatziki or sauce. Served with fries</span>
         </div>
       </div>
       <div class="item">
@@ -723,11 +746,11 @@
             <span lang-el>Τραγανή</span>
             <span lang-en>Crispy Bite</span>
           </div>
-          <div class="item-price">7.00</div>
+          <div class="item-price">6.50</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Κοτομπουκιές, τυρί, πατάτες, σως</span>
-          <span lang-en>Chicken nuggets, cheese, fries, sauce</span>
+          <span lang-el>Κοτομπουκιές, τυρί, σως. Συνοδεύεται με πατάτες</span>
+          <span lang-en>Chicken nuggets, cheese, sauce. Served with fries</span>
         </div>
       </div>
       <div class="item">
@@ -766,8 +789,21 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Πατάτες Τηγανητές</span>
-            <span lang-en>French Fries</span>
+            <span lang-el>Μερίδα Γύρος</span>
+            <span lang-en>Gyros Portion</span>
+          </div>
+          <div class="item-price">11.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Συνοδεύεται με πίτες, τζατζίκι και πατάτες</span>
+          <span lang-en>Served with pitta bread, tzatziki and fries</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Πατάτες Τηγανητές <span class="vbadge">V</span></span>
+            <span lang-en>French Fries <span class="vbadge">V</span></span>
           </div>
           <div class="item-price">4.50</div>
         </div>
@@ -775,14 +811,14 @@
 
       <!-- Γλυκά -->
       <div class="cat-label">
-        <span lang-el>Γλυκά</span>
-        <span lang-en>Desserts</span>
+        <span lang-el>Σπιτικά Γλυκά</span>
+        <span lang-en>Homemade Desserts</span>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Μπανόφι</span>
-            <span lang-en>Banoffee</span>
+            <span lang-el>Μπανόφι <span class="vbadge">V</span></span>
+            <span lang-en>Banoffee <span class="vbadge">V</span></span>
           </div>
           <div class="item-price">6.50</div>
         </div>
@@ -790,17 +826,21 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Τσιζ Κέικ</span>
-            <span lang-en>Cheesecake</span>
+            <span lang-el>Τσιζ Κέικ <span class="vbadge">V</span></span>
+            <span lang-en>Cheesecake <span class="vbadge">V</span></span>
           </div>
-          <div class="item-price">6.50</div>
+          <div class="item-price">5.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Με σπιτική μαρμελάδα</span>
+          <span lang-en>With homemade jam</span>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Μιλφέιγ</span>
-            <span lang-en>Millefeuille</span>
+            <span lang-el>Μιλφέιγ <span class="vbadge">V</span></span>
+            <span lang-en>Millefeuille <span class="vbadge">V</span></span>
           </div>
           <div class="item-price">6.50</div>
         </div>
@@ -3746,6 +3786,35 @@
         <div class="item-desc">
           <span lang-el>Ροδάκινο · Φράουλα · Μπανάνα · Μαύρο μούρο · Κακάο</span>
           <span lang-en>Peach · Strawberry · Banana · Blackberry · Cocoa</span>
+        </div>
+      </div>
+
+      <div class="cat-label">
+        <span lang-el>Σπιτικές Λεμονάδες</span>
+        <span lang-en>Homemade Lemonades</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title"><span lang-el>Κλασική Λεμόνι</span><span lang-en>Classic Lemon</span></div>
+          <div class="item-price">5.00</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title"><span lang-el>Λεμόνι Τζίντζερ (Χωρίς Ζάχαρη)</span><span lang-en>Lemon Ginger (Sugar-Free)</span></div>
+          <div class="item-price">5.00</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title"><span lang-el>Φράουλα</span><span lang-en>Strawberry</span></div>
+          <div class="item-price">5.00</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title"><span lang-el>Βύσσινο</span><span lang-en>Sour Cherry</span></div>
+          <div class="item-price">5.00</div>
         </div>
       </div>
 
