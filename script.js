@@ -1,5 +1,5 @@
 function vibrate() {
-  if (navigator.vibrate) navigator.vibrate(50);
+  if (navigator.vibrate) navigator.vibrate(15);
 }
 
 function navigateToOffers(e) {
@@ -577,7 +577,14 @@ function startBannerRotation() {
 
 window.onload = function () {
   initSplash();
-  var savedLang = localStorage.getItem('preferred_lang') || 'el';
+  
+  var savedLang = localStorage.getItem('preferred_lang');
+  if (!savedLang) {
+    var browserLang = navigator.language || navigator.userLanguage || 'el';
+    savedLang = browserLang.toLowerCase().startsWith('el') ? 'el' : 'en';
+    localStorage.setItem('preferred_lang', savedLang);
+  }
+
   document.body.setAttribute('data-lang', savedLang);
   document.getElementById('label-el').classList.toggle('active', savedLang === 'el');
   document.getElementById('label-en').classList.toggle('active', savedLang === 'en');
@@ -650,15 +657,19 @@ window.onload = function () {
   if (catBtn) {
     showCategory(savedCat, catBtn, savedMode);
   }
-};
 
-window.addEventListener('scroll', function () {
-  var btt = document.getElementById('backToTop');
-  if (btt) {
-    if (window.scrollY > 400) btt.classList.add('visible');
-    else btt.classList.remove('visible');
-  }
-});
+  // Back to Top visibility on scroll
+  window.addEventListener('scroll', function() {
+    var btt = document.getElementById('backToTop');
+    if (btt) {
+      if (window.scrollY > 500) {
+        btt.classList.add('visible');
+      } else {
+        btt.classList.remove('visible');
+      }
+    }
+  });
+};
 
 /* =========================================
    AMBIENT SOUND TOGGLE

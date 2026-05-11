@@ -4,7 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Saloon Menu</title>
+  <meta name="color-scheme" content="light">
+  
+  <title>Saloon Beachbar &amp; Restaurant | Menu</title>
+  <meta name="description" content="Discover the official menu of Saloon Beachbar &amp; Restaurant. Enjoy our refreshing cocktails, delicious food, and beachside atmosphere.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Saloon Beachbar &amp; Restaurant | Menu">
+  <meta property="og:description" content="Explore our delicious food, premium drinks, and signature cocktails by the sea.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saloon Beachbar &amp; Restaurant | Menu">
+  <meta name="twitter:description" content="Explore our delicious food, premium drinks, and signature cocktails by the sea.">
+  <meta name="twitter:image" content="favicon.png">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -39,8 +58,8 @@
 
   <!-- DECORATIVE LEAVES: fixed wrapper prevents mobile address-bar jump -->
   <div class="leaf-overlay">
-    <img src="palm-leaf.png" class="decor-leaf decor-tl" alt="">
-    <img src="palm-leaf.png" class="decor-leaf decor-br" alt="">
+    <img loading="lazy" src="palm-leaf.png" class="decor-leaf decor-tl" alt="">
+    <img loading="lazy" src="palm-leaf.png" class="decor-leaf decor-br" alt="">
   </div>
 
   <!-- HEADER -->
@@ -267,7 +286,7 @@
         <!-- Logo circle -->
         <div
           style="width:90px; height:90px; border-radius:50%; background:rgba(255,255,255,0.07); border:1px solid rgba(212,169,106,0.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
-          <img src="VescoviLogo.png" alt="Vescovi"
+          <img loading="lazy" src="VescoviLogo.png" alt="Vescovi"
             style="width:80px; height:80px; object-fit:contain; transform: scale(1.1);">
         </div>
         <!-- Text -->
@@ -306,7 +325,7 @@
         <!-- Icon circle -->
         <div
           style="width: 90px; height: 90px; border-radius: 50%; background: var(--sand); border: 1px solid var(--dark-sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <img src="hookah_logo.png" alt="Hookah Logo"
+          <img loading="lazy" src="hookah_logo.png" alt="Hookah Logo"
             style="width: 70px; height: 70px; object-fit: contain; filter: brightness(0) saturate(100%) invert(38%) sepia(13%) saturate(1485%) hue-rotate(345deg) brightness(93%) contrast(87%);">
         </div>
         <!-- Text -->
@@ -626,21 +645,27 @@
       <div class="sec-divider"></div>
 
       <!-- FRESH OF THE DAY BOX -->
-      <div style="background: rgba(212, 169, 106, 0.05); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 16px; padding: 18px 20px 14px; margin-bottom: 24px; margin-top: 16px; position: relative; overflow: visible;">
-        <div style="position: absolute; top: -11px; right: 20px; background: #d67c5e; color: #fff; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 4px 10px rgba(214,124,94,0.3);">
+      <div
+        style="background: rgba(212, 169, 106, 0.05); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 16px; padding: 18px 20px 14px; margin-bottom: 24px; margin-top: 16px; position: relative; overflow: visible;">
+        <div
+          style="position: absolute; top: -11px; right: 20px; background: #d67c5e; color: #fff; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 4px 10px rgba(214,124,94,0.3);">
           Fresh of the Day
         </div>
         <div class="item" style="margin-bottom: 0;">
           <div class="item-header">
             <div class="item-title" style="color: var(--accent); font-size: 20px;">
-              <span lang-el>Κατιμέρια (Τοπική Παράδοση) <span class="vbadge" style="vertical-align: middle;">V</span></span>
-              <span lang-en>Katimeria (Local Tradition) <span class="vbadge" style="vertical-align: middle;">V</span></span>
+              <span lang-el>Κατιμέρια (Τοπική Παράδοση) <span class="vbadge"
+                  style="vertical-align: middle;">V</span></span>
+              <span lang-en>Katimeria (Local Tradition) <span class="vbadge"
+                  style="vertical-align: middle;">V</span></span>
             </div>
             <div class="item-price">6.00</div>
           </div>
           <div class="item-desc" style="opacity: 0.9;">
-            <span lang-el>Παραδοσιακό τηγανητό φύλλο γεμιστό με τυρί και περιχυμένο με ντόπιο μέλι. Ένα αυθεντικό ταξίδι στις γεύσεις της περιοχής!</span>
-            <span lang-en>Traditional fried pastry filled with cheese and drizzled with local honey. An authentic taste of the island!</span>
+            <span lang-el>Παραδοσιακό τηγανητό φύλλο γεμιστό με τυρί και περιχυμένο με ντόπιο μέλι. Ένα αυθεντικό ταξίδι
+              στις γεύσεις της περιοχής!</span>
+            <span lang-en>Traditional fried pastry filled with cheese and drizzled with local honey. An authentic taste
+              of the island!</span>
           </div>
         </div>
       </div>
@@ -2103,7 +2128,9 @@
           <div class="item-price">8.00</div>
         </div>
         <div class="item-desc">
-          <span style="font-size: 11px; opacity: 0.85; font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.5px; border: 1px solid rgba(212,169,106,0.4); border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 4px;">Frozen: 9.00</span>
+          <span
+            style="font-size: 11px; opacity: 0.85; font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.5px; border: 1px solid rgba(212,169,106,0.4); border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 4px;">Frozen:
+            9.00</span>
         </div>
       </div>
       <div class="item">
@@ -2132,19 +2159,23 @@
       </div>
 
       <div class="cat-label">Spritz <span style="font-family: 'Jost', sans-serif;">&amp;</span> Bubbly</div>
-      
-      <div style="background: rgba(212, 169, 106, 0.05); border: 1px solid rgba(212, 169, 106, 0.25); border-radius: 16px; padding: 18px 20px 14px; margin-bottom: 24px; position: relative;">
-        <div style="position: absolute; top: -11px; left: 20px; background: var(--accent); color: var(--sand); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 4px 10px rgba(212,169,106,0.25);">
+
+      <div
+        style="background: rgba(212, 169, 106, 0.05); border: 1px solid rgba(212, 169, 106, 0.25); border-radius: 16px; padding: 18px 20px 14px; margin-bottom: 24px; position: relative;">
+        <div
+          style="position: absolute; top: -11px; left: 20px; background: var(--accent); color: var(--sand); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 4px 10px rgba(212,169,106,0.25);">
           Best Sellers
         </div>
-        
+
         <div class="item" style="margin-bottom: 2px;">
           <div class="item-header">
             <div class="item-title">Aperol Spritz</div>
             <div class="item-price">8.00</div>
           </div>
         </div>
-        <div style="text-align: center; font-size: 12px; font-weight: 700; color: var(--accent); margin: 3px 0 3px 0; letter-spacing: 3px; font-family: 'Jost', sans-serif; opacity: 0.8;">— OR —</div>
+        <div
+          style="text-align: center; font-size: 12px; font-weight: 700; color: var(--accent); margin: 3px 0 3px 0; letter-spacing: 3px; font-family: 'Jost', sans-serif; opacity: 0.8;">
+          — OR —</div>
         <div class="item" style="margin-top: 2px; margin-bottom: 0;">
           <div class="item-header">
             <div class="item-title">Anna's Aperol Spritz</div>
@@ -2266,7 +2297,7 @@
         style="background:var(--sand); cursor:pointer; border-radius:20px; padding:28px; text-align:left; box-shadow:0 12px 30px rgba(139,94,60,0.06); margin-bottom:28px; border:1px solid var(--dark-sand); position:relative; overflow:hidden; display:flex; align-items:center; gap:24px; transition: transform 0.2s ease;"
         onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
         <div style="position:relative; z-index:2; flex-shrink:0;">
-          <img src="WineLocations.png" alt="Greek Wine Map"
+          <img loading="lazy" src="WineLocations.png" alt="Greek Wine Map"
             style="width:150px; height:auto; display:block; filter: drop-shadow(0px 8px 12px rgba(139,94,60,0.15));">
         </div>
         <div style="position:relative; z-index:2;">
@@ -2360,7 +2391,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Λευκός</span><span lang-en>Estate White</span></div>
-          <div class="item-price">30.00</div>
+          <div class="item-price">27.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;"><span lang-el>Μαλαγουζιά /
               Ασύρτικο</span><span lang-en>Malagouzia - Assyrtiko</span></span> · <span lang-el>Κως</span><span
@@ -2373,7 +2404,7 @@
         </div>
         <div class="item-header">
           <div class="item-title"><span lang-el>Λευκός</span><span lang-en>Estate White</span></div>
-          <div class="item-price">38.00</div>
+          <div class="item-price">30.00</div>
         </div>
         <div class="item-desc"><span style="color:var(--sub); font-weight:600;"><span lang-el>Μαλαγουζιά</span><span
               lang-en>Malagouzia</span></span> · <span lang-el>Επανομή</span><span lang-en>Epanomi</span></div>
@@ -2530,7 +2561,9 @@
 
       <div class="cat-label" style="display: flex; justify-content: space-between; align-items: baseline;">
         <span><span lang-el>Χύμα Κρασί</span><span lang-en>House Wine</span></span>
-        <span style="font-size: 11px; font-weight: normal; color: var(--muted); text-transform: none; font-family: 'Jost', sans-serif;"><span lang-el>Ποτήρι:</span><span lang-en>Glass:</span> 4.00</span>
+        <span
+          style="font-size: 11px; font-weight: normal; color: var(--muted); text-transform: none; font-family: 'Jost', sans-serif;"><span
+            lang-el>Ποτήρι:</span><span lang-en>Glass:</span> 4.00</span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -2582,7 +2615,7 @@
           <span
             style="font-size:10px; font-weight:normal; background:var(--dark); color:var(--sand); padding:3px 8px; border-radius:12px; font-family:'Jost', sans-serif;">GREEK
             MICROBREWERY</span>
-          <img src="KirkiBeer.png" alt="Kirki"
+          <img loading="lazy" src="KirkiBeer.png" alt="Kirki"
             style="height:54px; width:auto; object-fit:contain; margin-left:auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
         </div>
         <div class="item">
@@ -2622,7 +2655,8 @@
             <div class="item-title">Kirki Rhapsody Θ Brut Lager (750ml)</div>
             <div class="item-price">4.50</div>
           </div>
-          <div class="item-desc"><span lang-el>Ξηρή, δροσιστική, μακρά επίγευση</span><span lang-en>Dry, refreshing, long
+          <div class="item-desc"><span lang-el>Ξηρή, δροσιστική, μακρά επίγευση</span><span lang-en>Dry, refreshing,
+              long
               finish</span></div>
         </div>
       </template>
@@ -3487,7 +3521,7 @@
         <!-- Logo circle -->
         <div
           style="width:90px; height:90px; border-radius:50%; background:rgba(255,255,255,0.07); border:1px solid rgba(212,169,106,0.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
-          <img src="VescoviLogo.png" alt="Vescovi"
+          <img loading="lazy" src="VescoviLogo.png" alt="Vescovi"
             style="width:80px; height:80px; object-fit:contain; transform: scale(1.1);">
         </div>
         <!-- Text -->
@@ -3665,9 +3699,10 @@
 
       <div class="cat-label" style="display: flex; align-items: center; justify-content: space-between;">
         <span>Premium Smoothies</span>
-        <img src="frudoseLogo.webp" alt="Frudose" style="height: 34px; object-fit: contain; transform: translateY(-2px);" onerror="this.style.display='none'">
+        <img loading="lazy" src="frudoseLogo.webp" alt="Frudose"
+          style="height: 34px; object-fit: contain; transform: translateY(-2px);" onerror="this.style.display='none'">
       </div>
-      
+
       <div class="item">
         <div class="item-header">
           <div class="item-title">Tropical Boost</div>
@@ -3801,7 +3836,8 @@
       </div>
       <div class="item">
         <div class="item-header">
-          <div class="item-title"><span lang-el>Λεμόνι Τζίντζερ (Χωρίς Ζάχαρη)</span><span lang-en>Lemon Ginger (Sugar-Free)</span></div>
+          <div class="item-title"><span lang-el>Λεμόνι Τζίντζερ (Χωρίς Ζάχαρη)</span><span lang-en>Lemon Ginger
+              (Sugar-Free)</span></div>
           <div class="item-price">5.00</div>
         </div>
       </div>
@@ -3825,19 +3861,27 @@
           <div class="item-price">3.20</div>
         </div>
         <div class="item-desc">
-          <span lang-el>Coca-Cola (Κανονική · Zero) · Fanta (Πορτοκαλάδα · Λεμονάδα) · Sprite · Soda Water · Tonic Water · Bitter Lemon · Ginger Beer</span>
-          <span lang-en>Coca-Cola (Regular · Zero) · Fanta (Orange · Lemonade) · Sprite · Soda Water · Tonic Water · Bitter Lemon · Ginger Beer</span>
-          <div style="display: flex; gap: 16px; margin-top: 10px; margin-bottom: 2px; align-items: center; filter: grayscale(100%) sepia(100%) hue-rotate(335deg) saturate(250%) brightness(0.9); opacity: 0.85;">
-            <img src="cocacola.png" style="height: 22px; object-fit: contain;" alt="Coca-Cola" onerror="this.style.display='none'">
-            <img src="fanta.png" style="height: 22px; object-fit: contain;" alt="Fanta" onerror="this.style.display='none'">
-            <img src="sprite.png" style="height: 22px; object-fit: contain;" alt="Sprite" onerror="this.style.display='none'">
-            <img src="tsiki.png" style="height: 32px; object-fit: contain;" alt="Tsiki" onerror="this.style.display='none'">
+          <span lang-el>Coca-Cola (Κανονική · Zero) · Fanta (Πορτοκαλάδα · Λεμονάδα) · Sprite · Soda Water · Tonic Water
+            · Bitter Lemon · Ginger Beer</span>
+          <span lang-en>Coca-Cola (Regular · Zero) · Fanta (Orange · Lemonade) · Sprite · Soda Water · Tonic Water ·
+            Bitter Lemon <!--· Ginger Beer--></span>
+          <div
+            style="display: flex; gap: 16px; margin-top: 10px; margin-bottom: 2px; align-items: center; filter: grayscale(100%) sepia(100%) hue-rotate(335deg) saturate(250%) brightness(0.9); opacity: 0.85;">
+            <img loading="lazy" src="cocacola.png" style="height: 22px; object-fit: contain;" alt="Coca-Cola"
+              onerror="this.style.display='none'">
+            <img loading="lazy" src="fanta.png" style="height: 22px; object-fit: contain;" alt="Fanta"
+              onerror="this.style.display='none'">
+            <img loading="lazy" src="sprite.png" style="height: 22px; object-fit: contain;" alt="Sprite"
+              onerror="this.style.display='none'">
+            <img loading="lazy" src="tsiki.png" style="height: 32px; object-fit: contain;" alt="Tsiki"
+              onerror="this.style.display='none'">
           </div>
         </div>
       </div>
       <div class="item">
         <div class="item-header">
-          <div class="item-title"><span lang-el>Σόδα Ροζ Γκρέιπφρουτ</span><span lang-en>Pink Grapefruit Soda</span></div>
+          <div class="item-title"><span lang-el>Σόδα Ροζ Γκρέιπφρουτ</span><span lang-en>Pink Grapefruit Soda</span>
+          </div>
           <div class="item-price">4.00</div>
         </div>
       </div>
@@ -3870,7 +3914,7 @@
       <div class="vescovi-modal-header" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
         <div
           style="width:80px; height:80px; border-radius:50%; background:rgba(255,255,255,0.07); border:1px solid rgba(212,169,106,0.3); display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
-          <img src="VescoviLogo.png" alt="Vescovi Logo"
+          <img loading="lazy" src="VescoviLogo.png" alt="Vescovi Logo"
             style="width:70px; height:70px; object-fit:contain; transform: scale(1.15);">
         </div>
         <div style="width:200px; height:56px; position:relative; margin-top: 4px;">
@@ -4276,7 +4320,7 @@
       <div
         style="position: relative; width: 90px; height: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(214,124,94,0.2); cursor:pointer; background: #fff; flex-shrink: 0;"
         onclick="openQrModal()">
-        <img src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
+        <img loading="lazy" src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
         <div
           style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;">
         </div>
@@ -4342,7 +4386,7 @@
       onclick="closeGreekMapModal()">
       <i class="fa-solid fa-xmark" style="color:var(--sand); font-size:22px;"></i>
     </div>
-    <img src="WineLocations.png" alt="Greek Wine Map"
+    <img loading="lazy" src="WineLocations.png" alt="Greek Wine Map"
       style="max-width:90%; max-height:85%; object-fit:contain; filter:drop-shadow(0 10px 20px rgba(139,94,60,0.2)); border-radius:12px;">
   </div>
 
@@ -4432,7 +4476,7 @@
         <!-- Chef Image / Avatar -->
         <div
           style="width:130px; height:130px; border-radius:50%; margin:0 auto 25px; padding:4px; background:linear-gradient(135deg, var(--accent), var(--br)); box-shadow:0 12px 30px rgba(139,94,60,0.35); position: relative;">
-          <img src="ChefImage.jpg" alt="Chef Aggelos Vasilakeris"
+          <img loading="lazy" src="ChefImage.jpg" alt="Chef Aggelos Vasilakeris"
             style="width:100%; height:100%; object-fit:cover; border-radius:50%; border:3px solid var(--sand); display: block;">
         </div>
 
@@ -4502,7 +4546,7 @@
       <!-- Big QR Code -->
       <div
         style="position: relative; width: 260px; height: 260px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); background: #fff;">
-        <img src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
+        <img loading="lazy" src="QrMenu.png" style="width: 100%; height: 100%; display: block; filter: contrast(110%);">
         <div
           style="position: absolute; inset: 0; background: var(--accent); mix-blend-mode: screen; pointer-events: none;">
         </div>
@@ -4587,6 +4631,11 @@
       </div>
     </div>
   </div>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); vibrate();">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
 
 </body>
 
