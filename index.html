@@ -363,9 +363,33 @@
             <span lang-el>Capture your moments!</span>
             <span lang-en>Capture your moments!</span>
           </div>
-          <div style="font-size: 16px; color: var(--muted); line-height: 1.5; font-family: 'Literata', serif;">
-            <span lang-el>Φωτογραφηθείτε με την παρέα σας σε κλασική polaroid! (Διαθέσιμες για αγορά)</span>
-            <span lang-en>Get a polaroid with your friends! (Available for purchase)</span>
+          <div style="font-size: 15px; color: var(--muted); line-height: 1.4; font-family: 'Literata', serif;">
+            <span lang-el>Φωτογραφηθείτε με την παρέα σας σε κλασική polaroid!</span>
+            <span lang-en>Get a polaroid with your friends!</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px;">
+            <!-- Option 1 -->
+            <div style="background: rgba(255,255,255,0.7); border: 1px solid rgba(214,124,94,0.3); border-radius: 10px; padding: 6px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+              <div style="font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Jost', sans-serif;">
+                <span lang-el>1 Φωτογραφια</span><span lang-en>1 Photo</span>
+              </div>
+              <div style="font-size: 16px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif; margin-top: 2px;">5€</div>
+            </div>
+            <!-- Option 2 -->
+            <div style="background: linear-gradient(135deg, var(--accent), #e58766); border-radius: 10px; padding: 6px; text-align: center; color: #fff; box-shadow: 0 4px 10px rgba(214,124,94,0.3); position: relative; overflow: hidden;">
+              <div style="position: absolute; right: -8px; bottom: -8px; opacity: 0.15; transform: rotate(-15deg);"><i class="fa-solid fa-camera" style="font-size: 30px;"></i></div>
+              <div style="position: relative; z-index: 1;">
+                <div style="font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Jost', sans-serif; opacity: 0.95;">
+                  <span lang-el>2 Φωτογραφιες</span><span lang-en>2 Photos</span>
+                </div>
+                <div style="font-size: 16px; font-weight: 700; font-family: 'Literata', serif; display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 2px;">
+                  8€
+                  <span style="font-size: 8.5px; background: rgba(255,255,255,0.25); padding: 2px 5px; border-radius: 4px; font-family: 'Jost', sans-serif; line-height: 1;">
+                    <span lang-el>Best</span><span lang-en>Best</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -766,7 +790,7 @@
             <span lang-el>Μερακλίδικη <span class="chef-star"><i class="fa-solid fa-star"></i> Best Seller</span></span>
             <span lang-en>Greek Gyro <span class="chef-star"><i class="fa-solid fa-star"></i> Best Seller</span></span>
           </div>
-          <div class="item-price">6.50</div>
+          <div class="item-price">7.50</div>
         </div>
         <div class="item-desc">
           <span lang-el>Γύρος (Χοιρινός ή Κοτόπουλο), ντομάτα, κρεμμύδι, τζατζίκι ή σως. Συνοδεύεται με πατάτες</span>
@@ -801,10 +825,85 @@
         </div>
       </div>
 
+      <!-- Σαλάτες -->
+      <div class="cat-label">
+        <span lang-el>Σαλάτες</span>
+        <span lang-en>Salads</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Ceasar</span>
+            <span lang-en>Caesar</span>
+          </div>
+          <div class="item-price">9.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Πράσινη σαλάτα, κοτόπουλο, μπέικον, κρουτόν, σίζαρ σως, φλέικς παρμεζάνας</span>
+          <span lang-en>Green salad, chicken, bacon, croutons, caesar dressing, parmesan flakes</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Χωριάτικη</span>
+            <span lang-en>Greek Salad</span>
+          </div>
+          <div class="vbadge">V</div>
+          <div class="item-price">8.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Ντομάτα, αγγούρι, κρεμμύδι, πιπεριά, φέτα, ελιές, ρίγανη</span>
+          <span lang-en>Tomato, cucumber, onion, pepper, feta cheese, olives, oregano</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Ντάκος</span>
+            <span lang-en>Dakos</span>
+          </div>
+          <div class="vbadge">V</div>
+          <div class="item-price">8.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Παξιμάδι, ντομάτα, φέτα, κάπαρη, πάστα ελιάς</span>
+          <span lang-en>Rusk, tomato, feta cheese, capers, olive paste</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μεσογειακή με Χαλούμι</span>
+            <span lang-en>Mediterranean with Halloumi</span>
+          </div>
+          <div class="vbadge">V</div>
+          <div class="item-price">9.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Πράσινη σαλάτα, αποξηραμένα κράνμπερι, καρύδι, χαλούμι, βινεγκρέτ μελιού, μαύρο σουσάμι</span>
+          <span lang-en>Green salad, dried cranberries, walnuts, halloumi, honey vinaigrette, black sesame</span>
+        </div>
+      </div>
+
       <!-- Saloon Bites -->
       <div class="cat-label">
         <span lang-el>Bites &amp; Shares</span>
         <span lang-en>Bites &amp; Shares</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>The Aegean Five</span>
+            <span lang-en>The Aegean Five</span>
+          </div>
+          <div class="vbadge">V</div>
+          <div class="item-price">8.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Τυροκαυτερή, μελιτζανοσαλάτα, τζατζίκι, τυροσαλάτα, χούμους, πίτες, ελιές</span>
+          <span lang-en>Spicy cheese dip, eggplant dip, tzatziki, cheese salad, hummus, pitta bread, olives</span>
+        </div>
       </div>
       <div class="item">
         <div class="item-header">
@@ -2215,6 +2314,7 @@
         </div>
       </div>
 
+
       <div class="cat-label">Spritz <span style="font-family: 'Jost', sans-serif;">&amp;</span> Bubbly</div>
 
       <div
@@ -2646,6 +2746,7 @@
       <div class="cat-label">
         <span lang-el>Βαρέλι</span><span lang-en>Draft</span>
       </div>
+
       <div class="item"
         style="background: linear-gradient(135deg, rgba(214,124,94,0.06), transparent); padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(214,124,94,0.25); position:relative; margin-bottom:20px; box-shadow:0 6px 20px rgba(0,0,0,0.03);">
         <div
@@ -2664,6 +2765,15 @@
           <div class="item-price">4.00 | 5.00</div>
         </div>
         <div class="item-desc"><span lang-el>Μικρή · Μεγάλη</span><span lang-en>Small · Large</span></div>
+      </div>
+      <div
+        style="background: rgba(212, 169, 106, 0.05); border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 12px; padding: 12px 16px; margin-bottom: 20px; text-align: center; font-size: 13px; line-height: 1.4;">
+        <span lang-el><i class="fa-solid fa-beer-mug-empty" style="color: var(--accent); margin-right: 6px;"></i><strong
+            style="color: var(--accent);">Φτιάξτε την όπως θέλετε:</strong> +0.50€ προσθέστε αναψυκτικό και κάντε την
+          Diesel, Radler, Shandy ή Orange Radler</span>
+        <span lang-en><i class="fa-solid fa-beer-mug-empty" style="color: var(--accent); margin-right: 6px;"></i><strong
+            style="color: var(--accent);">Make it your way:</strong> +0.50€ add a refreshment and make it a Diesel,
+          Radler, Shandy, or Orange Radler</span>
       </div>
 
       <template>
@@ -3671,6 +3781,10 @@
         <div class="item-header">
           <div class="item-title"><span lang-el>Φρέντο Εσπρέσσο</span><span lang-en>Freddo Espresso</span></div>
           <div class="item-price">3.50</div>
+        </div>
+        <div class="item-desc" style="font-style: italic; opacity: 0.85;">
+          <span lang-el>Σιρόπι: Lime, Βανίλια, Καραμέλα, Φουντούκι ( +0.50€)</span>
+          <span lang-en>Syrup: Lime, Vanilla, Caramel, Hazelnut (+0.50€)</span>
         </div>
       </div>
       <div class="item">
