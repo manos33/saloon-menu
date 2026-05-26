@@ -1,3 +1,60 @@
+function detectAndApplyTheme() {
+  var savedTheme = localStorage.getItem('saloon_theme');
+  var themeToggle = document.getElementById('theme-toggle');
+  var icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+  if (savedTheme === 'dark') {
+    document.body.classList.add('theme-dark');
+    if (icon) icon.className = 'fa-solid fa-sun';
+    return;
+  } else if (savedTheme === 'light') {
+    document.body.classList.remove('theme-dark');
+    if (icon) icon.className = 'fa-solid fa-moon';
+    return;
+  }
+
+  // Auto-dark detection: render a white box off-screen and see if browser inverts it
+  var testDiv = document.createElement('div');
+  testDiv.style.position = 'absolute';
+  testDiv.style.left = '-9999px';
+  testDiv.style.width = '1px';
+  testDiv.style.height = '1px';
+  testDiv.style.backgroundColor = '#ffffff';
+  document.body.appendChild(testDiv);
+
+  var computedBg = window.getComputedStyle(testDiv).backgroundColor;
+  document.body.removeChild(testDiv);
+
+  var isForced = computedBg !== 'rgb(255, 255, 255)' &&
+    computedBg !== '#ffffff' &&
+    computedBg !== 'white' &&
+    computedBg !== 'rgba(0, 0, 0, 0)' &&
+    computedBg !== 'transparent';
+
+  if (isForced) {
+    document.body.classList.add('theme-dark');
+    if (icon) icon.className = 'fa-solid fa-sun';
+  } else {
+    document.body.classList.remove('theme-dark');
+    if (icon) icon.className = 'fa-solid fa-moon';
+  }
+}
+
+function toggleTheme() {
+  vibrate();
+  var body = document.body;
+  var isDark = body.classList.toggle('theme-dark');
+  localStorage.setItem('saloon_theme', isDark ? 'dark' : 'light');
+
+  var icon = document.querySelector('#theme-toggle i');
+  if (icon) {
+    icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  }
+}
+
+// Run immediately since script is at the bottom of the body
+detectAndApplyTheme();
+
 function vibrate() {
   if (navigator.vibrate) navigator.vibrate(15);
 }
@@ -126,19 +183,24 @@ function switchMode(mode, btn) {
   }
 }
 
-function toggleLanguage() {
+function changeLanguage(newLang) {
   vibrate();
   var body = document.body;
-  var currentLang = body.getAttribute('data-lang');
-  var newLang = currentLang === 'el' ? 'en' : 'el';
   body.setAttribute('data-lang', newLang);
-
-  document.getElementById('label-el').classList.toggle('active', newLang === 'el');
-  document.getElementById('label-en').classList.toggle('active', newLang === 'en');
 
   var searchInput = document.getElementById('searchInput');
   if (searchInput) {
-    searchInput.placeholder = newLang === 'el' ? 'Αναζήτηση μενού...' : 'Search menu...';
+    if (newLang === 'el') {
+      searchInput.placeholder = 'Αναζήτηση μενού...';
+    } else if (newLang === 'de') {
+      searchInput.placeholder = 'Menü durchsuchen...';
+    } else if (newLang === 'fr') {
+      searchInput.placeholder = 'Rechercher...';
+    } else if (newLang === 'it') {
+      searchInput.placeholder = 'Cerca...';
+    } else {
+      searchInput.placeholder = 'Search menu...';
+    }
   }
 
   localStorage.setItem('preferred_lang', newLang);
@@ -251,11 +313,23 @@ function handleSearch() {
     });
 
     if (matches === 0) {
-      var menuNameEl = currentMode === 'food' ? 'Μενού Φαγητού' : 'Μενού Ποτών';
-      var menuNameEn = currentMode === 'food' ? 'Food Menu' : 'Drinks Menu';
-      var noResText = currentLang === 'el'
-        ? 'Δεν βρέθηκε "' + inputSearch.value + '" στο ' + menuNameEl
-        : 'No "' + inputSearch.value + '" was found in the ' + menuNameEn;
+      var noResText = '';
+      if (currentLang === 'el') {
+        var menuName = currentMode === 'food' ? 'Μενού Φαγητού' : 'Μενού Ποτών';
+        noResText = 'Δεν βρέθηκε "' + inputSearch.value + '" στο ' + menuName;
+      } else if (currentLang === 'de') {
+        var menuName = currentMode === 'food' ? 'Speisekarte' : 'Getränkekarte';
+        noResText = 'Kein "' + inputSearch.value + '" in der ' + menuName + ' gefunden';
+      } else if (currentLang === 'fr') {
+        var menuName = currentMode === 'food' ? 'Menu Cuisine' : 'Carte des Boissons';
+        noResText = 'Aucun résultat pour "' + inputSearch.value + '" dans le ' + menuName;
+      } else if (currentLang === 'it') {
+        var menuName = currentMode === 'food' ? 'Menu Cucina' : 'Carta delle Bevande';
+        noResText = 'Nessun risultato per "' + inputSearch.value + '" nel ' + menuName;
+      } else {
+        var menuName = currentMode === 'food' ? 'Food Menu' : 'Drinks Menu';
+        noResText = 'No "' + inputSearch.value + '" was found in the ' + menuName;
+      }
 
       resContainer.innerHTML = '<div style="text-align:center; padding: 40px 20px; color:var(--muted); font-style:italic;">' + noResText + '</div>';
     }
@@ -331,18 +405,36 @@ function clearSearch(restoreCategory = true) {
 
 function initSplash() {
   var splash = document.getElementById('splash-screen');
-  if (!splash) return;
+  if (!splash) {
+    if (typeof checkAndRunTour === 'function') checkAndRunTour();
+    return;
+  }
   if (sessionStorage.getItem('saloon_splash_seen')) {
     splash.style.display = 'none';
+    if (typeof checkAndRunTour === 'function') checkAndRunTour();
   } else {
-    splash.addEventListener('click', function () {
-      vibrate();
+    // Wait for fonts to be ready before showing splash content to avoid partial rendering
+    var showContent = function () {
+      var content = splash.querySelector('.splash-content');
+      if (content) content.classList.add('ready');
+    };
+
+    if (document.fonts) {
+      document.fonts.ready.then(showContent).catch(showContent);
+      // Safety backup timeout
+      setTimeout(showContent, 850);
+    } else {
+      showContent();
+    }
+
+    setTimeout(function () {
       splash.style.opacity = '0';
       setTimeout(() => {
         splash.style.display = 'none';
         sessionStorage.setItem('saloon_splash_seen', 'true');
+        if (typeof checkAndRunTour === 'function') checkAndRunTour();
       }, 600);
-    });
+    }, 2500);
   }
 }
 
@@ -576,24 +668,43 @@ function startBannerRotation() {
 }
 
 window.onload = function () {
-  initSplash();
-  
+  detectAndApplyTheme();
   var savedLang = localStorage.getItem('preferred_lang');
   if (!savedLang) {
     var browserLang = navigator.language || navigator.userLanguage || 'el';
-    savedLang = browserLang.toLowerCase().startsWith('el') ? 'el' : 'en';
+    browserLang = browserLang.toLowerCase();
+    if (browserLang.startsWith('el')) {
+      savedLang = 'el';
+    } else if (browserLang.startsWith('de')) {
+      savedLang = 'de';
+    } else if (browserLang.startsWith('fr')) {
+      savedLang = 'fr';
+    } else if (browserLang.startsWith('it')) {
+      savedLang = 'it';
+    } else {
+      savedLang = 'en';
+    }
     localStorage.setItem('preferred_lang', savedLang);
   }
 
   document.body.setAttribute('data-lang', savedLang);
-  document.getElementById('label-el').classList.toggle('active', savedLang === 'el');
-  document.getElementById('label-en').classList.toggle('active', savedLang === 'en');
 
   var searchInput = document.getElementById('searchInput');
   if (searchInput) {
-    searchInput.placeholder = savedLang === 'el' ? 'Αναζήτηση μενού...' : 'Search menu...';
+    if (savedLang === 'el') {
+      searchInput.placeholder = 'Αναζήτηση μενού...';
+    } else if (savedLang === 'de') {
+      searchInput.placeholder = 'Menü durchsuchen...';
+    } else if (savedLang === 'fr') {
+      searchInput.placeholder = 'Rechercher...';
+    } else if (savedLang === 'it') {
+      searchInput.placeholder = 'Cerca...';
+    } else {
+      searchInput.placeholder = 'Search menu...';
+    }
   }
 
+  initSplash();
   lockLeafPosition();
 
   var chefContent = document.querySelector('.chef-modal-content');
@@ -659,7 +770,7 @@ window.onload = function () {
   }
 
   // Back to Top visibility on scroll
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     var btt = document.getElementById('backToTop');
     if (btt) {
       if (window.scrollY > 500) {
@@ -705,50 +816,57 @@ function toggleAmbientSound() {
 const quizQuestions = [
   {
     en: "What taste are you in the mood for?",
-    el: "Τι γεύση έχετε όρεξη απόψε;",
+    el: "Για τι είδους γεύση έχετε όρεξη;",
+    de: "Worauf haben Sie Geschmack?",
+    fr: "De quelle saveur avez-vous envie ?",
+    it: "Che tipo di gusto hai voglia di provare?",
     options: [
-      { id: "sweet", en: "Sweet", el: "Γλυκιά" },
-      { id: "sour", en: "Sour & citrusy", el: "Ξινή & κιτρώδης" },
-      { id: "bitter", en: "Bitter & dry", el: "Πικρή & ξηρή" },
-      { id: "both", en: "A bit of both", el: "Λίγο από όλα" }
+      { id: "sweet", en: "Sweet", el: "Γλυκιά", de: "Süß", fr: "Sucré", it: "Dolce" },
+      { id: "sour", en: "Sour & citrusy", el: "Ξινή & κιτρώδης", de: "Sauer & zitrisch", fr: "Acide & acidulé", it: "Aspro e agrumato" },
+      { id: "bitter", en: "Bitter & dry", el: "Πικρή & ξηρή", de: "Bitter & trocken", fr: "Amer & sec", it: "Amaro e secco" }
     ]
   },
   {
     en: "How strong do you want it?",
     el: "Πόσο δυνατό το θέλετε;",
+    de: "Wie stark soll es sein?",
+    fr: "Quelle intensité préférez-vous ?",
+    it: "Quanto lo desideri forte?",
     options: [
-      { id: "light", en: "Light & refreshing", el: "Ελαφρύ & δροσιστικό" },
-      { id: "medium", en: "Medium", el: "Μέτριο" },
-      { id: "strong", en: "Strong & bold", el: "Δυνατό & έντονο" }
+      { id: "light", en: "Light & refreshing", el: "Ελαφρύ & δροσιστικό", de: "Leicht & erfrischend", fr: "Léger & rafraîchissant", it: "Leggero e rinfrescante" },
+      { id: "medium", en: "Medium", el: "Μέτριο", de: "Mittel", fr: "Moyen", it: "Medio" },
+      { id: "strong", en: "Strong & bold", el: "Δυνατό & έντονο", de: "Stark & charaktervoll", fr: "Fort & corsé", it: "Forte e intenso" }
     ]
   },
   {
     en: "Any spirit you prefer to avoid?",
     el: "Ποιο ποτό προτιμάτε να αποφύγετε;",
+    de: "Gibt es eine Spirituose, die Sie vermeiden möchten?",
+    fr: "Un alcool que vous préférez éviter ?",
+    it: "C'è qualche superalcolico che preferisci evitare?",
     options: [
-      { id: "vodka", en: "Vodka", el: "Βότκα" },
-      { id: "rum", en: "Rum", el: "Ρούμι" },
-      { id: "gin", en: "Gin", el: "Τζιν" },
-      { id: "tequila", en: "Tequila", el: "Τεκίλα" },
-      { id: "whiskey", en: "Whiskey", el: "Ουίσκι" },
-      { id: "none", en: "None", el: "Κανένα" }
+      { id: "vodka", en: "Vodka", el: "Βότκα", de: "Wodka", fr: "Vodka", it: "Vodka" },
+      { id: "rum", en: "Rum", el: "Ρούμι", de: "Rum", fr: "Rhum", it: "Rum" },
+      { id: "gin", en: "Gin", el: "Τζιν", de: "Gin", fr: "Gin", it: "Gin" },
+      { id: "tequila", en: "Tequila", el: "Τεκίλα", de: "Tequila", fr: "Tequila", it: "Tequila" },
+      { id: "none", en: "None", el: "Κανένα", de: "Keine", fr: "Aucun", it: "Nessuno" }
     ]
   }
 ];
 
 const cocktailsList = [
-  { id: 'behind_her_eyes', name: 'Behind Her Eyes', taste: ['sweet'], strength: ['strong', 'medium'], spirit: ['rum'], tagEn: 'Sweet & Tropical', tagEl: 'Γλυκό & Τροπικό', price: '12.00', ingredientsEn: 'Black Rum • Lime • Pineapple Juice • Passion Fruit Puree • Orgeat Syrup • Angostura Bitters', ingredientsEl: 'Μαύρο Ρούμι • Λάιμ • Χυμός Ανανά • Πουρές Φρούτων Πάθους • Σιρόπι Πικραμύγδαλο • Angostura Bitters' },
-  { id: 'truth_or_dare', name: 'Truth or Dare', taste: ['bitter', 'sour', 'both'], strength: ['light', 'medium'], spirit: ['tequila'], tagEn: 'Bittersweet & Citrusy', tagEl: 'Γλυκόπικρο & Κιτρώδες', price: '10.00', ingredientsEn: 'Tequila Blanco • Aperol • Agave • Lime • Grapefruit Bitters • Pink Grapefruit Soda', ingredientsEl: 'Τεκίλα Λευκή • Aperol • Αγαύη • Λάιμ • Grapefruit Bitters • Ροζ Σόδα Grapefruit' },
-  { id: 'white_ohara', name: "White O'Hara", taste: ['sweet', 'both'], strength: ['light'], spirit: ['gin'], tagEn: 'Floral & Light', tagEl: 'Ανθικό & Ελαφρύ', price: '10.00', ingredientsEn: 'Gin • Lime • Rose • Mandarin • Bergamot Bitters', ingredientsEl: 'Τζιν • Λάιμ • Τριαντάφυλλο • Μανταρίνι • Bitters Περγαμόντο' },
-  { id: 'netflix_n_chill', name: "Netflix N' Chill", taste: ['sweet'], strength: ['medium', 'strong'], spirit: ['vodka'], tagEn: 'Sweet & Creamy', tagEl: 'Γλυκό & Κρεμώδες', price: '11.00', ingredientsEn: 'Vodka • Salted Caramel • Popcorn • Pineapple', ingredientsEl: 'Βότκα • Αλατισμένη Καραμέλα • Ποπκόρν • Ανανάς' },
-  { id: 'new_zealand', name: 'New Zealand', taste: ['both', 'sour'], strength: ['medium'], spirit: ['gin'], tagEn: 'Fresh & Botanical', tagEl: 'Δροσερό & Βοτανικό', price: '11.00', ingredientsEn: 'Gin • Kiwi • Cucumber • Lavender • Lime • Egg White • Celery Bitters', ingredientsEl: 'Τζιν • Ακτινίδιο • Αγγούρι • Λεβάντα • Λάιμ • Ασπράδι Αυγού • Bitters Σέλινο' },
-  { id: 'light_it_up', name: 'Light It Up', taste: ['sweet', 'both'], strength: ['strong'], spirit: ['whiskey'], tagEn: 'Rich & Smoky', tagEl: 'Πλούσιο & Καπνιστό', price: '11.00', ingredientsEn: 'Bourbon Whiskey • Fresh Peach • Tia Maria • Vanilla Syrup', ingredientsEl: 'Ουίσκι Bourbon • Φρέσκο Ροδάκινο • Tia Maria • Σιρόπι Βανίλια' },
-  { id: 'feels_like_summer', name: 'Feels Like Summer', taste: ['sweet'], strength: ['light', 'medium'], spirit: ['gin'], tagEn: 'Light & Fruity', tagEl: 'Ελαφρύ & Φρουτώδες', price: '11.00', ingredientsEn: 'Gin • Watermelon • Lime • Agave • Honey', ingredientsEl: 'Τζιν • Καρπούζι • Λάιμ • Αγαύη • Μέλι' },
-  { id: '50_shades_of_green', name: '50 Shades of Green', taste: ['both', 'bitter'], strength: ['light', 'medium'], spirit: ['any', 'vodka', 'rum', 'gin', 'tequila', 'whiskey'], tagEn: 'Fresh & Balanced', tagEl: 'Δροσερό & Ισορροπημένο', price: '10.00', ingredientsEn: 'Midori • Aperol • Lime • Sugar • Orange Bitters', ingredientsEl: 'Midori • Aperol • Λάιμ • Ζάχαρη • Bitters Πορτοκάλι' },
-  { id: 'bite_my_cookie', name: 'Bite My Cookie', taste: ['sweet'], strength: ['strong', 'medium'], spirit: ['rum'], tagEn: 'Sweet & Dessert', tagEl: 'Γλυκό & Επιδόρπιο', price: '12.00', ingredientsEn: 'Dark Rum • Tia Maria • Salted Caramel • Choco Cookie • Espresso • Choco Bitters', ingredientsEl: 'Μαύρο Ρούμι • Tia Maria • Αλατισμένη Καραμέλα • Μπισκότο Σοκολάτας • Espresso • Bitters Σοκολάτας' },
-  { id: 'teddy_bear', name: 'Teddy Bear', taste: ['sweet'], strength: ['light', 'medium'], spirit: ['vodka'], tagEn: 'Sweet & Velvety', tagEl: 'Γλυκό & Βελούδινο', price: '11.00', ingredientsEn: 'Vodka • Chambord • Lime • Cranberry • Bubblegum • Egg White', ingredientsEl: 'Βότκα • Chambord • Λάιμ • Cranberry • Τσιχλόφουσκα • Ασπράδι Αυγού' },
-  { id: 'mastiha_ri', name: 'Mastiha-Ri', taste: ['sweet', 'both'], strength: ['medium'], spirit: ['vodka'], tagEn: 'Aromatic & Fresh', tagEl: 'Αρωματικό & Δροσερό', price: '11.00', ingredientsEn: 'Vodka • Masticha • Lime • Coconut • Falernum • Mint', ingredientsEl: 'Βότκα • Μαστίχα • Λάιμ • Καρύδα • Falernum • Δυόσμος' },
-  { id: 'spicy_gentleman', name: 'Spicy Gentleman', taste: ['both', 'sour'], strength: ['medium', 'strong'], spirit: ['tequila'], tagEn: 'Spicy & Exotic', tagEl: 'Πικάντικο & Εξωτικό', price: '11.00', ingredientsEn: 'Tequila Blanco • Lime • Italicus • Pineapple • Passion Fruit • Chili • Tabasco', ingredientsEl: 'Τεκίλα Λευκή • Λάιμ • Italicus • Ανανάς • Φρούτα του Πάθους • Τσίλι • Tabasco' }
+  { id: 'behind_her_eyes', name: 'Behind Her Eyes', taste: ['sweet'], strength: ['strong', 'medium'], spirit: ['rum'], tagEn: 'Sweet & Tropical', tagEl: 'Γλυκό & Τροπικό', tagDe: 'Süß & Tropisch', tagFr: 'Doux & Tropical', tagIt: 'Dolce e tropicale', price: '12.00', ingredientsEn: 'Black Rum • Lime • Pineapple Juice • Passion Fruit Puree • Orgeat Syrup • Angostura Bitters', ingredientsEl: 'Μαύρο Ρούμι • Λάιμ • Χυμός Ανανά • Πουρές Φρούτων Πάθους • Σιρόπι Πικραμύγδαλο • Angostura Bitters', ingredientsDe: 'Schwarzer Rum • Limette • Ananassaft • Passionsfruchtpüree • Mandelsirup • Angostura Bitter', ingredientsFr: 'Rhum brun • Lime • Jus d\'ananas • Purée de fruits de la passion • Sirop d\'orgeat • Angostura Bitters', ingredientsIt: 'Rum scuro • Lime • Succo d\'ananas • Purea di frutto della passione • Sciroppo d\'orzata • Angostura Bitters' },
+  { id: 'truth_or_dare', name: 'Truth or Dare', taste: ['bitter', 'sour', 'both'], strength: ['light', 'medium'], spirit: ['tequila'], tagEn: 'Bittersweet & Citrusy', tagEl: 'Γλυκόπικρο & Κιτρώδες', tagDe: 'Bittersüß & Zitrusartig', tagFr: 'Doux-amer & Acidulé', tagIt: 'Dolceamaro e agrumato', price: '10.00', ingredientsEn: 'Tequila Blanco • Aperol • Agave • Lime • Grapefruit Bitters • Pink Grapefruit Soda', ingredientsEl: 'Τεκίλα Λευκή • Aperol • Αγαύη • Λάιμ • Grapefruit Bitters • Ροζ Σόδα Grapefruit', ingredientsDe: 'Tequila Blanco • Aperol • Agavendicksaft • Limette • Grapefruit Bitter • Pink Grapefruit Soda', ingredientsFr: 'Tequila Blanco • Aperol • Agave • Lime • Bitters de pamplemousse • Soda au pamplemousse rose', ingredientsIt: 'Tequila Blanco • Aperol • Agave • Lime • Grapefruit Bitters • Soda al pompelmo rosa' },
+  { id: 'white_ohara', name: "White O'Hara", taste: ['sweet', 'both'], strength: ['light'], spirit: ['gin'], tagEn: 'Floral & Light', tagEl: 'Ανθικό & Ελαφρύ', tagDe: 'Blumig & Leicht', tagFr: 'Floral & Léger', tagIt: 'Floreale e leggero', price: '10.00', ingredientsEn: 'Gin • Lime • Rose • Mandarin • Bergamot Bitters', ingredientsEl: 'Τζιν • Λάιμ • Τριαντάφυλλο • Μανταρίνι • Bitters Περγαμόντο', ingredientsDe: 'Gin • Limette • Rose • Mandarine • Bergamotte Bitter', ingredientsFr: 'Gin • Lime • Rose • Mandarine • Bitters de bergamote', ingredientsIt: 'Gin • Lime • Rosa • Mandarino • Bergamot Bitters' },
+  { id: 'netflix_n_chill', name: "Netflix N' Chill", taste: ['sweet'], strength: ['medium', 'strong'], spirit: ['vodka'], tagEn: 'Sweet & Creamy', tagEl: 'Γλυκό & Κρεμώδες', tagDe: 'Süß & Cremig', tagFr: 'Doux & Crémeux', tagIt: 'Dolce e cremoso', price: '11.00', ingredientsEn: 'Vodka • Salted Caramel • Popcorn • Pineapple', ingredientsEl: 'Βότκα • Αλατισμένη Καραμέλα • Ποπκόρν • Ανανάς', ingredientsDe: 'Wodka • Salziges Karamell • Popcorn • Ananas', ingredientsFr: 'Vodka • Caramel salé • Popcorn • Ananas', ingredientsIt: 'Vodka • Caramello salato • Popcorn • Ananas' },
+  { id: 'new_zealand', name: 'New Zealand', taste: ['both', 'sour'], strength: ['medium'], spirit: ['gin'], tagEn: 'Fresh & Botanical', tagEl: 'Δροσερό & Βοτανικό', tagDe: 'Frisch & Kräuterig', tagFr: 'Frais & Herbacé', tagIt: 'Fresco e botanico', price: '11.00', ingredientsEn: 'Gin • Kiwi • Cucumber • Lavender • Lime • Egg White • Celery Bitters', ingredientsEl: 'Τζιν • Ακτινίδιο • Αγγούρι • Λεβάντα • Λάιμ • Ασπράδι Αυγού • Bitters Σέλινο', ingredientsDe: 'Gin • Kiwi • Gurke • Lavendel • Limette • Eiweiß • Sellerie Bitter', ingredientsFr: 'Gin • Kiwi • Concombre • Lavande • Lime • Blanc d\'œuf • Bitters de céleri', ingredientsIt: 'Gin • Kiwi • Cetriolo • Lavanda • Lime • Albume • Celery Bitters' },
+  { id: 'light_it_up', name: 'Light It Up', taste: ['sweet', 'both'], strength: ['strong'], spirit: ['whiskey'], tagEn: 'Rich & Smoky', tagEl: 'Πλούσιο & Καπνιστό', tagDe: 'Kräftig & Rauchig', tagFr: 'Riche & Fumé', tagIt: 'Ricco e affumicato', price: '11.00', ingredientsEn: 'Bourbon Whiskey • Fresh Peach • Tia Maria • Vanilla Syrup', ingredientsEl: 'Ουίσκι Bourbon • Φρέσκο Ροδάκινο • Tia Maria • Σιρόπι Βανίλια', ingredientsDe: 'Bourbon Whiskey • Frischer Pfirsich • Tia Maria • Vanillesirup', ingredientsFr: 'Bourbon Whiskey • Pêche fraîche • Tia Maria • Sirop de vanille', ingredientsIt: 'Bourbon Whiskey • Pesca fresca • Tia Maria • Sciroppo di vaniglia' },
+  { id: 'feels_like_summer', name: 'Feels Like Summer', taste: ['sweet'], strength: ['light', 'medium'], spirit: ['gin'], tagEn: 'Light & Fruity', tagEl: 'Ελαφρύ & Φρουτώδες', tagDe: 'Leicht & Fruchtig', tagFr: 'Léger & Fruité', tagIt: 'Leggero e fruttato', price: '11.00', ingredientsEn: 'Gin • Watermelon • Lime • Agave • Honey', ingredientsEl: 'Τζιν • Καρπούζι • Λάιμ • Αγαύη • Μέλι', ingredientsDe: 'Gin • Wassermelone • Limette • Agavendicksaft • Honig', ingredientsFr: 'Gin • Pastèque • Lime • Agave • Miel', ingredientsIt: 'Gin • Anguria • Lime • Agave • Miele' },
+  { id: '50_shades_of_green', name: '50 Shades of Green', taste: ['both', 'bitter'], strength: ['light', 'medium'], spirit: ['any', 'vodka', 'rum', 'gin', 'tequila', 'whiskey'], tagEn: 'Fresh & Balanced', tagEl: 'Δροσερό & Ισορροπημένο', tagDe: 'Frisch & Ausgewogen', tagFr: 'Frais & Équilibré', tagIt: 'Fresco e bilanciato', price: '10.00', ingredientsEn: 'Midori • Aperol • Lime • Sugar • Orange Bitters', ingredientsEl: 'Midori • Aperol • Λάιμ • Ζάχαρη • Bitters Πορτοκάλι', ingredientsDe: 'Midori • Aperol • Limette • Zucker • Orangen Bitter', ingredientsFr: 'Midori • Aperol • Lime • Sucre • Bitters d\'orange', ingredientsIt: 'Midori • Aperol • Lime • Zucchero • Orange Bitters' },
+  { id: 'bite_my_cookie', name: 'Bite My Cookie', taste: ['sweet'], strength: ['strong', 'medium'], spirit: ['rum'], tagEn: 'Sweet & Dessert', tagEl: 'Γλυκό & Επιδόρπιο', tagDe: 'Süß & Dessertartig', tagFr: 'Doux & Gourmand', tagIt: 'Dolce e dessert', price: '12.00', ingredientsEn: 'Dark Rum • Tia Maria • Salted Caramel • Choco Cookie • Espresso • Choco Bitters', ingredientsEl: 'Μαύρο Ρούμι • Tia Maria • Αλατισμένη Καραμέλα • Μπισκότο Σοκολάτας • Espresso • Bitters Σοκολάτας', ingredientsDe: 'Dunkler Rum • Tia Maria • Salziges Karamell • Schokokeks • Espresso • Schoko Bitter', ingredientsFr: 'Rhum brun • Tia Maria • Caramel salé • Cookie au chocolat • Espresso • Bitters de chocolat', ingredientsIt: 'Rum scuro • Tia Maria • Caramello salato • Biscotto al cioccolato • Espresso • Choco Bitters' },
+  { id: 'teddy_bear', name: 'Teddy Bear', taste: ['sweet'], strength: ['light', 'medium'], spirit: ['vodka'], tagEn: 'Sweet & Velvety', tagEl: 'Γλυκό & Βελούδινο', tagDe: 'Süß & Samtig', tagFr: 'Doux & Velouté', tagIt: 'Dolce e vellutato', price: '11.00', ingredientsEn: 'Vodka • Chambord • Lime • Cranberry • Bubblegum • Egg White', ingredientsEl: 'Βότκα • Chambord • Λάιμ • Cranberry • Τσιχλόφουσκα • Ασπράδι Αυγού', ingredientsDe: 'Wodka • Chambord • Limette • Cranberry • Kaugummi • Eiweiß', ingredientsFr: 'Vodka • Chambord • Lime • Canneberge • Bubblegum • Blanc d\'œuf', ingredientsIt: 'Vodka • Chambord • Lime • Mirtillo rosso • Bubblegum • Albume' },
+  { id: 'mastiha_ri', name: 'Mastiha-Ri', taste: ['sweet', 'both'], strength: ['medium'], spirit: ['vodka'], tagEn: 'Aromatic & Fresh', tagEl: 'Αρωματικό & Δροσερό', tagDe: 'Aromatisch & Frisch', tagFr: 'Aromatique & Frais', tagIt: 'Aromatico e fresco', price: '11.00', ingredientsEn: 'Vodka • Masticha • Lime • Coconut • Falernum • Mint', ingredientsEl: 'Βότκα • Μαστίχα • Λάιμ • Καρύδα • Falernum • Δυόσμος', ingredientsDe: 'Wodka • Mastiha • Limette • Kokosnuss • Falernum • Minze', ingredientsFr: 'Vodka • Mastiha • Lime • Noix de coco • Falernum • Menthe', ingredientsIt: 'Vodka • Mastiha • Lime • Cocco • Falernum • Menta' },
+  { id: 'spicy_gentleman', name: 'Spicy Gentleman', taste: ['both', 'sour'], strength: ['medium', 'strong'], spirit: ['tequila'], tagEn: 'Spicy & Exotic', tagEl: 'Πικάντικο & Εξωτικό', tagDe: 'Pikant & Exotisch', tagFr: 'Épicé & Exotique', tagIt: 'Speziato ed esotico', price: '11.00', ingredientsEn: 'Tequila Blanco • Lime • Italicus • Pineapple • Passion Fruit • Chili • Tabasco', ingredientsEl: 'Τεκίλα Λευκή • Λάιμ • Italicus • Ανανάς • Φρούτα του Πάθους • Τσίλι • Tabasco', ingredientsDe: 'Tequila Blanco • Limette • Italicus • Ananas • Passionsfrucht • Chili • Tabasco', ingredientsFr: 'Tequila Blanco • Lime • Italicus • Ananas • Fruits de la passion • Piment • Tabasco', ingredientsIt: 'Tequila Blanco • Lime • Italicus • Ananas • Frutto della passione • Peperoncino • Tabasco' }
 ];
 
 let currentQuizStep = 0;
@@ -798,14 +916,14 @@ function renderQuizStep() {
 
   if (currentQuizStep < quizQuestions.length) {
     const q = quizQuestions[currentQuizStep];
-    const questionText = lang === 'en' ? q.en : q.el;
+    const questionText = lang === 'de' ? q.de : (lang === 'en' ? q.en : q.el);
 
     let html = `<div class="quiz-step active" style="animation: fadeInStep 0.3s ease forwards;">
                   <div class="quiz-question">${questionText}</div>
                   <div class="quiz-options">`;
 
     q.options.forEach(opt => {
-      const optText = lang === 'en' ? opt.en : opt.el;
+      const optText = lang === 'de' ? opt.de : (lang === 'en' ? opt.en : opt.el);
       // Added data-id to highlight the chosen option
       html += `<div class="quiz-option" data-id="${opt.id}" onclick="selectQuizOption('${opt.id}', this)">${optText}</div>`;
     });
@@ -818,10 +936,14 @@ function renderQuizStep() {
     if (progressContainer) progressContainer.style.display = 'none';
 
     // Show loading
+    let loadingText = 'Ετοιμάζουμε το αποτέλεσμα...';
+    if (lang === 'en') loadingText = 'Shaking your cocktail...';
+    else if (lang === 'de') loadingText = 'Ihr Cocktail wird geschüttelt...';
+
     container.innerHTML = `
       <div class="quiz-loading" style="animation: fadeInStep 0.3s ease forwards;">
         <i class="fa-solid fa-cocktail quiz-loading-icon"></i>
-        <div style="font-weight:600; color:var(--dark); margin-top: 15px;">${lang === 'en' ? 'Shaking your cocktail...' : 'Ετοιμάζουμε το αποτέλεσμα...'}</div>
+        <div style="font-weight:600; color:var(--dark); margin-top: 15px;">${loadingText}</div>
       </div>
     `;
 
@@ -873,15 +995,23 @@ function showQuizResult() {
   // Get Top 3
   const topMatches = filteredCocktails.slice(0, 3);
 
+  let headerText = 'Τα Κορυφαία για Εσάς';
+  if (lang === 'en') headerText = 'Your Top Matches';
+  else if (lang === 'de') headerText = 'Ihre Top-Treffer';
+
+  let btnText = 'Επανεκκίνηση';
+  if (lang === 'en') btnText = 'Start Over';
+  else if (lang === 'de') btnText = 'Neu starten';
+
   let html = `<div style="animation: fadeInStep 0.5s ease forwards;">
     <div style="font-size: 16px; color: var(--muted); margin-bottom: 15px; text-align: center;">
-      ${lang === 'en' ? "Your Top Matches" : "Τα Κορυφαία για Εσάς"}
+      ${headerText}
     </div>
     <div style="display: flex; flex-direction: column; gap: 15px;">`;
 
   topMatches.forEach((match, index) => {
-    const tagName = lang === 'en' ? match.tagEn : match.tagEl;
-    const ingredients = lang === 'en' ? match.ingredientsEn : match.ingredientsEl;
+    const tagName = lang === 'de' ? match.tagDe : (lang === 'en' ? match.tagEn : match.tagEl);
+    const ingredients = lang === 'de' ? match.ingredientsDe : (lang === 'en' ? match.ingredientsEn : match.ingredientsEl);
 
     html += `
       <div style="border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 12px; padding: 15px; background: rgba(255, 255, 255, 0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
@@ -898,7 +1028,7 @@ function showQuizResult() {
 
   html += `</div>
     <button onclick="openQuizModal()" style="display:block; width:100%; margin-top:20px; padding:12px; background: transparent; border: 1.5px solid var(--accent); border-radius: 25px; color:var(--accent); font-weight:600; font-size:15px; cursor:pointer; text-transform: uppercase; letter-spacing: 1px;">
-      ${lang === 'en' ? 'Start Over' : 'Επανεκκίνηση'}
+      ${btnText}
     </button>
   </div>`;
 

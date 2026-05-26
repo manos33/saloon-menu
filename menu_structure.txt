@@ -1,0 +1,539 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              SALOON BEACHBAR & RESTAURANT — CODEBASE MAP                   ║
+║                    Last Updated: 2026-05-25                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Languages supported: EL (Greek) · EN (English) · DE (German) · FR (French) · IT (Italian)
+Pattern used: <span lang-el> / <span lang-en> / <span lang-de> / <span lang-fr> / <span lang-it>
+Language switching: changeLanguage(lang) in script.js:186
+Language toggle UI: .lang-segmented-control in header (L118) & welcome modal (L5214)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INDEX.HTML  (5519 lines total)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HEAD & META
+  L1      <!DOCTYPE html>
+  L2      <html lang="el">
+  L4-37   <head> — charset, viewport, SEO meta, OG, Twitter, Google Fonts
+  L27-29  Google Fonts: Jost, Great Vibes, Literata
+  L31-33  Favicon links (favicon.png)
+  L35     Font Awesome CDN
+  L36     <link rel="stylesheet" href="style.css">
+  L37     </head>
+
+BODY OPENS
+  L39     <body data-lang="el">
+
+SPLASH SCREEN
+  L41-64  <div id="splash-screen" class="splash-screen">
+  L43     .splash-content (Welcome to SALOON logo + SVG umbrella)
+  L44     .splash-welcome "Welcome to"
+  L45-56  .splash-logo (SAL [SVG] ON)
+  L58-63  .splash-view (water wave animation divs × 3)
+  L63     .splash-wave
+
+DECORATIVE LEAVES
+  L67-70  <div class="leaf-overlay"> — palm-leaf.png decor top-left & bottom-right
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HEADER  (.mh)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L73     <div class="mh">
+  L75-84  .mh-logo  — SAL [SVG umbrella] ON (terracotta SVG)
+  L85     .mh-sub   — "Beachbar · Restaurant"
+  L87-101 Subtitle block: "Μενού Φαγητού / Food Menu / Speisekarte"
+  L90     by / von The Saloon Family (Great Vibes font)
+
+  FOOD / DRINKS TOGGLE  (.mode-toggle)
+  L103-115  <div class="mode-toggle-wrap">
+  L106      Φαγητό / Food / Speisen button  [onclick switchMode('food')]
+  L110      Ποτά / Drinks / Getränke button [onclick switchMode('drinks')]
+
+  LANGUAGE SWITCHER  (in header)
+  L117-124  <div class="mh-tag"> → .lang-segmented-control (width 210px)
+  L118      .lang-slider (animated pill, terracotta)
+  L120      🇬🇷 EL button  → changeLanguage('el')
+  L121      🇬🇧 EN button  → changeLanguage('en')
+  L122      🇩🇪 DE button  → changeLanguage('de')
+
+  SEARCH BAR
+  L126-133  <div class="search-wrap-container">
+  L130      <input id="searchInput">  placeholder updates on language change
+
+  L134      </div>  <!-- end .mh -->
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANNOUNCEMENT BANNER  (.announce-bar)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L136-165  #announceBanner — 4 rotating slides (EL/EN/DE each)
+  L139-143  Slide 1: "Πλήρες Μενού σύντομα / Full Menu coming soon / Vollständiges Menü..."
+  L145-149  Slide 2: Happy Hour
+  L151-155  Slide 3: Capture Saloon Moments
+  L157-161  Slide 4: Enjoy sunset with a cocktail
+  L164      Dismiss button
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NAVIGATION BARS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FOOD NAV  (#nav-food)
+  L167-246  <div class="nav-wrap" id="nav-food">
+  L170      "Ανακαλύψτε / Discover / Entdecken"  → showCategory('s0', food)
+  L174      "Μενού / Menu / Menü"                → showCategory('s_temp', food)
+  L178-233  <template> (hidden nav buttons revealed by JS)
+  L179      Brunch                               → showCategory('s1', food)
+  L183      Σνακς / Snacks                       → showCategory('s2', food)
+  L187      Σαλάτες / Salads / Salate            → showCategory('s3', food)
+  L192      Ορεκτικά / Appetizers / Vorspeisen   → showCategory('s4', food)
+  L195      Bao & Πλατώ / Platters / Platten     → showCategory('s9', food)
+  L200      Χάμπουργκερ / Burgers                → showCategory('s5', food)
+  L...      Πίτσα / Pizza                        → showCategory('s6', food)
+  L...      Pasta                                → showCategory('s7', food)
+  L...      Γλυκά / Desserts / Desserts          → showCategory('s8', food)
+
+  DRINKS NAV  (#nav-drinks)
+  L~248-330 <div class="nav-wrap" id="nav-drinks">
+  L~250     Cocktails                            → showCategory('d1', drinks)
+  L~254     Wine / Κρασί / Wein                  → showCategory('d2', drinks)
+  L~258     Beer / Μπύρα / Bier                  → showCategory('d3', drinks)
+  L~262     Spirits / Ποτά                       → showCategory('d4', drinks)
+  L~266     Coffee / Καφές / Kaffee              → showCategory('d5', drinks)
+  L~270     Beverages / Ροφήματα / Getränke      → showCategory('d6', drinks)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FOOD SECTIONS  (#food-sections)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L~335     <div id="food-sections">
+
+  S0: DISCOVER / ΑΝΑΚΑΛΥΨΤΕ  (#s0) — Active by default
+  L~337     <div class="sec" id="s0">
+  L~348     Signature cocktail cards (ice cards)
+  L~350     Premium ice card: Behind Her Eyes cocktail
+  L~360     Signature Saloon Specials
+  L~380     "Best Seller" badge card (8€)
+  L~415     Happy Hour & Combos cat-label
+  L~421     <template> Happy Hour card (hidden)
+  L~455     Coming Soon card (orange gradient)
+  L~488     <template> Combo cards (hidden)
+  L~586     Info cat-label
+  L~610     Sunset timer card (#sunset-timer)
+  L~638     Spotify info card
+
+  S_TEMP: ALL-DAY MENU  (#s_temp)
+  L680      <div class="sec" id="s_temp">
+  L682-686  sec-title: Μενού / Menu / Menü
+  L688-690  sec-en: Όλη μέρα / All Day Menu / All-Day-Menü
+  L694      Club Sandwich cat-label (EL/EN/DE)
+  L697-706  Club Chicken — 9.00
+  L709-720  Club Cold Cuts — 8.50
+  L722      <template> Hidden Katimeria section
+  L756      Energy Bowls cat-label
+  L762-776  Protein Bowl V — 8.50
+  L777-791  Energy Bowl V — 9.00
+  L793      Toasts cat-label
+  L799-813  Plain Toast — 3.50
+  L814-828  Saloon Special Toast — 4.50
+  L830      Baguettes cat-label
+  L836-850  Classic Deli baguette — 5.50
+  L851-865  Greek Gyro baguette — 7.50 [Best Seller]
+  L866-880  Crispy Bite baguette — 7.50
+  L881-896  Aegean Breeze baguette V — 6.00
+  L898      Salads cat-label
+  L904-918  Caesar Salad — 9.50
+  L919-933  Greek Salad V — 8.50
+  L935-950  Dakos V — 8.50
+  L951-966  Mediterranean with Halloumi V — 9.50
+  L968      Bites & Shares cat-label
+  L974-988  The Aegean Five V — 8.50
+  L990-1003 Crispy Chicken Nuggets — 8.50
+  L1005-1018 Gyros Portion — 14.00
+  L1020-1033 Meat & Cheese Platter — 14.00
+  L1035-1044 French Fries V — 4.50
+  L1047     Homemade Desserts cat-label
+  L1053-1062 Banoffee V — 6.50
+  L1063-1076 Cheesecake V — 5.00
+  L1078-1087 Millefeuille V — 6.50
+  L1089-1114 Vanilla Submarine [Local Delight box]
+  L1116     Croissants cat-label
+  L1122-1131 Chocolate Croissant — 4.50
+  L1132-1141 Pastry Cream & Strawberries — 5.50
+  L1143     </div> <!-- end s_temp -->
+
+  S1–S9: HIDDEN BRUNCH / FULL MENU (inside <template>)
+  L1145-~2137 Large template block (not visible — full brunch/egg/pasta menus)
+            NOTE: These sections use only EL/EN, no DE spans added yet
+
+  L2138     </div> <!-- END FOOD SECTIONS -->
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DRINKS SECTIONS  (#drinks-sections)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L2140     <div id="drinks-sections" style="display:none">
+
+  D1: COCKTAILS  (#d1)
+  L2143     <div class="sec" id="d1">
+  L2165     Signature Cocktails cat-label
+  L2181-2194 Behind Her Eyes sig-card — 12.00
+  L2197-2210 Truth or Dare sig-card — 10.00
+  L2212-2225 White O'Hara sig-card — 10.00
+  L2227-2239 Netflix N' Chill sig-card — 11.00
+  L2241-2253 New Zealand sig-card — 11.00
+  L2256-2267 Light it Up sig-card — 11.00
+  L2270-2281 Feels Like Summer sig-card — 11.00
+  L2299-2311 Bite My Cookie sig-card — 12.00
+  L2313-2325 Teddy Bear sig-card — 11.00
+  L2327-2338 Mastiha-ri sig-card — 11.00
+  L2341-2353 Spicy Gentleman sig-card — 11.00
+             NOTE: sig-card desc spans only have EL/EN (cocktail names are universal)
+  L2357     Classics cat-label
+  L2358     Mojito — 8.00
+  L2364     Pina Colada — 8.00
+  L2370     Daiquiri — 8.00 (+ Frozen badge)
+  L2381     Margarita — 9.00
+  L2387     Negroni — 10.00
+  L2393     Pornstar Martini — 9.00 (+ Frozen badge)
+  L2404     Espresso Martini — 9.00
+  L2410     Whiskey OR Vodka Sour — 9.00
+  L2418     Spritz & Bubbly cat-label
+  L2420-2466 Best Sellers card (Aperol Spritz + Anna's Aperol Spritz)
+  L2469     Hugo Spritz — 8.00
+  L2475     Campari Spritz — 8.00
+  L2490     Mocktails cat-label (0% Vol)
+  L2493     Feels like a SOBER summer — 6.00
+  L2503     Behind Her Smile — 6.00
+  L2513     Virgin Mojito — 6.50
+  L2519     Tropical Punch — 6.00
+  L2525     </div> <!-- end d1 -->
+
+  D2: WINE LIST  (#d2)
+  L2562     <div class="sec" id="d2">
+  L2574     Greek Wine Map card (clickable → openGreekMapModal)
+  L2665     White Wines cat-label
+  L2667     Kyr Yianni Paraga — 6.00/glass, 24.00/bottle
+  L2682     Mparafakas Neraides (Semi-Sweet) — 6.00/24.00
+  L2697     Skevofilakas (various)
+  L...      Red Wines, Rosé Wines
+             NOTE: Wine names are proper nouns, not translated
+
+  D3: BEER  (#d3) — around L~2900
+  D4: SPIRITS  (#d4) — around L~3200
+             Contains: Whiskey, Rum, Tequila, Gin, Vodka accordions
+             Also: Greek Tradition card (Ouzo/Tsipouro/Retsina) L~3964
+
+  D5: COFFEE  (#d5)
+  L4036     <div class="sec" id="d5">
+  L4047     Vescovi brand ribbon (clickable → opens #vescovi-modal)
+  L4063     "Σερβίρεται με / Proudly Served with / Stolz serviert mit"
+  L4088     Coffee cat-label
+  L4091     Ελληνικός / Greek Coffee / Griechischer Kaffee — 2.50 | 3.00
+  L4098     Φίλτρου / Filter Coffee / Filterkaffee — 4.00
+  L4103     Φραπέ / Νες / Nescafé — 3.50
+  L4109     Φραπέ Παγωτό / Frappe Ice Cream / Frappé Eis — 5.00
+  L4115     Εσπρέσσο / Espresso — 2.50 | 3.00
+  L4123     Affogato — 5.00
+  L4131     Mochaccino — 5.00
+  L4139     Καπουτσίνο / Cappuccino — 3.50 | 4.00
+  L4145     Φρέντο Εσπρέσσο / Freddo Espresso ❄ — 3.50
+                (Syrup add-ons: Lime, Βανίλια, Καραμέλα, Φουντούκι)
+  L4173     Φρέντο Καπουτσίνο / Freddo Cappuccino ❄ — 4.00
+  L4180     Λάτε / Latte — 4.00 (Hot · Iced)
+                (Syrup add-ons same as above)
+  L4207     Ιρλανδέζικος / Irish Coffee — 6.00
+  L4213     Αμερικάνο / Americano — 3.00
+  L4220     </div> <!-- end d5 -->
+
+  D6: BEVERAGES & JUICES  (#d6, display:none initially)
+  L4222     <div class="sec" id="d6">
+  L4235     Σοκολάτα / Chocolate / Schokolade — 5.00
+  L4245     Τσάι / Tea / Tee — 3.50
+  L4253     Φρέσκος Χυμός / Fresh Juice / Frischer Saft — 5.00|6.00
+  L4260     Χυμοί / Juice Drinks / Fruchtsäfte — 3.50
+  L4270     Milkshake — 5.50
+  L4280     Γρανίτες / Granitas — 5.00
+  L4290     Premium Smoothies cat-label (with Frudose logo)
+  L4297     Tropical Boost — 6.00
+  L4307     Berry Red — 6.00
+  L4317     Green Energy — 6.00
+  L4327     Vanilla Sunset — 6.00
+  L4337     Αναψυκτικά / Soft Drinks / Erfrischungsgetränke — 3.00
+                (Coca-Cola, Fanta, Sprite, Soda/Tonic/Bitter Lemon + brand logos)
+  L4378     Σόδα Ροζ Γκρέιπφρουτ / Pink Grapefruit Soda / Rosa Grapefruitsoda — 4.00
+  L4385     Φυσικό Μεταλλικό Νερό / Still Water / Stilles Wasser — 0.50|2.00
+  L4392     Ανθρακούχο Νερό / Sparkling Water / Sprudelwasser — 3.50|5.00
+  L4399     </div> <!-- END DRINKS SECTIONS -->
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SEARCH RESULTS CONTAINER
+  L4402     <div id="search-results-container" class="sec" style="display:none">
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VESCOVI COFFEE MODAL  (#vescovi-modal)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L4420     <!-- VESCOVI MODAL -->
+  L4421     <div id="vescovi-modal" class="vescovi-modal-overlay">
+  L4423     .vescovi-modal-sheet
+  L4426     .vescovi-modal-header — logo circle + Vescovi wordmark mask image
+  L4437     .vescovi-modal-origin — "Πάντοβα/Padua, Italy/Padua, Italien · 1927" (EL/EN/DE)
+  L4444     .vescovi-modal-close [×] button
+  L4451     .vescovi-modal-body (scrollable)
+  L4454     .vescovi-quote — famous quote (EL/EN/DE)
+  L4461     Story section title + paragraph (EL/EN/DE)
+  L4476     Art/Craft section title + paragraph (EL/EN/DE)
+  L4491     Why Vescovi pills (EL/EN/DE) — 6 pills
+  L4511     Our Blend section — Grani d'Oro bar (EL/EN/DE)
+  L4533     </div> closes modal sheet
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOATING ELEMENTS & MODALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  GREEK WINE MAP MODAL
+  L4900     #greekMapModal — opens via openGreekMapModal()
+
+  SUNSET TIMER SCRIPT
+  L5099-5125   <script> updateSunsetTimers() — counts down to 20:20 Kos time
+
+  AMBIENT SOUND TOGGLE
+  L5128     #ambient-toggle button (toggleAmbientSound)
+  L5131     <audio id="ambient-waves" src="waves.mp3">
+  L5132     <audio id="ambient-music" src="music.mp3">
+
+  QUIZ MODAL  (#quiz-modal)
+  L5135     <div id="quiz-modal" class="quiz-modal">
+  L5142     quiz-title: Βρείτε το ιδανικό σας Cocktail / Find Your Perfect Match (EL/EN)
+  L5149-5157 Quiz progress dots × 3
+  L5160     #quiz-step-container (steps injected via JS)
+
+  BACK TO TOP BUTTON
+  L5167     #backToTop button
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WELCOME / ONBOARDING MODAL  (#welcome-modal)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L5172     <div id="welcome-modal" class="tour-welcome-modal">
+  L5175     Language switcher inside modal
+  L5176     .lang-segmented-control
+  L5178     🇬🇷 EL / 🇬🇧 EN / 🇩🇪 DE buttons
+  L5184     .welcome-logo-svg — SAL [SVG] ON
+  L5194     .welcome-title — Καλώς ήρθατε! / Welcome! / Willkommen! (EL/EN/DE)
+  L5197     .welcome-subtitle (EL/EN/DE)
+  L5200     .welcome-options
+  L5201     Button: Ποτά & Cocktails → startTourFlow('drinks')
+  L5205     Button: Φαγητό / Food / Speisen → startTourFlow('food')
+  L5209     Button: Προσφορές & Νέα / Offers / Angebote → startTourFlow('offers')
+
+  TOUR OVERLAY & TOOLTIP
+  L5218     #tour-overlay (dark overlay div)
+  L5219     #tour-tooltip
+  L5220     #tour-tooltip-text (injected by JS)
+  L5221     Continue / Σύρετε / Weiter button → nextTourStep()
+
+  TOUR CSS  (inline <style>)
+  L5227-5403  .tour-welcome-modal, .welcome-modal-content, .lang-label,
+              .welcome-logo-svg, .welcome-title, .welcome-subtitle,
+              .welcome-btn, .tour-overlay, .tour-highlight, .tour-tooltip,
+              .tour-tooltip-btn styles
+
+  TOUR JAVASCRIPT  (inline <script>)
+  L5405-5511  checkAndRunTour(), startTourFlow(selection), nextTourStep()
+  L5437       Step 1 tooltip text — EL/EN/DE ternary
+  L5473       Step 2 tooltip text — EL/EN/DE ternary
+  L5511       </script>
+
+  L5513       </body>
+  L5515       <script src="script.js"></script>
+  L5519       </html>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STYLE.CSS  (1822 lines total)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CSS VARIABLES  (:root)
+  L9-26   --br #8b5e3c (warm brown) | --accent #d67c5e (terracotta)
+          --olive #4c6b40 | --sub #b2845d | --sand #f5ebdd
+          --dark-sand #e6d8c3 | --cream #fff9f0 | --dark #2C1A0E | --muted #8B7355
+
+RESET / BASE
+  L3-7    * { box-sizing, margin, padding reset }
+  L28-36  body — cream bg, noise texture, Literata serif
+
+LANGUAGE VISIBILITY RULES
+  L38-44  [lang-en], [lang-el], [lang-de] { display:none; opacity:0 }
+  L46-58  @keyframes wordEntrance (blur-fade slide-up animation)
+  L60-63  body[data-lang="en"] [lang-en] → display:inline + animation
+  L65-68  body[data-lang="el"] [lang-el] → display:inline + animation
+  L70-73  body[data-lang="de"] [lang-de] → display:inline + animation
+  L75-92  block-level (div/section) variants for all 3 languages
+
+HEADER STYLES
+  L102-128  .mh, .mh-logo, .mh-sub, .mh-tag
+
+LANGUAGE SWITCHER
+  L137-193  .lang-segmented-control (210px × 40px capsule)
+  L152-163  .lang-slider (66px pill, terracotta, animated)
+  L165-183  .lang-segment-btn (flex, 11px, emoji+text)
+  L185-192  CSS-driven slider positions:
+              EL → translateX(0)
+              EN → translateX(69px)
+              DE → translateX(138px)
+            Active button colour (white) via attribute selectors
+
+MODE TOGGLE (Food/Drinks)
+  L194-260  .mode-toggle-wrap, .mode-toggle, .mode-btn, .mode-btn.active
+
+NAVIGATION
+  L261-340  .nav-wrap, .nav-inner, .nav-btn, .nav-btn-food, .nav-btn-drinks
+
+SECTION TITLES
+  L341-380  .sec, .sec-title, .sec-en, .sec-divider
+
+MENU ITEMS
+  L381-440  .item, .item-header, .item-title, .item-price, .item-desc
+
+CATEGORY LABELS
+  L441-465  .cat-label
+
+BADGE STYLES
+  L466-490  .vbadge (V green badge), .chef-star (gold star)
+
+SIGNATURE COCKTAIL CARDS
+  L491-560  .sig-card, .sig-card-body, .sig-card-name, .sig-card-price,
+            .sig-card-desc, .sig-card-img, .sig-card-divider, .taste-tag
+
+ICE CREAM CARDS
+  L561-600  .ice-card, .ice-title, .ice-flavors, .ice-p
+
+BAO & PLATTER CARDS
+  L601-650  .platter-card, .bao-badge
+
+SEARCH
+  L651-720  .search-wrap-container, .search-box, .search-icon, .search-clear
+
+ANNOUNCEMENT BANNER
+  L721-800  .announce-bar, .announce-slides, .announce-slide, .announce-dismiss
+
+BACK TO TOP
+  L801-830  #backToTop, .back-to-top
+
+AMBIENT BUTTON
+  L831-865  .ambient-toggle, #ambient-toggle.playing
+
+QUIZ MODAL
+  L866-950  .quiz-modal, .quiz-overlay, .quiz-content, .quiz-header,
+            .quiz-title, .quiz-close, .quiz-body, .quiz-step, .quiz-answer
+
+INFO CARDS
+  L951-1000 .info-card, .info-card-icon, .info-card-title, .info-card-desc
+
+HAPPY HOUR & PROMO CARDS
+  L1001-1080 .happy-hour-card, .hh-icon, .hh-title, .hh-time, .hh-deals,
+             .promo-card, .promo-badge, .promo-title, .promo-subtitle,
+             .promo-items, .promo-price-row, .promo-price, .promo-savings
+
+SPIRIT ACCORDION
+  L1081-1130 .spirit-accordion, .spirit-acc-header, .spirit-acc-title,
+             .spirit-acc-content, .spirit-acc-icon, open state
+
+WINE CARDS
+  L1131-1180 .wine-price-wrap, .wine-price-tag
+
+VESCOVI MODAL
+  L1181-1400 .vescovi-modal-overlay, .vescovi-modal-sheet, .vescovi-modal-header,
+             .vescovi-modal-origin, .vescovi-modal-close, .vescovi-modal-body,
+             .vescovi-quote, .vescovi-section-title, .vescovi-text,
+             .vescovi-pills, .vescovi-pill, .vescovi-blend-card,
+             .vescovi-blend-name, .vescovi-blend-bar, .vescovi-bar-track,
+             .vescovi-blend-desc
+
+SPLASH SCREEN
+  L1401-1550 .splash-screen, .splash-content, .splash-logo, .splash-welcome,
+             .splash-view, .splash-water, .splash-wave
+             @keyframes splashFade, splashTextIn, splashWaterRise, waveMove
+
+DECORATIVE LEAVES
+  L1551-1600 .leaf-overlay, .decor-leaf, .decor-tl, .decor-br
+
+GREEK MAP MODAL
+  L1601-1700 #greek-map-modal, modal animation styles
+
+SCROLLBAR
+  L1701-1720 ::-webkit-scrollbar, ::-webkit-scrollbar-thumb
+
+UTILITY / MISC
+  L1721-1822 Remaining animation helpers, responsive tweaks, print styles
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SCRIPT.JS  (950 lines total)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INITIALIZATION
+  L1-30   DOMContentLoaded listener
+  L10     loadSavedPreferences() — reads localStorage for mode + lang
+  L20     checkAndRunTour() — shows welcome modal if first visit
+  L25     initAnnounce() — starts banner rotation
+
+CORE UI FUNCTIONS
+  L31-70   switchMode(mode, btn) — toggles Food ↔ Drinks sections
+  L71-127  showCategory(id, btn, mode) — shows section, updates nav active state
+  L128-146 changeLanguage(lang) — sets body data-lang, updates search placeholder,
+                                  saves to localStorage
+  L147-250 handleSearch() — search across all visible items (3-language aware)
+  L251-280 clearSearch() — resets search state
+  L281-310 navigateToOffers(e) — scrolls to s0/d0 section
+
+HELPER FUNCTIONS
+  L311-330 vibrate() — haptic feedback wrapper
+  L331-360 loadSavedPreferences() — reads preferred_lang + saloon_mode from LS
+
+TOUR FUNCTIONS  (duplicate from inline HTML script, for reference)
+  NOTE: Tour functions live in inline <script> at index.html:5443
+
+SPLASH SCREEN
+  L361-400 Splash screen fade-out logic (triggers after fonts load / timeout)
+
+AMBIENT SOUND
+  L401-440 toggleAmbientSound() — toggles waves.mp3 / music.mp3
+
+QUIZ ENGINE
+  L441-500 openQuizModal(), closeQuizModal()
+  L501-600 renderQuizStep(step) — renders EL/EN/DE question text
+  L601-650 selectAnswer(answer) — records answers, advances steps
+  L651-750 quizData[] array — 3 questions with EL/EN/DE text:
+             Q1: Taste preference (γλυκό / sweet / süß, etc.)
+             Q2: Strength (ελαφρύ / light / leicht, etc.)
+             Q3: Mood (ρομαντικό / romantic / romantisch, etc.)
+  L751-950 cocktailData[] array — 11 cocktails, each with:
+             name, price, tagEl/En/De, ingredientsEl/En/De, taste[], strength[]
+           calculateQuizResult() — scores + renders Top 3 matches (EL/EN/DE)
+
+KEY localStorage KEYS
+  'saloon_mode'       → 'food' | 'drinks'
+  'preferred_lang'    → 'el' | 'en' | 'de'
+  'saloon_tour_seen'  → 'true' (once tour complete)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ASSET FILES (images / audio in root directory)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  favicon.png         — browser favicon (Saloon terracotta logo)
+  palm-leaf.png       — decorative corner leaves
+  VescoviLogo.png     — Vescovi coffee logo circle
+  VescoviWord.png     — Vescovi wordmark (used as CSS mask)
+  WineLocations.png   — Greek wine map image
+  frudoseLogo.webp    — Frudose smoothie brand logo
+  cocacola.png        — Coca-Cola brand logo (grayscale/terracotta filtered)
+  fanta.png           — Fanta brand logo
+  sprite.png          — Sprite brand logo
+  tsiki.png           — Tsiki brand logo
+  waves.mp3           — Ambient ocean waves audio
+  music.mp3           — Background music audio
+  spotlight_*.png     — Cocktail spotlight images (behind_her_eyes, etc.)
+  behind_her_eyes.png — Cocktail icon
+  truth_or_dare.png   — Cocktail icon
+  white_ohara.png     — Cocktail icon
+  netflix_n_chill.png — Cocktail icon
+  new_zealand.png     — Cocktail icon
+  light_it_up.png     — Cocktail icon
+  feels_like_summer.png — Cocktail icon
+  bite_my_cookie.png  — Cocktail icon
+  teddy_bear.png      — Cocktail icon
+  mastiha-ri.png      — Cocktail icon
+  spicy_gentleman.png — Cocktail icon
