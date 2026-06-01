@@ -206,11 +206,18 @@ function changeLanguage(newLang) {
   localStorage.setItem('preferred_lang', newLang);
 }
 
+// Helper for accent/diacritic-insensitive matching (Greek & Latin accents normalization)
+function normalizeStr(str) {
+  if (!str) return '';
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
 // Advanced Search Logic
 function handleSearch() {
   var inputSearch = document.getElementById('searchInput');
   if (!inputSearch) return;
-  var input = inputSearch.value.trim().toLowerCase();
+  var rawInput = inputSearch.value.trim();
+  var input = normalizeStr(rawInput);
   var clearBtn = document.getElementById('searchClear');
   var currentMode = localStorage.getItem('saloon_mode') || 'food';
   var container = currentMode === 'food' ? document.getElementById('food-sections') : document.getElementById('drinks-sections');
@@ -244,7 +251,7 @@ function handleSearch() {
       }
 
       if (bestLabel) {
-        fullCatText = bestLabel.innerText.toLowerCase();
+        fullCatText = bestLabel.innerText;
         // Prefer displaying only the current language version
         var langNode = bestLabel.querySelector('[lang-' + currentLang + ']');
         if (langNode) {
@@ -255,11 +262,14 @@ function handleSearch() {
       }
 
       // Enhanced keywords detection (e.g. Vegetarian)
-      var isVegQuery = (input === 'veg' || input === 'vegetarian' || input === 'vegeterian' || input === 'χορτοφαγικό' || input === 'χορτοφαγικο');
+      var isVegQuery = (input === 'veg' || input === 'vegetarian' || input === 'vegeterian' || input === 'χορτοφαγικο');
       var isVegItem = el.querySelector('.vbadge') !== null;
 
+      var normText = normalizeStr(textContent);
+      var normCatText = normalizeStr(fullCatText);
+
       // Match against item text OR category text OR vegetarian keyword
-      if (textContent.toLowerCase().includes(input) || fullCatText.includes(input) || (isVegQuery && isVegItem)) {
+      if (normText.includes(input) || normCatText.includes(input) || (isVegQuery && isVegItem)) {
         matches++;
 
         var clone = el.cloneNode(true);
@@ -283,7 +293,7 @@ function handleSearch() {
         catDiv.innerText = "— " + catLabel + " —";
 
         // Also highlight category directly!
-        if (catLabel.toLowerCase().includes(input)) {
+        if (normalizeStr(catLabel).includes(input)) {
           highlightNode(catDiv, input);
         }
 
@@ -316,19 +326,19 @@ function handleSearch() {
       var noResText = '';
       if (currentLang === 'el') {
         var menuName = currentMode === 'food' ? 'Μενού Φαγητού' : 'Μενού Ποτών';
-        noResText = 'Δεν βρέθηκε "' + inputSearch.value + '" στο ' + menuName;
+        noResText = 'Δεν βρέθηκε "' + rawInput + '" στο ' + menuName;
       } else if (currentLang === 'de') {
         var menuName = currentMode === 'food' ? 'Speisekarte' : 'Getränkekarte';
-        noResText = 'Kein "' + inputSearch.value + '" in der ' + menuName + ' gefunden';
+        noResText = 'Kein "' + rawInput + '" in der ' + menuName + ' gefunden';
       } else if (currentLang === 'fr') {
         var menuName = currentMode === 'food' ? 'Menu Cuisine' : 'Carte des Boissons';
-        noResText = 'Aucun résultat pour "' + inputSearch.value + '" dans le ' + menuName;
+        noResText = 'Aucun résultat pour "' + rawInput + '" dans le ' + menuName;
       } else if (currentLang === 'it') {
         var menuName = currentMode === 'food' ? 'Menu Cucina' : 'Carta delle Bevande';
-        noResText = 'Nessun risultato per "' + inputSearch.value + '" nel ' + menuName;
+        noResText = 'Nessun risultato per "' + rawInput + '" nel ' + menuName;
       } else {
         var menuName = currentMode === 'food' ? 'Food Menu' : 'Drinks Menu';
-        noResText = 'No "' + inputSearch.value + '" was found in the ' + menuName;
+        noResText = 'No "' + rawInput + '" was found in the ' + menuName;
       }
 
       resContainer.innerHTML = '<div style="text-align:center; padding: 40px 20px; color:var(--muted); font-style:italic;">' + noResText + '</div>';
@@ -343,13 +353,14 @@ function highlightNode(node, query) {
   if (node.nodeType === 3) {
     var val = node.nodeValue;
     if (!val.trim()) return;
-    var lowerVal = val.toLowerCase();
-    var index = lowerVal.indexOf(query);
-    if (index >= 0) {
+    var normVal = normalizeStr(val);
+    var normQuery = normalizeStr(query);
+    var index = normVal.indexOf(normQuery);
+    if (index >= 0 && normQuery.length > 0) {
       var span = document.createElement('span');
       var before = val.substring(0, index);
-      var match = val.substring(index, index + query.length);
-      var after = val.substring(index + query.length);
+      var match = val.substring(index, index + normQuery.length);
+      var after = val.substring(index + normQuery.length);
 
       span.appendChild(document.createTextNode(before));
       var mark = document.createElement('mark');
@@ -916,14 +927,14 @@ function renderQuizStep() {
 
   if (currentQuizStep < quizQuestions.length) {
     const q = quizQuestions[currentQuizStep];
-    const questionText = lang === 'de' ? q.de : (lang === 'en' ? q.en : q.el);
+    const questionText = q[lang] || q.el || q.en;
 
     let html = `<div class="quiz-step active" style="animation: fadeInStep 0.3s ease forwards;">
                   <div class="quiz-question">${questionText}</div>
                   <div class="quiz-options">`;
 
     q.options.forEach(opt => {
-      const optText = lang === 'de' ? opt.de : (lang === 'en' ? opt.en : opt.el);
+      const optText = opt[lang] || opt.el || opt.en;
       // Added data-id to highlight the chosen option
       html += `<div class="quiz-option" data-id="${opt.id}" onclick="selectQuizOption('${opt.id}', this)">${optText}</div>`;
     });
@@ -939,6 +950,8 @@ function renderQuizStep() {
     let loadingText = 'Ετοιμάζουμε το αποτέλεσμα...';
     if (lang === 'en') loadingText = 'Shaking your cocktail...';
     else if (lang === 'de') loadingText = 'Ihr Cocktail wird geschüttelt...';
+    else if (lang === 'fr') loadingText = 'Votre cocktail est en cours de préparation...';
+    else if (lang === 'it') loadingText = 'Il tuo cocktail è in preparazione...';
 
     container.innerHTML = `
       <div class="quiz-loading" style="animation: fadeInStep 0.3s ease forwards;">
@@ -998,10 +1011,14 @@ function showQuizResult() {
   let headerText = 'Τα Κορυφαία για Εσάς';
   if (lang === 'en') headerText = 'Your Top Matches';
   else if (lang === 'de') headerText = 'Ihre Top-Treffer';
+  else if (lang === 'fr') headerText = 'Vos cocktails idéaux';
+  else if (lang === 'it') headerText = 'I tuoi cocktail ideali';
 
   let btnText = 'Επανεκκίνηση';
   if (lang === 'en') btnText = 'Start Over';
   else if (lang === 'de') btnText = 'Neu starten';
+  else if (lang === 'fr') btnText = 'Recommencer';
+  else if (lang === 'it') btnText = 'Ricomincia';
 
   let html = `<div style="animation: fadeInStep 0.5s ease forwards;">
     <div style="font-size: 16px; color: var(--muted); margin-bottom: 15px; text-align: center;">
@@ -1010,8 +1027,9 @@ function showQuizResult() {
     <div style="display: flex; flex-direction: column; gap: 15px;">`;
 
   topMatches.forEach((match, index) => {
-    const tagName = lang === 'de' ? match.tagDe : (lang === 'en' ? match.tagEn : match.tagEl);
-    const ingredients = lang === 'de' ? match.ingredientsDe : (lang === 'en' ? match.ingredientsEn : match.ingredientsEl);
+    const langSuffix = lang.charAt(0).toUpperCase() + lang.slice(1);
+    const tagName = match[`tag${langSuffix}`] || match.tagEl || match.tagEn;
+    const ingredients = match[`ingredients${langSuffix}`] || match.ingredientsEl || match.ingredientsEn;
 
     html += `
       <div style="border: 1px solid rgba(212, 169, 106, 0.3); border-radius: 12px; padding: 15px; background: rgba(255, 255, 255, 0.5); box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
