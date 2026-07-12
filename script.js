@@ -233,7 +233,7 @@ function handleSearch() {
     resContainer.style.display = 'block';
     resContainer.innerHTML = '';
 
-    var elements = container.querySelectorAll('.item, .ice-card, .platter-card, .sig-card, .promo-card, .happy-hour-card, .info-card');
+    var elements = container.querySelectorAll('.item, .pinsa-item, .main-course-item, .ice-card, .platter-card, .sig-card, .promo-card, .happy-hour-card, .info-card');
     var matches = 0;
 
     elements.forEach(function (el) {

@@ -78,7 +78,7 @@
       <i class="fa-solid fa-moon"></i>
     </button>
 
-    <div class="mh-logo" style="margin-bottom: 5px;">
+    <div class="mh-logo" style="margin-bottom: 5px; white-space: nowrap;">
       S A L <svg viewBox="0 0 100 85" width="1em" height="0.85em" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
         style="color: #d67c5e; vertical-align: middle; margin: 0 0.05em; transform: translateY(-0.08em);">
         <path d="M 15,40 A 35,35 0 0,1 85,40 Z" />
@@ -259,8 +259,8 @@
           Vins</span><span lang-it>Carta dei Vini</span>
       </button>
       <button class="nav-btn nav-btn-drinks" onclick="showCategory('d3',this, 'drinks')">
-        <i class="fa-solid fa-beer-mug-empty" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Μπύρες</span><span
-          lang-en>Beers</span><span lang-de>Biere</span><span lang-fr>Bières</span><span lang-it>Birre</span>
+        <i class="fa-solid fa-beer-mug-empty" style="margin-right:5px;opacity:0.8;"></i><span lang-el>Μπύρες &amp; Μηλίτες</span><span
+          lang-en>Beers &amp; Ciders</span><span lang-de>Biere &amp; Ciders</span><span lang-fr>Bières &amp; Cidres</span><span lang-it>Birre &amp; Sidri</span>
       </button>
       <button class="nav-btn nav-btn-drinks" onclick="showCategory('d4',this, 'drinks')">
         <i class="fa-solid fa-glass-water" style="margin-right:5px;opacity:0.8;"></i>Spirits
@@ -795,11 +795,16 @@
 
       <!-- BREAKFAST SPECIALS -->
       <div class="cat-label">
-        <span lang-el>Πρωινές Επιλογές</span>
-        <span lang-en>Breakfast Specials</span>
-        <span lang-de>Frühstücks-Specials</span>
-        <span lang-fr>Spéciaux Petit-Déjeuner</span>
-        <span lang-it>Specialità Colazione</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-egg"></i>
+        </div>
+        <span>
+          <span lang-el>Πρωινές Επιλογές</span>
+          <span lang-en>Breakfast Specials</span>
+          <span lang-de>Frühstücks-Specials</span>
+          <span lang-fr>Spéciaux Petit-Déjeuner</span>
+          <span lang-it>Specialità Colazione</span>
+        </span>
       </div>
 
       <div class="item">
@@ -901,11 +906,16 @@
 
       <!-- CLUB SANDWICHES -->
       <div class="cat-label">
-        <span lang-el>Club Sandwich</span>
-        <span lang-en>Club Sandwich</span>
-        <span lang-de>Club Sandwich</span>
-        <span lang-fr>Club Sandwich</span>
-        <span lang-it>Club Sandwich</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-cheese"></i>
+        </div>
+        <span>
+          <span lang-el>Club Sandwich</span>
+          <span lang-en>Club Sandwich</span>
+          <span lang-de>Club Sandwich</span>
+          <span lang-fr>Club Sandwich</span>
+          <span lang-it>Club Sandwich</span>
+        </span>
       </div>
 
       <div class="item">
@@ -987,11 +997,16 @@
 
       <!-- Energy Bowls -->
       <div class="cat-label">
-        <span lang-el>Μπολ Ενέργειας</span>
-        <span lang-en>Energy Bowls</span>
-        <span lang-de>Energy Bowls</span>
-        <span lang-fr>Bols Énergie</span>
-        <span lang-it>Bowl Energetiche</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-bowl-food"></i>
+        </div>
+        <span>
+          <span lang-el>Μπολ Ενέργειας</span>
+          <span lang-en>Energy Bowls</span>
+          <span lang-de>Energy Bowls</span>
+          <span lang-fr>Bols Énergie</span>
+          <span lang-it>Bowl Energetiche</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1159,11 +1174,16 @@
 
       <!-- Τοστ -->
       <div class="cat-label">
-        <span lang-el>Τοστ</span>
-        <span lang-en>Toasts</span>
-        <span lang-de>Toasts</span>
-        <span lang-fr>Toasts</span>
-        <span lang-it>Toast</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-bread-slice"></i>
+        </div>
+        <span>
+          <span lang-el>Τοστ</span>
+          <span lang-en>Toasts</span>
+          <span lang-de>Toasts</span>
+          <span lang-fr>Toasts</span>
+          <span lang-it>Toast</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1206,11 +1226,16 @@
 
       <!-- Μπαγκέτες -->
       <div class="cat-label">
-        <span lang-el>Μπαγκέτες</span>
-        <span lang-en>Baguettes</span>
-        <span lang-de>Baguettes</span>
-        <span lang-fr>Baguettes</span>
-        <span lang-it>Baguette</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-bread-slice"></i>
+        </div>
+        <span>
+          <span lang-el>Μπαγκέτες</span>
+          <span lang-en>Baguettes</span>
+          <span lang-de>Baguettes</span>
+          <span lang-fr>Baguettes</span>
+          <span lang-it>Baguette</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1293,11 +1318,16 @@
 
       <!-- Σαλάτες -->
       <div class="cat-label">
-        <span lang-el>Σαλάτες</span>
-        <span lang-en>Salads</span>
-        <span lang-de>Salate</span>
-        <span lang-fr>Salades</span>
-        <span lang-it>Insalate</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <span>
+          <span lang-el>Σαλάτες</span>
+          <span lang-en>Salads</span>
+          <span lang-de>Salate</span>
+          <span lang-fr>Salades</span>
+          <span lang-it>Insalate</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1383,11 +1413,16 @@
 
       <!-- Saloon Bites -->
       <div class="cat-label">
-        <span lang-el>Bites &amp; Shares</span>
-        <span lang-en>Bites &amp; Shares</span>
-        <span lang-de>Happen &amp; Teilen</span>
-        <span lang-fr>À Partager &amp; Tapas</span>
-        <span lang-it>Sfizi &amp; Condivisione</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <span>
+          <span lang-el>Bites &amp; Shares</span>
+          <span lang-en>Bites &amp; Shares</span>
+          <span lang-de>Happen &amp; Teilen</span>
+          <span lang-fr>À Partager &amp; Tapas</span>
+          <span lang-it>Sfizi &amp; Condivisione</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1433,25 +1468,6 @@
       <div class="item">
         <div class="item-header">
           <div class="item-title">
-            <span lang-el>Μερίδα Γύρος</span>
-            <span lang-en>Gyros Portion</span>
-            <span lang-de>Gyros-Teller</span>
-            <span lang-fr>Portion de Gyros</span>
-            <span lang-it>Porzione di Gyros</span>
-          </div>
-          <div class="item-price">14.00</div>
-        </div>
-        <div class="item-desc">
-          <span lang-el>Γύρος χοιρινός ή κοτόπουλο, συνοδεύεται από πίτες, τζατζίκι και πατάτες</span>
-          <span lang-en>Gyros pork or chicken, served with pitta bread, tzatziki and fries</span>
-          <span lang-de>Schweine- oder Hähnchengyros, serviert mit Fladenbrot, Tzatziki und Pommes frites</span>
-          <span lang-fr>Gyros de porc ou de poulet, servi avec pain pita, tzatziki et frites</span>
-          <span lang-it>Gyros di maiale o pollo, servito con pane pita, tzatziki e patatine</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">
             <span lang-el>Πλατώ Αλλαντικών-Τυριών</span>
             <span lang-en>Meat &amp; Cheese Platter</span>
             <span lang-de>Aufschnitt- und Käseplatte</span>
@@ -1481,14 +1497,217 @@
         </div>
       </div>
 
+      <!-- Pinsa -->
+      <div class="cat-label">
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-pizza-slice"></i>
+        </div>
+        <span>
+          <span lang-el>Πίνσες</span>
+          <span lang-en>Pinsa</span>
+          <span lang-de>Pinsa</span>
+          <span lang-fr>Pinsa</span>
+          <span lang-it>Pinsa</span>
+        </span>
+      </div>
+      <div class="pinsa-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μαργαρίτα <span class="vbadge">V</span></span>
+            <span lang-en>Margherita <span class="vbadge">V</span></span>
+            <span lang-de>Margherita <span class="vbadge">V</span></span>
+            <span lang-fr>Margherita <span class="vbadge">V</span></span>
+            <span lang-it>Margherita <span class="vbadge">V</span></span>
+          </div>
+          <div class="item-price">11.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Σάλτσα ντομάτας, τυρί</span>
+          <span lang-en>Tomato sauce, cheese</span>
+          <span lang-de>Tomatensauce, Käse</span>
+          <span lang-fr>Sauce tomate, fromage</span>
+          <span lang-it>Salsa di pomodoro, formaggio</span>
+        </div>
+      </div>
+      <div class="pinsa-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Σπέσιαλ</span>
+            <span lang-en>Special</span>
+            <span lang-de>Special</span>
+            <span lang-fr>Spécial</span>
+            <span lang-it>Special</span>
+          </div>
+          <div class="item-price">14.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Σάλτσα ντομάτας, πιπεριά, μανιτάρι, μπέικον, τυρί</span>
+          <span lang-en>Tomato sauce, bell pepper, mushroom, bacon, cheese</span>
+          <span lang-de>Tomatensauce, Paprika, Pilze, Speck, Käse</span>
+          <span lang-fr>Sauce tomate, poivron, champignons, bacon, fromage</span>
+          <span lang-it>Salsa di pomodoro, peperoni, funghi, bacon, formaggio</span>
+        </div>
+      </div>
+      <div class="pinsa-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Προσούτο</span>
+            <span lang-en>Prosciutto</span>
+            <span lang-de>Prosciutto</span>
+            <span lang-fr>Prosciutto</span>
+            <span lang-it>Prosciutto</span>
+          </div>
+          <div class="item-price">13.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Προσούτο, τυρί</span>
+          <span lang-en>Prosciutto, cheese</span>
+          <span lang-de>Prosciutto, Käse</span>
+          <span lang-fr>Prosciutto, fromage</span>
+          <span lang-it>Prosciutto, formaggio</span>
+        </div>
+      </div>
+
+      <!-- Main Courses -->
+      <div class="cat-label">
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-drumstick-bite"></i>
+        </div>
+        <span>
+          <span lang-el>Κυρίως Πιάτα</span>
+          <span lang-en>Main Course</span>
+          <span lang-de>Hauptgerichte</span>
+          <span lang-fr>Plats Principaux</span>
+          <span lang-it>Piatti Principali</span>
+        </span>
+      </div>
+      <div class="main-course-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Κοτόπουλο αλά Κρεμ</span>
+            <span lang-en>Chicken à la Crème</span>
+            <span lang-de>Hähnchen à la Crème</span>
+            <span lang-fr>Poulet à la Crème</span>
+            <span lang-it>Pollo alla Crema</span>
+          </div>
+          <div class="item-price">14.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Στήθος κοτόπουλο με κρεμώδη σάλτσα μανιταριών, συνοδεύεται από πατάτες τηγανητές</span>
+          <span lang-en>Chicken breast in a creamy mushroom sauce, served with French fries</span>
+          <span lang-de>Hähnchenbrust in cremiger Pilzsauce, serviert mit Pommes frites</span>
+          <span lang-fr>Blanc de poulet dans une sauce crémeuse aux champignons, servi avec des frites</span>
+          <span lang-it>Petto di pollo in salsa cremosa ai funghi, servito con patatine fritte</span>
+        </div>
+      </div>
+      <div class="main-course-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μερίδα Γύρος Χοιρινός</span>
+            <span lang-en>Pork Gyros Portion</span>
+            <span lang-de>Schweinegyros-Teller</span>
+            <span lang-fr>Portion de Gyros de Porc</span>
+            <span lang-it>Porzione di Gyros di Maiale</span>
+          </div>
+          <div class="item-price">14.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Γύρος χοιρινός, συνοδεύεται από πίτες, τζατζίκι και πατάτες</span>
+          <span lang-en>Pork gyros, served with pitta bread, tzatziki and fries</span>
+          <span lang-de>Schweinegyros, serviert mit Fladenbrot, Tzatziki und Pommes frites</span>
+          <span lang-fr>Gyros de porc, servi avec pain pita, tzatziki et frites</span>
+          <span lang-it>Gyros di maiale, servito con pane pita, tzatziki e patatine</span>
+        </div>
+      </div>
+      <div class="main-course-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μπριζόλα Σταβλίσια (Χοιρινή)</span>
+            <span lang-en>Stavlisia Pork Steak</span>
+            <span lang-de>Stavlisia Schweinekotelett</span>
+            <span lang-fr>Côte de Porc Stavlisia</span>
+            <span lang-it>Braciola di Maiale Stavlisia</span>
+          </div>
+          <div class="item-price">17.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Ζουμερή χοιρινή μπριζόλα σταβλίσια, συνοδεύεται από πατάτες τηγανητές</span>
+          <span lang-en>Juicy stavlisia pork steak, served with French fries</span>
+          <span lang-de>Saftiges Stavlisia-Schweinekotelett, serviert mit Pommes frites</span>
+          <span lang-fr>Juteuse côte de porc Stavlisia, servie avec des frites</span>
+          <span lang-it>Succosa braciola di maiale Stavlisia, servita con patatine fritte</span>
+        </div>
+      </div>
+      <div class="main-course-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Ποικιλία Κρεάτων για 2</span>
+            <span lang-en>Meat Platter for 2</span>
+            <span lang-de>Fleischplatte für 2</span>
+            <span lang-fr>Planche de Viandes pour 2</span>
+            <span lang-it>Grigliata Mista di Carne per 2</span>
+          </div>
+          <div class="item-price">21.00</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Κοτόπουλο, πανσέτα, λουκάνικο, μπιφτέκι, πίτες, πατάτες τηγανητές</span>
+          <span lang-en>Chicken, pork belly (panseta), sausage, beef patty, pita bread, French fries</span>
+          <span lang-de>Hähnchen, Schweinebauch (Panseta), Wurst, Rinderfrikadelle, Fladenbrot, Pommes frites</span>
+          <span lang-fr>Poulet, poitrine de porc (panseta), saucisse, steak haché de bœuf, pains pita, frites</span>
+          <span lang-it>Pollo, pancetta (panseta), salsiccia, hamburger di manzo, pane pita, patatine fritte</span>
+        </div>
+      </div>
+      <div class="main-course-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μπιφτέκι Γεμιστό</span>
+            <span lang-en>Stuffed Beef Patty</span>
+            <span lang-de>Gefüllte Rinderfrikadelle</span>
+            <span lang-fr>Steak Haché de Bœuf Farci</span>
+            <span lang-it>Hamburger di Manzo Farcito</span>
+          </div>
+          <div class="item-price">13.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Μπιφτέκι γεμιστό με τυρί, συνοδεύεται από πατάτες τηγανητές</span>
+          <span lang-en>Beef patty stuffed with cheese, served with French fries</span>
+          <span lang-de>Rinderfrikadelle gefüllt mit Käse, serviert mit Pommes frites</span>
+          <span lang-fr>Steak haché de bœuf farci de fromage, servi avec des frites</span>
+          <span lang-it>Hamburger di manzo farcito con formaggio, servito con patatine fritte</span>
+        </div>
+      </div>
+      <div class="main-course-item">
+        <div class="item-header">
+          <div class="item-title">
+            <span lang-el>Μπιφτέκια</span>
+            <span lang-en>Beef Patties</span>
+            <span lang-de>Rinderfrikadellen</span>
+            <span lang-fr>Steaks Hachés de Bœuf</span>
+            <span lang-it>Polpette di Manzo</span>
+          </div>
+          <div class="item-price">12.50</div>
+        </div>
+        <div class="item-desc">
+          <span lang-el>Ζουμερά μπιφτέκια, συνοδεύονται από πατάτες τηγανητές</span>
+          <span lang-en>Juicy beef patties, served with French fries</span>
+          <span lang-de>Saftige Rinderfrikadellen, serviert mit Pommes frites</span>
+          <span lang-fr>Jouteux steaks hachés de bœuf, servis avec des frites</span>
+          <span lang-it>Succosi hamburger di manzo, serviti con patatine fritte</span>
+        </div>
+      </div>
 
       <!-- Γλυκά -->
       <div class="cat-label">
-        <span lang-el>Σπιτικά Γλυκά</span>
-        <span lang-en>Homemade Desserts</span>
-        <span lang-de>Hausgemachte Desserts</span>
-        <span lang-fr>Desserts Maison</span>
-        <span lang-it>Dolci Fatti in Casa</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
+        <span>
+          <span lang-el>Σπιτικά Γλυκά</span>
+          <span lang-en>Homemade Desserts</span>
+          <span lang-de>Hausgemachte Desserts</span>
+          <span lang-fr>Desserts Maison</span>
+          <span lang-it>Dolci Fatti in Casa</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1557,24 +1776,27 @@
             <div class="item-price">3.00</div>
           </div>
           <div class="item-desc" style="opacity: 0.9;">
-            <span lang-el>Ένα κλασσικό ελληνικό γλυκό, δροσερό και αγαπημένο από όλους! Μία ανάμνηση από τα παιδικά μας
-              χρόνια!</span>
-            <span lang-en>A classic Greek dessert, refreshing and loved by all! A childhood memory!</span>
-            <span lang-de>Ein klassisches griechisches Dessert, erfrischend und von allen geliebt! Eine
-              Kindheitserinnerung!</span>
-            <span lang-fr>Un dessert grec classique, rafraîchissant et apprécié de tous ! Un souvenir d'enfance !</span>
-            <span lang-it>Un classico dolce greco, rinfrescante e amato da tutti! Un ricordo d'infanzia!</span>
+            <span lang-el>Ένα κλασικό ελληνικό γλυκό: μία κουταλιά γλυκό υποβρύχιο βανίλιας βυθισμένη σε ένα ποτήρι παγωμένο νερό. Δροσερό, παραδοσιακό και γεμάτο παιδικές αναμνήσεις!</span>
+            <span lang-en>A classic Greek sweet: a spoonful of sweet vanilla fondant submerged in a glass of ice-cold water. Refreshing, traditional, and loved by all!</span>
+            <span lang-de>Ein klassisches griechisches Dessert: Ein Löffel süßer Vanille-Fondant, serviert in einem Glas eiskaltem Wasser. Erfrischend und traditionell!</span>
+            <span lang-fr>Un dessert grec classique : une cuillère de fondant à la vanille plongée dans un verre d'eau glacée. Rafraîchissant, traditionnel et apprécié de tous !</span>
+            <span lang-it>Un classico dolce greco: un cucchiaio di dolce fondente alla vaniglia immerso in un bicchiere di acqua ghiacciata. Rinfrescante, tradizionale e amato da tutti!</span>
           </div>
         </div>
       </div>
 
       <!-- Κρουασάν -->
       <div class="cat-label">
-        <span lang-el>Κρουασάν</span>
-        <span lang-en>Croissants</span>
-        <span lang-de>Croissants</span>
-        <span lang-fr>Croissants</span>
-        <span lang-it>Croissant</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-cookie-bite"></i>
+        </div>
+        <span>
+          <span lang-el>Κρουασάν</span>
+          <span lang-en>Croissants</span>
+          <span lang-de>Croissants</span>
+          <span lang-fr>Croissants</span>
+          <span lang-it>Croissant</span>
+        </span>
       </div>
       <div class="item">
         <div class="item-header">
@@ -1603,11 +1825,16 @@
 
       <!-- Κρέπες -->
       <div class="cat-label">
-        <span lang-el>Κρέπες</span>
-        <span lang-en>Crepes</span>
-        <span lang-de>Crepes</span>
-        <span lang-fr>Crêpes</span>
-        <span lang-it>Crepes</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-cookie"></i>
+        </div>
+        <span>
+          <span lang-el>Κρέπες</span>
+          <span lang-en>Crepes</span>
+          <span lang-de>Crepes</span>
+          <span lang-fr>Crêpes</span>
+          <span lang-it>Crepes</span>
+        </span>
       </div>
 
       <div
@@ -1718,11 +1945,16 @@
 
       <!-- Παγωτά -->
       <div class="cat-label">
-        <span lang-el>Παγωτά</span>
-        <span lang-en>Ice Cream</span>
-        <span lang-de>Eiscreme</span>
-        <span lang-fr>Glaces</span>
-        <span lang-it>Gelati</span>
+        <div class="cat-icon-wrap">
+          <i class="fa-solid fa-ice-cream"></i>
+        </div>
+        <span>
+          <span lang-el>Παγωτά</span>
+          <span lang-en>Ice Cream</span>
+          <span lang-de>Eiscreme</span>
+          <span lang-fr>Glaces</span>
+          <span lang-it>Gelati</span>
+        </span>
       </div>
 
       <div class="ice-card"
@@ -4375,21 +4607,21 @@
       </div>
     </div>
 
-    <!-- D3: BEERS -->
+    <!-- D3: BEERS & CIDERS -->
     <div class="sec" id="d3">
       <div class="sec-title">
-        <span lang-el>Μπύρες</span>
-        <span lang-en>Beers</span>
-        <span lang-de>Biere</span>
-        <span lang-fr>Bières</span>
-        <span lang-it>Birre</span>
+        <span lang-el>Μπύρες &amp; Μηλίτες</span>
+        <span lang-en>Beers &amp; Ciders</span>
+        <span lang-de>Biere &amp; Ciders</span>
+        <span lang-fr>Bières &amp; Cidres</span>
+        <span lang-it>Birre &amp; Sidri</span>
       </div>
       <div class="sec-en">
-        <span lang-el>Βαρέλι, Μπουκάλι <span style="font-family: 'Jost', sans-serif;">&amp;</span> Cider</span>
-        <span lang-en>Draft, Bottle <span style="font-family: 'Jost', sans-serif;">&amp;</span> Cider</span>
-        <span lang-de>Fass, Flasche <span style="font-family: 'Jost', sans-serif;">&amp;</span> Cider</span>
-        <span lang-fr>Pression, Bouteille <span style="font-family: 'Jost', sans-serif;">&amp;</span> Cidre</span>
-        <span lang-it>Spina, Bottiglia <span style="font-family: 'Jost', sans-serif;">&amp;</span> Sidro</span>
+        <span lang-el>Βαρέλι &amp; Μπουκάλι</span>
+        <span lang-en>Draft &amp; Bottle</span>
+        <span lang-de>Fass &amp; Flasche</span>
+        <span lang-fr>Pression &amp; Bouteille</span>
+        <span lang-it>Spina &amp; Bottiglia</span>
       </div>
       <div class="sec-divider"></div>
 
@@ -4910,7 +5142,7 @@
                 lang-fr>Milokleftis</span><span lang-it>Milokleftis</span>
             </div>
             <div class="item-price"
-              style="font-size: 17px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif;">5.00
+              style="font-size: 17px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif;">4.50
             </div>
           </div>
           <div class="item-desc"
@@ -4934,7 +5166,7 @@
               style="font-family: 'Literata', serif; font-size: 19px; font-weight: 600; color: var(--br);">Strongbow
             </div>
             <div class="item-price"
-              style="font-size: 17px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif;">5.50
+              style="font-size: 17px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif;">5.00
             </div>
           </div>
           <div class="item-desc"
@@ -4958,7 +5190,7 @@
               style="font-family: 'Literata', serif; font-size: 19px; font-weight: 600; color: var(--br);">Red Bull
             </div>
             <div class="item-price"
-              style="font-size: 17px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif;">5.50
+              style="font-size: 17px; font-weight: 700; color: var(--accent); font-family: 'Literata', serif;">5.00
             </div>
           </div>
           <div class="item-desc"
@@ -7149,7 +7381,7 @@
               Soda</span><span lang-de>Rosa Grapefruitsoda</span><span lang-fr>Soda au Pamplemousse Rose</span><span
               lang-it>Soda al Pompelmo Rosa</span>
           </div>
-          <div class="item-price">4.00</div>
+          <div class="item-price">3.50</div>
         </div>
       </div>
       <div class="item">

@@ -213,7 +213,8 @@
       font-weight: 600;
       color: var(--br);
       letter-spacing: 2px;
-      line-height: 1
+      line-height: 1;
+      white-space: nowrap;
     }
 
     .mh-sub {
@@ -1937,4 +1938,109 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+/* Category Icons Circular Badge */
+.cat-label .cat-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(214, 124, 94, 0.07);
+  border: 1px solid rgba(214, 124, 94, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(214, 124, 94, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+body.theme-dark .cat-label .cat-icon-wrap {
+  background: rgba(224, 145, 118, 0.1);
+  border-color: rgba(224, 145, 118, 0.22);
+}
+.cat-label .cat-icon-wrap i {
+  font-size: 15px;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cat-label:hover .cat-icon-wrap {
+  transform: scale(1.08) rotate(5deg);
+  border-color: var(--accent);
+  background: rgba(214, 124, 94, 0.12);
+}
+
+/* Pinsa Redesign Cards */
+.pinsa-item {
+  background: linear-gradient(145deg, rgba(214, 124, 94, 0.02) 0%, rgba(212, 169, 106, 0.04) 100%);
+  border: 1px solid rgba(212, 169, 106, 0.2);
+  border-radius: 18px;
+  padding: 20px 22px;
+  margin-bottom: 20px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 15px rgba(139, 94, 60, 0.015);
+}
+.pinsa-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 169, 106, 0.4);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.04);
+  background: linear-gradient(145deg, rgba(214, 124, 94, 0.04) 0%, rgba(212, 169, 106, 0.06) 100%);
+}
+.pinsa-item .item-header {
+  margin-bottom: 6px;
+}
+.pinsa-item .item-title {
+  font-size: 21px;
+  color: var(--br);
+}
+.pinsa-item .item-desc {
+  font-size: 14.5px;
+  padding-right: 0;
+  opacity: 0.9;
+}
+body.theme-dark .pinsa-item {
+  background: linear-gradient(145deg, rgba(224, 145, 118, 0.02) 0%, rgba(178, 132, 93, 0.04) 100%);
+  border-color: rgba(224, 145, 118, 0.15);
+}
+body.theme-dark .pinsa-item:hover {
+  background: linear-gradient(145deg, rgba(224, 145, 118, 0.04) 0%, rgba(178, 132, 93, 0.06) 100%);
+  border-color: rgba(224, 145, 118, 0.3);
+}
+
+/* Main Course Redesign Frames */
+.main-course-item {
+  background: var(--sand);
+  border-left: 3px solid var(--accent);
+  border-top: 1px solid rgba(212, 169, 106, 0.15);
+  border-right: 1px solid rgba(212, 169, 106, 0.15);
+  border-bottom: 1px solid rgba(212, 169, 106, 0.15);
+  border-radius: 4px 16px 16px 4px;
+  padding: 18px 22px;
+  margin-bottom: 22px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 14px rgba(139, 94, 60, 0.02);
+}
+.main-course-item:hover {
+  transform: scale(1.01) translateY(-1px);
+  border-left-color: var(--br);
+  box-shadow: 0 8px 24px rgba(139, 94, 60, 0.06);
+}
+.main-course-item .item-title {
+  font-size: 21px;
+  color: var(--br);
+}
+.main-course-item .item-desc {
+  font-size: 15px;
+  padding-right: 0;
+  opacity: 0.95;
+}
+body.theme-dark .main-course-item {
+  background: var(--sand);
+  border-color: rgba(224, 145, 118, 0.15);
+  border-left-color: var(--accent);
+}
+body.theme-dark .main-course-item:hover {
+  border-left-color: var(--br);
 }
