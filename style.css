@@ -2044,3 +2044,41 @@ body.theme-dark .main-course-item {
 body.theme-dark .main-course-item:hover {
   border-left-color: var(--br);
 }
+
+/* Burger Redesign Cards */
+.burger-item {
+  background: linear-gradient(135deg, rgba(212, 169, 106, 0.03) 0%, rgba(139, 94, 60, 0.05) 100%);
+  border: 1px dashed rgba(139, 94, 60, 0.25);
+  border-radius: 20px;
+  padding: 20px 22px;
+  margin-bottom: 20px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 15px rgba(139, 94, 60, 0.015);
+}
+.burger-item:hover {
+  transform: translateY(-2px);
+  border-style: solid;
+  border-color: var(--accent);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.04);
+  background: linear-gradient(135deg, rgba(212, 169, 106, 0.05) 0%, rgba(139, 94, 60, 0.08) 100%);
+}
+.burger-item .item-header {
+  margin-bottom: 6px;
+}
+.burger-item .item-title {
+  font-size: 21px;
+  color: var(--br);
+}
+.burger-item .item-desc {
+  font-size: 14.5px;
+  padding-right: 0;
+  opacity: 0.9;
+}
+body.theme-dark .burger-item {
+  background: linear-gradient(135deg, rgba(178, 132, 93, 0.03) 0%, rgba(139, 73, 55, 0.05) 100%);
+  border-color: rgba(178, 132, 93, 0.2);
+}
+body.theme-dark .burger-item:hover {
+  background: linear-gradient(135deg, rgba(178, 132, 93, 0.05) 0%, rgba(139, 73, 55, 0.08) 100%);
+  border-color: var(--accent);
+}
