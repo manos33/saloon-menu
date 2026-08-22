@@ -147,12 +147,12 @@ FOOD SECTIONS  (#food-sections)
   L1005-1018 Gyros Portion — 14.00
   L1020-1033 Meat & Cheese Platter — 14.00
   L1035-1044 French Fries V — 4.50
-            Burgers cat-label
+            Burgers cat-label (Available after 14:00 🕒)
             OKLAHOMA BURGER — 10.00
-            King Burger (Crown icon 👑) — 14.00
             FIG ME UP BURGER — 12.00
             The G.O.A.T. Burger (Trophy icon 🏆) — 13.50
             Old time Classic Chicken Burger — 9.50
+            King Burger (Crown icon 👑) — 14.00
   L1047     Homemade Desserts cat-label
   L1053-1062 Banoffee V — 6.50
   L1063-1076 Cheesecake V — 5.00
