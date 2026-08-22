@@ -2063,6 +2063,9 @@ body.theme-dark .main-course-item:hover {
   background: linear-gradient(135deg, rgba(212, 169, 106, 0.05) 0%, rgba(139, 94, 60, 0.08) 100%);
 }
 .burger-item .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   margin-bottom: 6px;
 }
 .burger-item .item-title {
@@ -2081,4 +2084,98 @@ body.theme-dark .burger-item {
 body.theme-dark .burger-item:hover {
   background: linear-gradient(135deg, rgba(178, 132, 93, 0.05) 0%, rgba(139, 73, 55, 0.08) 100%);
   border-color: var(--accent);
+}
+
+/* Custom Scrollbar Fine-Tuning */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dark-sand);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Mobile Responsiveness Fine-Tuning for Burger Header */
+@media (max-width: 480px) {
+  .burger-item .item-header {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .burger-item .item-title {
+    font-size: 19px;
+  }
+  .burger-item .item-price {
+    font-size: 19px;
+  }
+}
+
+/* Saloon Theme Badge Palette */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.5px;
+  margin-left: 6px;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Smashed & G.O.A.T. — Terracotta Accent */
+.badge-accent {
+  background: rgba(214, 124, 94, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(214, 124, 94, 0.3);
+}
+
+/* King Badge — Warm Saloon Gold */
+.badge-gold {
+  background: rgba(212, 169, 106, 0.18);
+  color: var(--br);
+  border: 1px solid rgba(212, 169, 106, 0.45);
+}
+
+/* Special Sauce Badge — Caramel */
+.badge-caramel {
+  background: rgba(178, 132, 93, 0.14);
+  color: var(--sub);
+  border: 1px solid rgba(178, 132, 93, 0.35);
+}
+
+/* Chicken Badge — Aegean Olive */
+.badge-olive {
+  background: rgba(76, 107, 64, 0.12);
+  color: var(--olive);
+  border: 1px solid rgba(76, 107, 64, 0.3);
+}
+
+/* Theme Dark Overrides for Badges */
+body.theme-dark .badge-accent {
+  background: rgba(224, 145, 118, 0.15);
+  border-color: rgba(224, 145, 118, 0.35);
+}
+body.theme-dark .badge-gold {
+  background: rgba(212, 169, 106, 0.15);
+  border-color: rgba(212, 169, 106, 0.4);
+  color: var(--sub);
+}
+body.theme-dark .badge-caramel {
+  background: rgba(178, 132, 93, 0.18);
+  border-color: rgba(178, 132, 93, 0.4);
+}
+body.theme-dark .badge-olive {
+  background: rgba(106, 140, 93, 0.18);
+  border-color: rgba(106, 140, 93, 0.4);
 }

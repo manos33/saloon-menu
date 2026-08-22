@@ -63,10 +63,11 @@ function navigateToOffers(e) {
   if (e.target.closest('.announce-dismiss')) return;
   vibrate();
   var currentMode = localStorage.getItem('saloon_mode') || 'food';
+  var targetId = currentMode === 'food' ? 's_temp' : 'd1';
   var btn = currentMode === 'food'
-    ? document.querySelector('.nav-btn-food[onclick*="s0"]')
-    : document.querySelector('.nav-btn-drinks[onclick*="s0"]');
-  if (btn) showCategory('s0', btn, currentMode);
+    ? document.querySelector('.nav-btn-food[onclick*="s_temp"]') || document.querySelector('.nav-btn-food[onclick*="s0"]')
+    : document.querySelector('.nav-btn-drinks[onclick*="d1"]') || document.querySelector('.nav-btn-drinks[onclick*="s0"]');
+  if (btn) showCategory(targetId, btn, currentMode);
 }
 
 function showCategory(id, btn, mode, direction = 'none') {

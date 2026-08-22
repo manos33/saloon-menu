@@ -66,11 +66,9 @@ HEADER  (.mh)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ANNOUNCEMENT BANNER  (.announce-bar)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  L136-165  #announceBanner — 4 rotating slides (EL/EN/DE each)
-  L139-143  Slide 1: "Πλήρες Μενού σύντομα / Full Menu coming soon / Vollständiges Menü..."
-  L145-149  Slide 2: Happy Hour
-  L151-155  Slide 3: Capture Saloon Moments
-  L157-161  Slide 4: Enjoy sunset with a cocktail
+  L150-170  #announceBanner — rotating slides
+  Slide 1: Capture Saloon Moments
+  Slide 2: Enjoy sunset with a cocktail
   L164      Dismiss button
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -149,6 +147,12 @@ FOOD SECTIONS  (#food-sections)
   L1005-1018 Gyros Portion — 14.00
   L1020-1033 Meat & Cheese Platter — 14.00
   L1035-1044 French Fries V — 4.50
+            Burgers cat-label
+            OKLAHOMA BURGER — 10.00
+            King Burger (Crown icon 👑) — 14.00
+            FIG ME UP BURGER — 12.00
+            The G.O.A.T. Burger (Trophy icon 🏆) — 13.50
+            Old time Classic Chicken Burger — 9.50
   L1047     Homemade Desserts cat-label
   L1053-1062 Banoffee V — 6.50
   L1063-1076 Cheesecake V — 5.00
